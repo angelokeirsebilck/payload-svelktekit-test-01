@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "rootDir": "."
+  },
+  "references": [
+    {
+      "path": "./cms"
+    },
+    {
+      "path": "./web"
+    }
+  ]
+}
