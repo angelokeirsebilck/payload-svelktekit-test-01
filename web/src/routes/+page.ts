@@ -1,19 +1,30 @@
-import type { Post } from 'types/payload-types';
-import { env } from '$env/dynamic/public';
-/** @type {import('./$types').PageLoad} */
-export async function load({ fetch }) {
-	const getPosts = async (): Promise<Post[]> => {
-		try {
-			const res = await fetch(`${env.PUBLIC_CMS_API_ENDPOINT}/posts`);
-			// console.log(res);
-			const data = await res.json();
+import type { PageLoad } from "./$types";
+import { redirect } from "@sveltejs/kit";
 
-			return data.docs;
-		} catch (err) {
-			console.log(err);
-		}
-	};
-	return {
-		posts: getPosts()
-	};
-}
+export const load = (({ fetch }) => {
+  throw redirect(301, "/nl");
+  // const getHomeData = async (): Promise<Home> => {
+  //   const res = await fetch(
+  //     `${env.PUBLIC_CMS_API_ENDPOINT}/globals/home?locale=nl`
+  //   );
+  //   const data = await res.json();
+  //   return data;
+  // };
+  // const getPages = async (): Promise<Page> => {
+  //   const res = await fetch(`${env.PUBLIC_CMS_API_ENDPOINT}/pages?locale=nl`);
+  //   const data = await res.json();
+  //   return data;
+  // };
+  // const getNav = async (): Promise<Nav> => {
+  //   const res = await fetch(
+  //     `${env.PUBLIC_CMS_API_ENDPOINT}/globals/nav?locale=nl`
+  //   );
+  //   const data = await res.json();
+  //   return data;
+  // };
+  // return {
+  //   home: getHomeData(),
+  //   // pages: getPages(),
+  //   nav: getNav(),
+  // };
+}) satisfies PageLoad;

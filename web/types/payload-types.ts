@@ -8,6 +8,53 @@
 export interface Config {}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "nav".
+ */
+export interface Nav {
+  id: string;
+  items: {
+    page: string | Page;
+    id?: string;
+  }[];
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  slug?: string;
+  uri?: string;
+  pageTitle: string;
+  block: {
+    text: string;
+    id?: string;
+    blockName?: string;
+    blockType: 'textBlock';
+  }[];
+  parent?: string | Page;
+  breadcrumbs: {
+    doc?: string | Page;
+    url?: string;
+    label?: string;
+    id?: string;
+  }[];
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home".
+ */
+export interface Home {
+  id: string;
+  block: {
+    text: string;
+    id?: string;
+    blockName?: string;
+    blockType: 'textBlock';
+  }[];
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories".
  */
 export interface Category {

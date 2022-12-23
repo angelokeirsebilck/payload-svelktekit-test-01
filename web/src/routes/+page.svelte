@@ -1,13 +1,24 @@
-<script>
-    /** @type {import('./$types').PageData} */
-    export let data;
+<!-- <script lang="ts">
+  import type { Page } from "types/payload-types";
+  import type { PageData } from "./$types";
+  export let data: PageData;
+  const {
+    home: { block },
+  } = data;
 
-    const {posts } = data   
+  // console.log(data.pages.docs[0]);
+  const {
+    nav: { items: navItems },
+  } = data;
+  const pages: Page[] = navItems.map((item: any) => item.page);
 </script>
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<ul>
-    {#each posts as post}
-    <li>{post.title}</li>
+
+{#each block as block}
+  <h1>{block.text}</h1>
 {/each}
-</ul>
+
+{#each pages as page}
+  <h1>
+    <a href="nl/{page.uri}">{page.pageTitle}</a>
+  </h1>
+{/each} -->
