@@ -1,5 +1,5 @@
 <script lang="ts">
-  export const prerender = true;
+  // export const prerender = true;
   import type { LayoutData } from "./$types";
   import logo from "$lib/assets/svg/logo-test.svg";
   export let data: LayoutData;
