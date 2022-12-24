@@ -22,6 +22,7 @@ const config = {
         // "/en/payload-cms",
         // "/en/news",
       ],
+      origin: process.env.PUBLIC_CMS_API_ENDPOINT,
     },
     // alias: {
     // 	'types/*': 'types/*'
