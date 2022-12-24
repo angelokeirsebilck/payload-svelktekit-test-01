@@ -2,6 +2,7 @@ import type { LayoutData } from "./$types";
 import type { Nav } from "$lib/types/payload-types";
 import { env } from "$env/dynamic/public";
 export const prerender = true;
+
 export const load = (({ params }) => {
   const getNav = async (): Promise<Nav> => {
     const res = await fetch(

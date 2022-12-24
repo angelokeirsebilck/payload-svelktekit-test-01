@@ -2,6 +2,7 @@ import type { PageLoad } from "./$types";
 import type { Page } from "$lib/types/payload-types";
 import { env } from "$env/dynamic/public";
 import qs from "qs";
+export const csr = false;
 
 export const load = (async ({ params, fetch }) => {
   const getPage = async (): Promise<Page> => {
