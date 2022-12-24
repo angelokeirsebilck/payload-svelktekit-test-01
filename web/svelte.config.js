@@ -13,8 +13,8 @@ const config = {
     prerender: {
       crawl: true,
       entries: [
-        // "/nl",
-        // "/en",
+        "/nl",
+        "/en",
         // "/nl/contact",
         // "/nl/payload-cms",
         // "/nl/nieuws",
