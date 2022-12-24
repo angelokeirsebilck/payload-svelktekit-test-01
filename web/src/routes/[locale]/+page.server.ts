@@ -1,5 +1,5 @@
 import type { Home } from "$lib/types/payload-types";
-import type { PageLoad } from "./$types";
+import type { PageServerLoad } from "./$types";
 import { env } from "$env/dynamic/public";
 
 export const load = (({ fetch, params }) => {
@@ -25,4 +25,4 @@ export const load = (({ fetch, params }) => {
     // nav: getNav(),
     // locale: params.locale,
   };
-}) satisfies PageLoad;
+}) satisfies PageServerLoad;

@@ -1,4 +1,6 @@
 import adapter from "@sveltejs/adapter-vercel";
+// import adapter from "@sveltejs/adapter-node";
+
 import { vitePreprocess } from "@sveltejs/kit/vite";
 // import { getPrerenderRoutes } from "./src/lib/getPrerenderRoutes.js";
 

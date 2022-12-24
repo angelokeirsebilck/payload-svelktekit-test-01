@@ -2,10 +2,6 @@
   import type { LayoutData } from "./$types";
   import logo from "$lib/assets/svg/logo-test.svg";
   export let data: LayoutData;
-  // const {
-  //   nav: { items: navItems },
-  // } = data;
-  // const pages: Page[] = navItems.map((item: any) => item.page);
 </script>
 
 <div class="flex flex-col min-h-screen">
