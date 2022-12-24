@@ -1,4 +1,4 @@
-import type { PageServerLoad } from "./$types";
+import type { PageLoad } from "./$types";
 import type { Page } from "$lib/types/payload-types";
 import { env } from "$env/dynamic/public";
 import qs from "qs";
@@ -24,4 +24,4 @@ export const load = (async ({ params, fetch }) => {
   return {
     page: getPage(),
   };
-}) satisfies PageServerLoad;
+}) satisfies PageLoad;

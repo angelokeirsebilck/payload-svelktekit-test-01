@@ -1,4 +1,4 @@
-import type { LayoutServerLoad } from "./$types";
+import type { LayoutData } from "./$types";
 import type { Nav } from "$lib/types/payload-types";
 import { env } from "$env/dynamic/public";
 
@@ -15,4 +15,4 @@ export const load = (({ params }) => {
     nav: getNav(),
     locale: params.locale,
   };
-}) satisfies LayoutServerLoad;
+}) satisfies LayoutData;
