@@ -22,7 +22,10 @@ export default buildConfig({
     fallback: true,
   },
   typescript: {
-    outputFile: path.resolve(__dirname, "../../web/types/payload-types.ts"),
+    outputFile: path.resolve(
+      __dirname,
+      "../../web/src/lib/types/payload-types.ts"
+    ),
   },
   graphQL: {
     schemaOutputFile: path.resolve(__dirname, "generated-schema.graphql"),
