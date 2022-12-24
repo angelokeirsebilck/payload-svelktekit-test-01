@@ -12,7 +12,7 @@
   <nav>
     <ul>
       {#each data.nav.items as navItem}
-        <a href="/nl/{navItem.page.uri}">{navItem.page.pageTitle}</a>
+        <a href="/{data.locale}/{navItem.page.uri}">{navItem.page.pageTitle}</a>
       {/each}
     </ul>
   </nav>

@@ -13,5 +13,6 @@ export const load = (({ params }) => {
   };
   return {
     nav: getNav(),
+    locale: params.locale,
   };
 }) satisfies LayoutServerLoad;

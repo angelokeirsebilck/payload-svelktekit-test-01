@@ -5,8 +5,8 @@ import qs from "qs";
 
 export const load = (async ({ params, fetch }) => {
   const query = {
-    slug: {
-      equals: params.slug,
+    uri: {
+      equals: params.uri,
     },
   };
   const stringifiedQuery = qs.stringify({
