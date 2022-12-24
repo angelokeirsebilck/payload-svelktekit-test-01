@@ -10,19 +10,19 @@ const config = {
 
   kit: {
     adapter: adapter(),
-    prerender: {
-      // crawl: true,
-      entries: [
-        "/nl",
-        "/en",
-        // "/nl/contact",
-        // "/nl/payload-cms",
-        // "/nl/nieuws",
-        // "/en/contact-en",
-        // "/en/payload-cms",
-        // "/en/news",
-      ],
-    },
+    // prerender: {
+    //   crawl: true,
+    //   entries: [
+    //     "/nl",
+    //     "/en",
+    //     "/nl/contact",
+    //     "/nl/payload-cms",
+    //     "/nl/nieuws",
+    //     "/en/contact-en",
+    //     "/en/payload-cms",
+    //     "/en/news",
+    //   ],
+    // },
     // alias: {
     // 	'types/*': 'types/*'
     // }
