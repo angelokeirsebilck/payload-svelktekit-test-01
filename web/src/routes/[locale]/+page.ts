@@ -1,4 +1,4 @@
-import type { Home } from "types/payload-types";
+import type { Home } from "$lib/types/payload-types";
 import type { PageLoad } from "./$types";
 import { env } from "$env/dynamic/public";
 
