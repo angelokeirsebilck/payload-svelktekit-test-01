@@ -3,6 +3,10 @@
   export let data: PageData;
 </script>
 
-{#each data.home.block as block}
-  <h1>{block.text}</h1>
-{/each}
+<section>
+  <div class="container px-8 mx-auto my-16">
+    {#each data.home.block as block}
+      <h1 class="mb-4 text-5xl">{block.text}</h1>
+    {/each}
+  </div>
+</section>

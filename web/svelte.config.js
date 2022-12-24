@@ -1,5 +1,6 @@
 import adapter from "@sveltejs/adapter-auto";
 import { vitePreprocess } from "@sveltejs/kit/vite";
+// import { getPrerenderRoutes } from "./src/lib/getPrerenderRoutes.js";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -9,6 +10,19 @@ const config = {
 
   kit: {
     adapter: adapter(),
+    prerender: {
+      crawl: true,
+      entries: [
+        // "/nl",
+        // "/en",
+        // "/nl/contact",
+        // "/nl/payload-cms",
+        // "/nl/nieuws",
+        // "/en/contact-en",
+        // "/en/payload-cms",
+        // "/en/news",
+      ],
+    },
     // alias: {
     // 	'types/*': 'types/*'
     // }

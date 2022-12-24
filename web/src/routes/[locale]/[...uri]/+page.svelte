@@ -4,7 +4,14 @@
   export let data: PageData;
 </script>
 
-<h1>{data.page.pageTitle}</h1>
+<div class="container px-8 mx-auto my-16">
+  <h1 class="mb-4 text-5xl">{data.page.pageTitle}</h1>
+</div>
+
 {#each data.page.block as item}
-  {item.text}
+  <section>
+    <div class="container px-8 mx-auto my-16">
+      {item.text}
+    </div>
+  </section>
 {/each}

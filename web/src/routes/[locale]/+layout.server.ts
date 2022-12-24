@@ -8,7 +8,7 @@ export const load = (({ params }) => {
       `${env.PUBLIC_CMS_API_ENDPOINT}/globals/nav?locale=${params.locale}`
     );
     const data = await res.json();
-    console.log(data.items);
+    // console.log(data.items);
     return data;
   };
   return {
