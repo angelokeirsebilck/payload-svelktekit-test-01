@@ -1,3 +1,7 @@
+<script>
+  export const prerender = true;
+</script>
+
 <!-- <script lang="ts">
   import type { Page } from "types/payload-types";
   import type { PageData } from "./$types";

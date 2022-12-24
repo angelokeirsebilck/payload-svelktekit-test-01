@@ -1,0 +1,1 @@
+import{R as o}from"./control-f5b05b5f.js";function r(e,t){return new o(e,t)}const n=({fetch:e})=>{throw r(301,"/nl")},l=Object.freeze(Object.defineProperty({__proto__:null,load:n},Symbol.toStringTag,{value:"Module"}));export{l as _,n as l};

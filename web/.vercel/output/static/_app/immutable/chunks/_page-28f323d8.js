@@ -1,0 +1,1 @@
+import{e as o}from"./env-public-f7741390.js";const t=({fetch:e,params:a})=>({home:(async()=>await(await e(`${o.PUBLIC_CMS_API_ENDPOINT}/globals/home?locale=${a.locale}`)).json())()}),c=Object.freeze(Object.defineProperty({__proto__:null,load:t},Symbol.toStringTag,{value:"Module"}));export{c as _,t as l};
