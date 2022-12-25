@@ -2,6 +2,7 @@
   import type { LayoutData } from "./$types";
   import logo from "$lib/assets/svg/logo-test.svg";
   export let data: LayoutData;
+  import { page } from "$app/stores";
 </script>
 
 <div class="flex flex-col min-h-screen">
@@ -11,18 +12,21 @@
         <a href="/{data.locale}">
           <img src={logo} alt="Logoipsum Logo" />
         </a>
-        <nav>
-          <ul class="flex gap-x-8">
-            {#each data.nav.items as navItem}
-              <li>
-                <a
-                  href="/{data.locale}/{navItem.page.uri}"
-                  class="text-lg font-medium">{navItem.page.pageTitle}</a
-                >
-              </li>
-            {/each}
-          </ul>
-        </nav>
+        <div class="flex">
+          <nav>
+            <ul class="flex gap-x-8">
+              {#each data.nav.items as navItem}
+                <li>
+                  <a
+                    href="/{data.locale}/{navItem.page.uri}"
+                    class="text-lg font-medium">{navItem.page.pageTitle}</a
+                  >
+                </li>
+              {/each}
+            </ul>
+          </nav>
+          {$page.data.pageData.localized["en"]}
+        </div>
       </div>
     </div>
   </header>
