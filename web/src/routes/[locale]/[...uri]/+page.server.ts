@@ -4,13 +4,13 @@ import { env } from "$env/dynamic/public";
 import qs from "qs";
 
 interface IData {
-  localized: object;
+  localized: [string, unknown][];
   page: Page;
 }
 
-export const load = (async ({ params, fetch }) => {
+export const load = (({ params, fetch }) => {
   const getPageData = async (): Promise<IData> => {
-    let localized;
+    let localized: [string, unknown][] = [];
     let page;
 
     let query = {
@@ -43,7 +43,7 @@ export const load = (async ({ params, fetch }) => {
       );
 
       const pageData = await pageResult.json();
-      localized = pageData.docs[0].uri;
+      localized = Object.entries(pageData.docs[0].uri);
     }
     return {
       page,

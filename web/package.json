@@ -12,10 +12,13 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
+		"@skeletonlabs/skeleton": "^0.80.9",
 		"@sveltejs/adapter-auto": "^1.0.0",
 		"@sveltejs/adapter-node": "^1.0.0",
 		"@sveltejs/adapter-vercel": "^1.0.0",
 		"@sveltejs/kit": "^1.0.0",
+		"@tailwindcss/forms": "^0.5.3",
+		"@tailwindcss/typography": "^0.5.8",
 		"autoprefixer": "^10.4.13",
 		"postcss": "^8.4.20",
 		"qs": "^6.11.0",

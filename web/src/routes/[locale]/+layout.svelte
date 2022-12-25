@@ -3,6 +3,10 @@
   import logo from "$lib/assets/svg/logo-test.svg";
   export let data: LayoutData;
   import { page } from "$app/stores";
+  import LangSwitcher from "$lib/components/LangSwitcher.svelte";
+
+  const defaultLocalized = [["en"], ["nl"]];
+  // console.log(page.data);
 </script>
 
 <div class="flex flex-col min-h-screen">
@@ -12,20 +16,26 @@
         <a href="/{data.locale}">
           <img src={logo} alt="Logoipsum Logo" />
         </a>
-        <div class="flex">
+        <div class="flex items-center">
           <nav>
             <ul class="flex gap-x-8">
               {#each data.nav.items as navItem}
                 <li>
                   <a
                     href="/{data.locale}/{navItem.page.uri}"
-                    class="text-lg font-medium">{navItem.page.pageTitle}</a
+                    class="text-lg font-medium unstyled"
+                    >{navItem.page.pageTitle}</a
                   >
                 </li>
               {/each}
             </ul>
           </nav>
-          {$page.data.pageData.localized["en"]}
+          <LangSwitcher
+            currentLocale={data.locale}
+            localized={$page?.data?.pageData?.localized
+              ? $page.data.pageData.localized
+              : defaultLocalized}
+          />
         </div>
       </div>
     </div>
