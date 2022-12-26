@@ -11,15 +11,7 @@ export const load = (({ fetch, params, url }) => {
   let locale = getCurrentLocale(params.locale);
 
   if (!locales.includes(params.locale)) {
-    throw error(404, {
-      // @ts-ignore
-      message: trans[locale].notFound,
-      // @ts-ignore
-      code: 404,
-      // @ts-ignore
-      errorMessage: "message404",
-      locale,
-    });
+    throw error(404);
   }
 
   const getHomeData = async (): Promise<Home> => {

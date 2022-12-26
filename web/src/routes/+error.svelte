@@ -18,11 +18,11 @@
           <h1
             class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
           >
-            {trans[$page.data.locale][$page.error?.code]}
+            {trans[$page.data.locale][$page.status]}
           </h1>
-          {#if $page.error?.errorMessage}
+          {#if trans[$page.data.locale][`message${$page.status}`]}
             <p class="mt-1 text-base text-gray-500">
-              {trans[$page.data.locale][$page.error?.errorMessage]}
+              {trans[$page.data.locale][`message${$page.status}`]}
             </p>
           {/if}
         </div>

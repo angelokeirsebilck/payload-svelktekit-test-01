@@ -6,8 +6,6 @@
   export let data: LayoutData;
   import { page } from "$app/stores";
   import LangSwitcher from "$lib/components/LangSwitcher.svelte";
-  import { locales, defaultLocale } from "$lib/config/siteConfig";
-
   const defaultLocalized = [["en"], ["nl"]];
 </script>
 

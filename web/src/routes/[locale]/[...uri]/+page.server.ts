@@ -33,13 +33,7 @@ export const load = (({ params, fetch }) => {
 
     if (!page) {
       let locale = getCurrentLocale(params.locale);
-      throw error(404, {
-        // @ts-ignore
-        code: 404,
-        // @ts-ignore
-        errorMessage: "message404",
-        locale,
-      });
+      throw error(404);
     }
 
     if (page) {
