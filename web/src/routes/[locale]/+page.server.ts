@@ -15,7 +15,9 @@ export const load = (({ fetch, params, url }) => {
       // @ts-ignore
       message: trans[locale].notFound,
       // @ts-ignore
-      errorMessage: trans[locale].notFoundMessage,
+      code: 404,
+      // @ts-ignore
+      errorMessage: "message404",
       locale,
     });
   }

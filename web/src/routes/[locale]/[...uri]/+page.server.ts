@@ -35,9 +35,9 @@ export const load = (({ params, fetch }) => {
       let locale = getCurrentLocale(params.locale);
       throw error(404, {
         // @ts-ignore
-        message: trans[locale].notFound,
+        code: 404,
         // @ts-ignore
-        errorMessage: trans[locale].notFoundMessage,
+        errorMessage: "message404",
         locale,
       });
     }

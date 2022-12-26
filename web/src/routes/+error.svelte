@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import { trans } from "$lib/translations/translations";
 </script>
 
 <div
@@ -17,11 +18,11 @@
           <h1
             class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
           >
-            {$page.error?.message}
+            {trans[$page.data.locale][$page.error?.code]}
           </h1>
           {#if $page.error?.errorMessage}
             <p class="mt-1 text-base text-gray-500">
-              {$page.error?.errorMessage}
+              {trans[$page.data.locale][$page.error?.errorMessage]}
             </p>
           {/if}
         </div>

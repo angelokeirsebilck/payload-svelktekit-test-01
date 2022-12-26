@@ -1,12 +1,11 @@
 const trans = {
   nl: {
-    notFound: "Pagina niet gevonden",
-    notFoundMessage:
-      "Controleer de URL in de adresbalk en probeer het opnieuw.",
+    404: "Pagina niet gevonden",
+    message404: "Controleer de URL in de adresbalk en probeer het opnieuw.",
   },
   en: {
-    notFound: "Page not found",
-    notFoundMessage: "Please check the URL in the address bar and try again.",
+    404: "Page not found",
+    message404: "Please check the URL in the address bar and try again.",
   },
 };
 
