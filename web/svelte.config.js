@@ -2,7 +2,6 @@ import adapter from "@sveltejs/adapter-vercel";
 // import adapter from "@sveltejs/adapter-node";
 
 import { vitePreprocess } from "@sveltejs/kit/vite";
-// import { getPrerenderRoutes } from "./src/lib/getPrerenderRoutes.js";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -14,21 +13,8 @@ const config = {
     adapter: adapter(),
     prerender: {
       crawl: true,
-      entries: [
-        `/nl`,
-        `/en`,
-        // "/nl/contact",
-        // "/nl/payload-cms",
-        // "/nl/nieuws",
-        // "/en/contact-en",
-        // "/en/payload-cms",
-        // "/en/news",
-      ],
-      // origin: process.env.PUBLIC_CMS_API_ENDPOINT,
+      entries: [`/nl`, `/en`],
     },
-    // alias: {
-    // 	'types/*': 'types/*'
-    // }
   },
 };
 

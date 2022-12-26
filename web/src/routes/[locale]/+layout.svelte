@@ -6,7 +6,6 @@
   import LangSwitcher from "$lib/components/LangSwitcher.svelte";
 
   const defaultLocalized = [["en"], ["nl"]];
-  // console.log(page.data);
 </script>
 
 <div class="flex flex-col min-h-screen">
