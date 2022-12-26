@@ -1,11 +1,11 @@
-import type { PageServerLoad } from "./$types";
+import type { PageServerLoad, Actions } from "./$types";
 import type { Page } from "$lib/types/payload-types";
 import { env } from "$env/dynamic/public";
 import qs from "qs";
 import { error } from "@sveltejs/kit";
-import { getCurrentLocale } from "$lib/utils/getCurrentLocale";
-import { trans } from "$lib/translations/translations";
+
 export const prerender = true;
+
 interface IData {
   localized: [string, unknown][];
   page: Page;
@@ -32,7 +32,6 @@ export const load = (({ params, fetch }) => {
     page = data.docs[0];
 
     if (!page) {
-      let locale = getCurrentLocale(params.locale);
       throw error(404);
     }
 

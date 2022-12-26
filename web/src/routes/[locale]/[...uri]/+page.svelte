@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Form from "$lib/components/Form.svelte";
   import type { PageData } from "./$types";
 
   export let data: PageData;
@@ -14,3 +15,4 @@
     </div>
   </section>
 {/each}
+<Form />

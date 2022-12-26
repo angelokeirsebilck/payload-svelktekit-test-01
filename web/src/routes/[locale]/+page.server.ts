@@ -8,8 +8,6 @@ import { getCurrentLocale } from "$lib/utils/getCurrentLocale";
 export const prerender = true;
 
 export const load = (({ fetch, params, url }) => {
-  let locale = getCurrentLocale(params.locale);
-
   if (!locales.includes(params.locale)) {
     throw error(404);
   }
