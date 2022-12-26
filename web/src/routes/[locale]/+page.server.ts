@@ -2,13 +2,19 @@ import type { Home } from "$lib/types/payload-types";
 import type { PageServerLoad } from "./$types";
 import { env } from "$env/dynamic/public";
 import { error } from "@sveltejs/kit";
+import { locales } from "$lib/config/siteConfig";
+import { trans } from "$lib/translations/translations";
+import { getCurrentLocale } from "$lib/utils/getCurrentLocale";
 
 export const load = (({ fetch, params }) => {
-  const locales = ["nl", "en"];
+  let locale = getCurrentLocale(params.locale);
 
   if (!locales.includes(params.locale)) {
     throw error(404, {
-      message: "Not found",
+      // @ts-ignore
+      message: trans[locale].notFound,
+      // @ts-ignore
+      errorMessage: trans[locale].notFoundMessage,
     });
   }
 
@@ -21,17 +27,7 @@ export const load = (({ fetch, params }) => {
     return data;
   };
 
-  // const getNav = async (): Promise<Nav> => {
-  //   const res = await fetch(
-  //     `${env.PUBLIC_CMS_API_ENDPOINT}/globals/nav?locale=${params.locale}`
-  //   );
-  //   const data = await res.json();
-
-  //   return data;
-  // };
   return {
     home: getHomeData(),
-    // nav: getNav(),
-    // locale: params.locale,
   };
 }) satisfies PageServerLoad;

@@ -2,6 +2,9 @@ import type { PageServerLoad } from "./$types";
 import type { Page } from "$lib/types/payload-types";
 import { env } from "$env/dynamic/public";
 import qs from "qs";
+import { error } from "@sveltejs/kit";
+import { getCurrentLocale } from "$lib/utils/getCurrentLocale";
+import { trans } from "$lib/translations/translations";
 
 interface IData {
   localized: [string, unknown][];
@@ -28,6 +31,16 @@ export const load = (({ params, fetch }) => {
     const data = await res.json();
     page = data.docs[0];
 
+    if (!page) {
+      let locale = getCurrentLocale(params.locale);
+      throw error(404, {
+        // @ts-ignore
+        message: trans[locale].notFound,
+        // @ts-ignore
+        errorMessage: trans[locale].notFoundMessage,
+      });
+    }
+
     if (page) {
       let query = {
         id: {
@@ -45,6 +58,7 @@ export const load = (({ params, fetch }) => {
       const pageData = await pageResult.json();
       localized = Object.entries(pageData.docs[0].uri);
     }
+
     return {
       page,
       localized,
