@@ -48,6 +48,11 @@ export default buildConfig({
         number: true,
         message: true,
       },
+      formSubmissionOverrides: {
+        access: {
+          read: () => true,
+        },
+      },
     }),
   ],
   cors: "*",
