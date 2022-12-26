@@ -6,7 +6,7 @@ import { locales } from "$lib/config/siteConfig";
 import { trans } from "$lib/translations/translations";
 import { getCurrentLocale } from "$lib/utils/getCurrentLocale";
 
-export const load = (({ fetch, params }) => {
+export const load = (({ fetch, params, url }) => {
   let locale = getCurrentLocale(params.locale);
 
   if (!locales.includes(params.locale)) {
