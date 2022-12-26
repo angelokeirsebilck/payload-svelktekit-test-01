@@ -15,6 +15,7 @@ export const load = (({ fetch, params }) => {
       message: trans[locale].notFound,
       // @ts-ignore
       errorMessage: trans[locale].notFoundMessage,
+      locale,
     });
   }
 
