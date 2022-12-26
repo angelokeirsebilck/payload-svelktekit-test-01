@@ -4,7 +4,7 @@
 </script>
 
 <div
-  class="min-h-screen bg-white px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8"
+  class=" bg-white px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8"
 >
   <div class="mx-auto max-w-max">
     <main class="sm:flex">
@@ -24,17 +24,22 @@
             <p class="mt-1 text-base text-gray-500">
               {trans[$page.data.locale][`message${$page.status}`]}
             </p>
+          {:else}
+            {$page.error.message}
           {/if}
         </div>
-        <div
-          class="mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6"
-        >
-          <a
-            href="/{$page.data.locale}"
-            class="inline-flex unstyled items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            >Go back home</a
+        {#if $page.status == 404}
+          <div
+            class="mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6"
           >
-        </div>
+            <a
+              href="/{$page.data.locale}"
+              class="inline-flex unstyled items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            >
+              {trans[$page.data.locale][`goBackHome`]}</a
+            >
+          </div>
+        {/if}
       </div>
     </main>
   </div>

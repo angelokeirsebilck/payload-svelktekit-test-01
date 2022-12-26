@@ -1,7 +1,6 @@
 import type { LayoutServerLoad } from "./$types";
 import type { Nav } from "$lib/types/payload-types";
 import { env } from "$env/dynamic/public";
-import { locales, defaultLocale } from "$lib/config/siteConfig";
 import { getLocaleFromPathname } from "$lib/utils/getLocaleFromPathname";
 
 export const load = (({ url }) => {
