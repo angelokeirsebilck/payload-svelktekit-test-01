@@ -5,6 +5,7 @@ import { error } from "@sveltejs/kit";
 import { locales } from "$lib/config/siteConfig";
 import { trans } from "$lib/translations/translations";
 import { getCurrentLocale } from "$lib/utils/getCurrentLocale";
+export const prerender = true;
 
 export const load = (({ fetch, params, url }) => {
   let locale = getCurrentLocale(params.locale);

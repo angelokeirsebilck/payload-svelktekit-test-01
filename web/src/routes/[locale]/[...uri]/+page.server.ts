@@ -5,7 +5,7 @@ import qs from "qs";
 import { error } from "@sveltejs/kit";
 import { getCurrentLocale } from "$lib/utils/getCurrentLocale";
 import { trans } from "$lib/translations/translations";
-
+export const prerender = true;
 interface IData {
   localized: [string, unknown][];
   page: Page;
