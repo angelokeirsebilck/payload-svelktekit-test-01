@@ -50,7 +50,11 @@ export default buildConfig({
       },
       formSubmissionOverrides: {
         access: {
-          read: () => true,
+          read: ({ req: { user } }) => {
+            console.log("user ", user);
+            console.log(!!user);
+            return !!user;
+          },
         },
       },
     }),
