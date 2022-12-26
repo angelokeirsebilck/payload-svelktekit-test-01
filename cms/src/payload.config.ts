@@ -1,5 +1,6 @@
 import { buildConfig } from "payload/config";
 import nestedDocs from "@payloadcms/plugin-nested-docs";
+import formBuilder from "@payloadcms/plugin-form-builder";
 import path from "path";
 import Categories from "./collections/Categories";
 import Posts from "./collections/Posts";
@@ -36,6 +37,17 @@ export default buildConfig({
       generateLabel: (_, doc: any) => doc.pageTitle,
       generateURL: (docs) =>
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
+    }),
+    formBuilder({
+      fields: {
+        text: true,
+        textarea: true,
+        select: true,
+        email: true,
+        checkbox: true,
+        number: true,
+        message: true,
+      },
     }),
   ],
   cors: "*",

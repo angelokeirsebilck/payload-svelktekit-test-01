@@ -1581,6 +1581,14 @@
   resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/chokidar-2/-/chokidar-2-2.1.8-no-fsevents.3.tgz#323d72dd25103d0c4fbdce89dadf574a787b1f9b"
   integrity sha512-s88O1aVtXftvp5bCPB7WnmXc5IwOZZ7YPuwNPt+GtOOXpPvad1LfbmjYv+qII7zP6RU2QGnqve27dnLycEnyEQ==
 
+"@payloadcms/plugin-form-builder@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@payloadcms/plugin-form-builder/-/plugin-form-builder-1.0.10.tgz#eb76876c52b40f75d5313b94df1b8ee748f4a75f"
+  integrity sha512-douIbyOGYRlptziQ6cp/Vt29DmhryyRAI8wvMrU9QDEpK55TVsDQlTvWryWK9yzdG+e0FZskvzCThW4sCxhFuQ==
+  dependencies:
+    deepmerge "^4.2.2"
+    escape-html "^1.0.3"
+
 "@payloadcms/plugin-nested-docs@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@payloadcms/plugin-nested-docs/-/plugin-nested-docs-1.0.4.tgz#8a9933bbf0813839804be4fa20f9ddf401ed9bec"
@@ -3776,7 +3784,7 @@ escalade@^3.1.1:
   resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
   integrity sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==
 
-escape-html@~1.0.3:
+escape-html@^1.0.3, escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==
