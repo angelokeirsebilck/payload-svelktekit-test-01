@@ -9,9 +9,7 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --plugin-search-dir . --check .",
-    "format": "prettier --plugin-search-dir . --write .",
-    "postbuild": "yarn generate:sitemap",
-    "generate:sitemap": "svelte-sitemap --domain https://angelokeirsebilck.be; cp build/sitemap.xml static/sitemap.xml"
+    "format": "prettier --plugin-search-dir . --write ."
   },
   "devDependencies": {
     "@skeletonlabs/skeleton": "^0.80.9",
