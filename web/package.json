@@ -11,7 +11,7 @@
     "lint": "prettier --plugin-search-dir . --check .",
     "format": "prettier --plugin-search-dir . --write .",
     "postbuild": "yarn generate:sitemap",
-    "generate:sitemap": "svelte-sitemap --domain [mydomain]; cp build/sitemap.xml static/sitemap.xml"
+    "generate:sitemap": "svelte-sitemap --domain https://angelokeirsebilck.be; cp build/sitemap.xml static/sitemap.xml"
   },
   "devDependencies": {
     "@skeletonlabs/skeleton": "^0.80.9",
