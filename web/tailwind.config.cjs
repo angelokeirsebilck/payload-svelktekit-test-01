@@ -9,7 +9,14 @@ module.exports = {
     ),
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        test: "500px",
+      },
+      aria: {
+        invalid: 'invalid="true"',
+      },
+    },
   },
   plugins: [
     require("@tailwindcss/forms"),

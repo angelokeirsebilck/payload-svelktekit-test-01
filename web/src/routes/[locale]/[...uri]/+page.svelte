@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Form from "$lib/components/Form.svelte";
-  import type { PageData } from "./$types";
+  import FormBlock from "$lib/components/blocks/FormBlock.svelte";
 
+  import type { PageData } from "./$types";
   export let data: PageData;
 </script>
 
@@ -15,4 +15,4 @@
     </div>
   </section>
 {/each}
-<Form />
+<FormBlock formId="63a99ded5947c0bbb4579d01" />

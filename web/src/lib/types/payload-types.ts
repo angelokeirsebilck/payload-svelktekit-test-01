@@ -158,24 +158,6 @@ export interface Form {
         name: string;
         label?: string;
         width?: number;
-        required?: boolean;
-        id?: string;
-        blockName?: string;
-        blockType: 'state';
-      }
-    | {
-        name: string;
-        label?: string;
-        width?: number;
-        required?: boolean;
-        id?: string;
-        blockName?: string;
-        blockType: 'country';
-      }
-    | {
-        name: string;
-        label?: string;
-        width?: number;
         defaultValue?: number;
         required?: boolean;
         id?: string;

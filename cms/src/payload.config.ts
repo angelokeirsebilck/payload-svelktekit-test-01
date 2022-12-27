@@ -44,10 +44,19 @@ export default buildConfig({
         textarea: true,
         select: true,
         email: true,
+        country: false,
+        state: false,
         checkbox: true,
         number: true,
         message: true,
       },
+      // beforeEmail: (emailsToSend) => {
+      //   // modify the emails in any way before they are sent
+      //   return emailsToSend.map((email) => {
+      //     console.log(email);
+      //     return email;
+      //   });
+      // },
     }),
   ],
   cors: "*",

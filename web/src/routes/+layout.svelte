@@ -7,6 +7,7 @@
   import { page } from "$app/stores";
   import LangSwitcher from "$lib/components/LangSwitcher.svelte";
   const defaultLocalized = [["en"], ["nl"]];
+  import { Toast } from "@skeletonlabs/skeleton";
 </script>
 
 <div class="flex flex-col min-h-screen">
@@ -47,4 +48,5 @@
   <footer class="mt-auto py-4 bg-blue-50">
     <div class="container px-8 mx-auto">Footer</div>
   </footer>
+  <Toast />
 </div>
