@@ -17,7 +17,7 @@ const productionEmail = {
       pass: process.env.POSTMARK_TOKEN,
     },
     port: 587,
-    secure: true, // use TLS
+    // secure: true, // use TLS
     tls: {
       // do not fail on invalid certs
       rejectUnauthorized: false,
