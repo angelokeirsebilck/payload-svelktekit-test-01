@@ -1,7 +1,7 @@
 <script lang="ts">
   import FormBlock from "$lib/components/blocks/FormBlock.svelte";
-
   import type { PageData } from "./$types";
+
   export let data: PageData;
 </script>
 

@@ -27,13 +27,16 @@
     </svg>
   </button>
 
-  <nav class="p-2 w-auto shadow-xl bg-white" data-menu="langSelector">
+  <nav
+    class="p-2 w-auto shadow-xl bg-surface-400-500-token"
+    data-menu="langSelector"
+  >
     <ul>
       {#each localized as locale}
         {#if locale[0] != currentLocale}
           <li>
             <a
-              class="unstyled uppercase"
+              class="unstyled uppercase text-token"
               href="/{locale[0]}{locale[1] ? `/${locale[1]}` : ''}"
               >{locale[0]}</a
             >
