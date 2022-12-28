@@ -1,5 +1,6 @@
 import { GlobalConfig } from "payload/types";
-import { pageBuilder } from "../blocks";
+import { pageBuilder } from "../blocks/PageBuilder";
+
 const Home: GlobalConfig = {
   slug: "home",
   access: {

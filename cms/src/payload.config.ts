@@ -1,7 +1,9 @@
 import { buildConfig } from "payload/config";
+import path from "path";
+import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
+import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import nestedDocs from "@payloadcms/plugin-nested-docs";
 import formBuilder from "@payloadcms/plugin-form-builder";
-import path from "path";
 import Categories from "./collections/Categories";
 import Posts from "./collections/Posts";
 import Tags from "./collections/Tags";
@@ -9,13 +11,14 @@ import Users from "./collections/Users";
 import Pages from "./collections/Pages";
 import Nav from "./globals/Nav";
 import Home from "./globals/Home";
+import Media from "./collections/Media";
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL,
   admin: {
     user: Users.slug,
   },
-  collections: [Pages, Categories, Posts, Tags, Users],
+  collections: [Pages, Categories, Posts, Tags, Users, Media],
   globals: [Nav, Home],
   localization: {
     locales: ["nl", "en"],
@@ -34,7 +37,7 @@ export default buildConfig({
   plugins: [
     nestedDocs({
       collections: ["pages"],
-      generateLabel: (_, doc: any) => doc.pageTitle,
+      generateLabel: (_, doc) => doc.pageTitle as string,
       generateURL: (docs) =>
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
@@ -50,13 +53,25 @@ export default buildConfig({
         number: true,
         message: true,
       },
-      // beforeEmail: (emailsToSend) => {
-      //   // modify the emails in any way before they are sent
-      //   return emailsToSend.map((email) => {
-      //     console.log(email);
-      //     return email;
-      //   });
-      // },
+    }),
+    cloudStorage({
+      collections: {
+        media: {
+          disableLocalStorage: true,
+          prefix: "payloadcms/media",
+          adapter: s3Adapter({
+            config: {
+              credentials: {
+                accessKeyId: process.env.S3_ACCESS_KEY_ID,
+                secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+              },
+              endpoint: process.env.S3_ENDPOINT,
+              region: process.env.S3_REGION,
+            },
+            bucket: process.env.S3_BUCKET,
+          }),
+        },
+      },
     }),
   ],
   cors: "*",

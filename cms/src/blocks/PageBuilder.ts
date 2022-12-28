@@ -1,14 +1,13 @@
 import { Field } from "payload/types";
-import { TextBlock } from "./index";
+import { MediaBlock } from "./Media";
+import { TextBlock } from "./Text";
+import { TextMediaBlock } from "./TextMedia";
 
 const pageBuilder: Field = {
   label: "Page Builder",
   name: "block",
   type: "blocks",
-  minRows: 1,
-  maxRows: 20,
-  blocks: [TextBlock],
-  localized: true,
+  blocks: [TextBlock, TextMediaBlock, MediaBlock],
 };
 
 export { pageBuilder };

@@ -1,5 +1,5 @@
 import { CollectionConfig } from "payload/types";
-import { pageBuilder } from "../blocks";
+import { pageBuilder } from "../blocks/PageBuilder";
 
 import { pagesBeforeChange } from "../hooks/pagesBeforeSave";
 

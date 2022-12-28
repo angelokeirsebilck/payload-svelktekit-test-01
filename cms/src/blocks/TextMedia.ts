@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
-const TextBlock: Block = {
-  slug: "textBlock",
+const TextMediaBlock: Block = {
+  slug: "textMediaBlock",
   fields: [
     {
       name: "text",
@@ -12,4 +12,4 @@ const TextBlock: Block = {
   ],
 };
 
-export { TextBlock };
+export { TextMediaBlock };
