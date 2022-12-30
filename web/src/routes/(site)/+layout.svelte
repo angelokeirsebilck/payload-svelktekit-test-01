@@ -82,7 +82,6 @@
     <div class="container px-8 mx-auto">Footer</div>
   </footer>
   <Toast />
-  Copy
   <Drawer position="right" width="min-w-6xl">
     <nav class="px-10 flex flex-col">
       <div
