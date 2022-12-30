@@ -1,16 +1,21 @@
 <script lang="ts">
-  import { menu } from "@skeletonlabs/skeleton";
-
+  import {
+    Menu,
+    MenuButton,
+    MenuItems,
+    MenuItem,
+  } from "@rgossiaux/svelte-headlessui";
+  import { Transition } from "@rgossiaux/svelte-headlessui";
   export let currentLocale: string;
   export let localized: [];
 </script>
 
-<span class="relative ml-5">
-  <button
-    class="uppercase flex items-center"
-    use:menu={{ menu: "langSelector" }}
+<Menu class="relative inline-block text-left ml-5" let:open>
+  <MenuButton
+    class="inline-flex items-center w-full text-black justify-center rounded-md px-2 font-medium"
   >
-    {currentLocale}
+    <span class="uppercase"> {currentLocale}</span>
+
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -24,25 +29,33 @@
         stroke-linejoin="round"
         d="M19.5 8.25l-7.5 7.5-7.5-7.5"
       />
-    </svg>
-  </button>
-
-  <nav
-    class="p-2 w-auto shadow-xl bg-surface-400-500-token"
-    data-menu="langSelector"
+    </svg></MenuButton
   >
-    <ul>
+  <Transition
+    {open}
+    enter="transition-opacity duration-75"
+    enterFrom="opacity-0"
+    enterTo="opacity-100"
+    leave="transition-opacity duration-150"
+    leaveFrom="opacity-100"
+    leaveTo="opacity-0"
+  >
+    <MenuItems
+      class="absolute right-0 px-3 py-2 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+    >
       {#each localized as locale}
         {#if locale[0] != currentLocale}
-          <li>
+          <MenuItem
+            class={({ active }) => (active ? "text-primary-default" : "")}
+          >
             <a
-              class="unstyled uppercase text-token"
+              class="uppercase text-token"
               href="/{locale[0]}{locale[1] ? `/${locale[1]}` : ''}"
               >{locale[0]}</a
             >
-          </li>
+          </MenuItem>
         {/if}
       {/each}
-    </ul>
-  </nav>
-</span>
+    </MenuItems>
+  </Transition>
+</Menu>
