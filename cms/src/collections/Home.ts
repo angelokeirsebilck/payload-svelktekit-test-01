@@ -1,20 +1,19 @@
 import { CollectionConfig } from "payload/types";
 import { pageBuilder } from "../blocks/PageBuilder";
+import { homeBeforeChange } from "../hooks/homeBeforeOperation";
 
-import { pagesBeforeChange } from "../hooks/pagesBeforeSave";
-
-const Pages: CollectionConfig = {
-  slug: "pages",
+const Home: CollectionConfig = {
+  slug: "home",
+  labels: {
+    singular: "Home",
+    plural: "Home",
+  },
   admin: {
     group: "Pages",
     defaultColumns: ["pageTitle"],
     useAsTitle: "pageTitle",
     preview: (doc, { locale }) => {
-      if (doc?.uri) {
-        return `${process.env.PAYLOAD_PUBLIC_WEB_URL}/preview/pages?id=${doc.id}&locale=${locale}`;
-      }
-
-      return null;
+      return `${process.env.PAYLOAD_PUBLIC_WEB_URL}/preview/home?id=${doc.id}&locale=${locale}`;
     },
   },
   versions: {
@@ -44,32 +43,9 @@ const Pages: CollectionConfig = {
     },
   },
   hooks: {
-    beforeChange: [pagesBeforeChange],
+    beforeOperation: [homeBeforeChange],
   },
   fields: [
-    {
-      name: "slug",
-      label: "Slug",
-      type: "text",
-      localized: true,
-      admin: {
-        position: "sidebar",
-      },
-    },
-    {
-      name: "uri",
-      label: "Uri",
-      type: "text",
-      index: true,
-      unique: true,
-      localized: true,
-      access: {
-        update: () => false,
-      },
-      admin: {
-        position: "sidebar",
-      },
-    },
     {
       name: "pageTitle",
       label: "Title",
@@ -82,4 +58,4 @@ const Pages: CollectionConfig = {
   timestamps: true,
 };
 
-export default Pages;
+export default Home;

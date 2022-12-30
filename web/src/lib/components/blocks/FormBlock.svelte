@@ -30,7 +30,7 @@
     const res = await fetch(`${env.PUBLIC_CMS_API_ENDPOINT}/forms/${formId}`);
     const data = await res.json();
     fields = data.fields;
-    console.log(fields);
+    // console.log(fields);
 
     const isRequired: zod.ZodErrorMap = (val, ctx) => {
       return { message: "This field is required." };
@@ -69,7 +69,7 @@
 
     //@ts-ignore
     schema = schema.omit({ test: true });
-    console.log(schema);
+    // console.log(schema);
     schemaDone = true;
   });
 </script>

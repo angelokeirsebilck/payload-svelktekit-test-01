@@ -8,9 +8,11 @@ import Categories from "./collections/Categories";
 import Posts from "./collections/Posts";
 import Tags from "./collections/Tags";
 import Users from "./collections/Users";
-import Pages from "./collections/Pages";
+import Home from "./collections/Pages";
+import Pages from "./collections/Home";
 import Nav from "./globals/Nav";
-import Home from "./globals/Home";
+// import Home from "./globals/Home";
+
 import Media from "./collections/Media";
 
 export default buildConfig({
@@ -18,8 +20,8 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Pages, Categories, Posts, Tags, Users, Media],
-  globals: [Nav, Home],
+  collections: [Pages, Categories, Posts, Tags, Users, Media, Home],
+  globals: [Nav],
   localization: {
     locales: ["nl", "en"],
     defaultLocale: "nl",
@@ -74,5 +76,6 @@ export default buildConfig({
       },
     }),
   ],
-  cors: "*",
+  cors: [`${process.env.PAYLOAD_PUBLIC_WEB_URL}`],
+  csrf: [`${process.env.PAYLOAD_PUBLIC_WEB_URL}`],
 });

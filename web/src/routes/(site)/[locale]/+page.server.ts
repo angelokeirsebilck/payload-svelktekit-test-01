@@ -3,8 +3,7 @@ import type { PageServerLoad } from "./$types";
 import { env } from "$env/dynamic/public";
 import { error } from "@sveltejs/kit";
 import { locales } from "$lib/config/siteConfig";
-import { trans } from "$lib/translations/translations";
-import { getCurrentLocale } from "$lib/utils/getCurrentLocale";
+
 export const prerender = true;
 
 export const load = (({ fetch, params, url }) => {
@@ -14,11 +13,15 @@ export const load = (({ fetch, params, url }) => {
 
   const getHomeData = async (): Promise<Home> => {
     const res = await fetch(
-      `${env.PUBLIC_CMS_API_ENDPOINT}/globals/home?locale=${params.locale}`
+      `${env.PUBLIC_CMS_API_ENDPOINT}/home?locale=${params.locale}`
     );
     const data = await res.json();
-
-    return data;
+    const homePage = data.docs[0];
+    console.log(homePage);
+    if (!homePage) {
+      throw error(404);
+    }
+    return homePage;
   };
 
   return {

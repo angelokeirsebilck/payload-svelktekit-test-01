@@ -26,12 +26,26 @@ export interface Page {
   slug?: string;
   uri?: string;
   pageTitle: string;
-  block: {
-    text: string;
-    id?: string;
-    blockName?: string;
-    blockType: 'textBlock';
-  }[];
+  block: (
+    | {
+        text: string;
+        id?: string;
+        blockName?: string;
+        blockType: 'textBlock';
+      }
+    | {
+        text: string;
+        id?: string;
+        blockName?: string;
+        blockType: 'textMediaBlock';
+      }
+    | {
+        media: string | Media;
+        id?: string;
+        blockName?: string;
+        blockType: 'mediaBlock';
+      }
+  )[];
   parent?: string | Page;
   breadcrumbs: {
     doc?: string | Page;
@@ -39,6 +53,36 @@ export interface Page {
     label?: string;
     id?: string;
   }[];
+  _status?: 'draft' | 'published';
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: string;
+  alt: string;
+  prefix?: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes: {
+    thumbnail: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
+  createdAt: string;
+  updatedAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -46,12 +90,30 @@ export interface Page {
  */
 export interface Home {
   id: string;
-  block: {
-    text: string;
-    id?: string;
-    blockName?: string;
-    blockType: 'textBlock';
-  }[];
+  pageTitle: string;
+  block: (
+    | {
+        text: string;
+        id?: string;
+        blockName?: string;
+        blockType: 'textBlock';
+      }
+    | {
+        text: string;
+        id?: string;
+        blockName?: string;
+        blockType: 'textMediaBlock';
+      }
+    | {
+        media: string | Media;
+        id?: string;
+        blockName?: string;
+        blockType: 'mediaBlock';
+      }
+  )[];
+  _status?: 'draft' | 'published';
+  createdAt: string;
+  updatedAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
