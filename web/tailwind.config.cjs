@@ -18,9 +18,12 @@ module.exports = {
           800: "#a14c0b",
           900: "#82400c",
         },
+        error: {
+          default: "#f87171",
+        },
       },
       maxWidth: {
-        test: "500px",
+        container: "1536px",
       },
       aria: {
         invalid: 'invalid="true"',

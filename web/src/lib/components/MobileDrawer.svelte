@@ -41,6 +41,8 @@
         {#each navItems.items as navItem}
           <li>
             <a
+              on:keydown
+              on:click
               href="/{locale}/{navItem.page.uri}"
               class="{`/${locale}/${navItem.page.uri}` == path
                 ? '!text-primary-600'

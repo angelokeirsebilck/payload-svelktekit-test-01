@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-family: ebony, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    @apply mt-[0.8em] mb-[0.5em] first:!mt-0;
+  }
+
+  textarea::-webkit-scrollbar {
+    @apply hidden;
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-full px-4 mx-auto max-w-container;
+  }
+}

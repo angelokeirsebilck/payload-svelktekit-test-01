@@ -28,7 +28,9 @@ export interface Page {
   pageTitle: string;
   block: (
     | {
-        text: string;
+        text: {
+          [k: string]: unknown;
+        }[];
         id?: string;
         blockName?: string;
         blockType: 'textBlock';
@@ -93,7 +95,9 @@ export interface Home {
   pageTitle: string;
   block: (
     | {
-        text: string;
+        text: {
+          [k: string]: unknown;
+        }[];
         id?: string;
         blockName?: string;
         blockType: 'textBlock';
