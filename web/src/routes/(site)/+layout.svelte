@@ -1,7 +1,4 @@
 <script lang="ts">
-  // import "@skeletonlabs/skeleton/themes/theme-hamlindigo.css";
-  // import "@skeletonlabs/skeleton/styles/all.css";
-  // import "../app.css";
   import type { LayoutData } from "./$types";
   import logo from "$lib/assets/svg/logo-test.svg";
   export let data: LayoutData;

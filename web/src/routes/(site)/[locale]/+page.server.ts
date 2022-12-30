@@ -17,7 +17,7 @@ export const load = (({ fetch, params, url }) => {
     );
     const data = await res.json();
     const homePage = data.docs[0];
-    console.log(homePage);
+
     if (!homePage) {
       throw error(404);
     }
