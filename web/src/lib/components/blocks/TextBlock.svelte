@@ -1,11 +1,13 @@
 <script lang="ts">
+  import type { TextBlock } from "$lib/types/block-types";
+  import Container from "../base/Container.svelte";
   import RichText from "../fields/richtext/RichText.svelte";
 
-  export let textNodes: { [k: string]: unknown }[];
+  export let content: TextBlock;
 </script>
 
-<div class="my-24">
+<Container>
   <div class="prose">
-    <RichText {textNodes} />
+    <RichText textNodes={content.text} />
   </div>
-</div>
+</Container>

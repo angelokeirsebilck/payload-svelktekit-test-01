@@ -372,6 +372,11 @@
     lodash.merge "^4.6.2"
     postcss-selector-parser "6.0.10"
 
+"@twicpics/components@^0.14.2":
+  version "0.14.2"
+  resolved "https://registry.yarnpkg.com/@twicpics/components/-/components-0.14.2.tgz#64c3d3b252488a896b8e9a75223e88d81f0e24a7"
+  integrity sha512-6b1P8cZI10xriUR3lT7h7TEnAFnn1j/7xrXkOlbRp1TvSzGnqeEqKNMryvmjoNcUm7DDtdODY4dMecI5S6QOBw==
+
 "@types/cookie@^0.5.1":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.5.1.tgz#b29aa1f91a59f35e29ff8f7cb24faf1a3a750554"
