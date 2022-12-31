@@ -10,6 +10,6 @@
   <TwicImg
     src="{env.PUBLIC_S3_URL}/{content.media.prefix}/{content.media.filename}"
     alt={content.media.alt}
-    classProp="max-w-4xl"
+    classProp="max-w-4xl aspect-square"
   />
 </Container>
