@@ -60,6 +60,7 @@ export default buildConfig({
       collections: {
         media: {
           disableLocalStorage: true,
+          disablePayloadAccessControl: true,
           prefix: "payloadcms/media",
           adapter: s3Adapter({
             config: {
@@ -71,6 +72,7 @@ export default buildConfig({
               region: process.env.S3_REGION,
             },
             bucket: process.env.S3_BUCKET,
+            acl: "public-read",
           }),
         },
       },
