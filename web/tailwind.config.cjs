@@ -4,6 +4,9 @@ module.exports = {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
     extend: {
+      fontFamily: {
+        montserrat: ["Montserrat,Montserrat Fallback"],
+      },
       colors: {
         primary: {
           default: "#fb8500",

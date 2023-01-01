@@ -10,7 +10,7 @@ const config = {
   preprocess: vitePreprocess(),
 
   kit: {
-    inlineStyleThreshold: 30000,
+    // inlineStyleThreshold: 30000,
     adapter: adapter(),
     prerender: {
       crawl: true,
