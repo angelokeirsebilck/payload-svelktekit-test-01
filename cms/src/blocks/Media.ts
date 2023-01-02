@@ -1,15 +1,9 @@
 import { Block } from "payload/types";
-
+import { BackgroundColor } from "../fields/BackgroundColor";
+import { MediaField } from "../fields/Media";
 const MediaBlock: Block = {
   slug: "mediaBlock",
-  fields: [
-    {
-      name: "media", // required
-      type: "upload", // required
-      relationTo: "media", // required
-      required: true,
-    },
-  ],
+  fields: [MediaField, BackgroundColor],
 };
 
 export { MediaBlock };

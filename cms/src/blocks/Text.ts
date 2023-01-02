@@ -1,18 +1,10 @@
 import { Block } from "payload/types";
+import { BackgroundColor } from "../fields/BackgroundColor";
+import { DefaultRichText } from "../fields/DefaultRichtText";
 
 const TextBlock: Block = {
   slug: "textBlock",
-  fields: [
-    {
-      name: "text",
-      type: "richText",
-      required: true,
-      localized: true,
-      admin: {
-        elements: ["h1", "h2", "h3", "h4", "ol", "ul", "link"],
-      },
-    },
-  ],
+  fields: [DefaultRichText, BackgroundColor],
 };
 
 export { TextBlock };
