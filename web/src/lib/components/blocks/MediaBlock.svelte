@@ -13,7 +13,6 @@
       alt={content.media.alt}
       src="{content.media.prefix}/{content.media.filename}"
       sizes="(max-width: 768px) 100vw, 50vw"
-      loading="eager"
       height={content.media.height}
       width={content.media.width}
     />

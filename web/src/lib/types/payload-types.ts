@@ -31,18 +31,27 @@ export interface Page {
         text: {
           [k: string]: unknown;
         }[];
+        bgColor: 'white' | 'light';
         id?: string;
         blockName?: string;
         blockType: 'textBlock';
       }
     | {
-        text: string;
+        text: {
+          [k: string]: unknown;
+        }[];
+        settings: {
+          textPos: 'left' | 'right';
+          bgColor: 'white' | 'light';
+        };
+        media: string | Media;
         id?: string;
         blockName?: string;
         blockType: 'textMediaBlock';
       }
     | {
         media: string | Media;
+        bgColor: 'white' | 'light';
         id?: string;
         blockName?: string;
         blockType: 'mediaBlock';
@@ -98,18 +107,27 @@ export interface Home {
         text: {
           [k: string]: unknown;
         }[];
+        bgColor: 'white' | 'light';
         id?: string;
         blockName?: string;
         blockType: 'textBlock';
       }
     | {
-        text: string;
+        text: {
+          [k: string]: unknown;
+        }[];
+        settings: {
+          textPos: 'left' | 'right';
+          bgColor: 'white' | 'light';
+        };
+        media: string | Media;
         id?: string;
         blockName?: string;
         blockType: 'textMediaBlock';
       }
     | {
         media: string | Media;
+        bgColor: 'white' | 'light';
         id?: string;
         blockName?: string;
         blockType: 'mediaBlock';

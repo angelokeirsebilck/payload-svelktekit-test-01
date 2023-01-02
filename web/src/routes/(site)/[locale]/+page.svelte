@@ -4,7 +4,7 @@
   export let data: PageData;
 </script>
 
-<div class="container px-8 mx-auto ">
+<!-- <div class="container px-8 mx-auto ">
   <h1 class="mb-4 text-5xl">{data.home.pageTitle}</h1>
-</div>
+</div> -->
 <PageBuilder blocks={data.home.block} />

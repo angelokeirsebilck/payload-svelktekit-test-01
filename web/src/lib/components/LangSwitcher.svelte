@@ -8,6 +8,10 @@
   import { Transition } from "@rgossiaux/svelte-headlessui";
   export let currentLocale: string;
   export let localized: [];
+
+  const langClickHandler = (lang: string) => {
+    document.querySelector("html")?.setAttribute("lang", lang);
+  };
 </script>
 
 <Menu class="relative inline-block text-left ml-5" let:open>
@@ -50,6 +54,7 @@
           >
             <a
               class="uppercase text-token"
+              on:click={langClickHandler(locale[0])}
               href="/{locale[0]}{locale[1] ? `/${locale[1]}` : ''}"
               >{locale[0]}</a
             >
