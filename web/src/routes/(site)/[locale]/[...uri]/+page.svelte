@@ -1,5 +1,5 @@
 <script lang="ts">
-  import FormBlock from "$lib/components/blocks/FormBlock.svelte";
+  import PageBuilder from "$lib/components/blocks/PageBuilder.svelte";
   import type { PageData } from "./$types";
 
   export let data: PageData;
@@ -8,5 +8,4 @@
 <div class="container px-8 mx-auto my-16">
   <h1 class="mb-4 text-5xl">{data.pageData.page.pageTitle}</h1>
 </div>
-
-<!-- <FormBlock formId="63a99ded5947c0bbb4579d01" /> -->
+<PageBuilder blocks={data.pageData.page.block} />

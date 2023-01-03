@@ -13,14 +13,14 @@ import Pages from "./collections/Home";
 import Nav from "./globals/Nav";
 // import Home from "./globals/Home";
 
-import Media from "./collections/Media";
+import Image from "./collections/Image";
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL,
   admin: {
     user: Users.slug,
   },
-  collections: [Pages, Categories, Posts, Tags, Users, Media, Home],
+  collections: [Pages, Categories, Posts, Tags, Users, Image, Home],
   globals: [Nav],
   localization: {
     locales: ["nl", "en"],
@@ -58,10 +58,10 @@ export default buildConfig({
     }),
     cloudStorage({
       collections: {
-        media: {
+        image: {
           disableLocalStorage: true,
           disablePayloadAccessControl: true,
-          prefix: "payloadcms/media",
+          prefix: "payloadcms/test-01/images",
           adapter: s3Adapter({
             config: {
               credentials: {

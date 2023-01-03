@@ -10,9 +10,9 @@
 {#each blocks as block, index}
   {#if block.blockType == "textBlock"}
     <TextBlock content={block} />
-  {:else if block.blockType == "mediaBlock"}
+  {:else if block.blockType == "imageBlock"}
     <MediaBlock content={block} />
-  {:else if block.blockType == "textMediaBlock"}
+  {:else if block.blockType == "textImageBlock"}
     <TextMediaBlock {index} content={block} />
   {:else}
     nieks

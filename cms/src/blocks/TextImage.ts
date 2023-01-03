@@ -1,11 +1,11 @@
 import { Block } from "payload/types";
 import { BackgroundColor } from "../fields/BackgroundColor";
-import { MediaField } from "../fields/Media";
+import { ImageField } from "../fields/Image";
 import { TextPosition } from "../fields/TextPosition";
 import { DefaultRichText } from "../fields/DefaultRichtText";
 
-const TextMediaBlock: Block = {
-  slug: "textMediaBlock",
+const TextImageBlock: Block = {
+  slug: "textImageBlock",
   fields: [
     DefaultRichText,
 
@@ -23,8 +23,8 @@ const TextMediaBlock: Block = {
         },
       ],
     },
-    MediaField,
+    ImageField,
   ],
 };
 
-export { TextMediaBlock };
+export { TextImageBlock };

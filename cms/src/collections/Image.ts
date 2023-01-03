@@ -1,7 +1,7 @@
 import { CollectionConfig } from "payload/types";
 
 const Media: CollectionConfig = {
-  slug: "media",
+  slug: "image",
   access: {
     read: () => true,
   },
@@ -14,8 +14,8 @@ const Media: CollectionConfig = {
   ],
   upload: {
     disableLocalStorage: true,
-    staticURL: "/media",
-    staticDir: "media",
+    staticURL: "/image",
+    staticDir: "image",
     imageSizes: [
       {
         name: "thumbnail",

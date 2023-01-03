@@ -1,13 +1,13 @@
 import { Field } from "payload/types";
-import { MediaBlock } from "./Media";
+import { ImageBlock } from "./Image";
 import { TextBlock } from "./Text";
-import { TextMediaBlock } from "./TextMedia";
+import { TextImageBlock } from "./TextImage";
 
 const pageBuilder: Field = {
   label: "Page Builder",
   name: "block",
   type: "blocks",
-  blocks: [TextBlock, TextMediaBlock, MediaBlock],
+  blocks: [TextBlock, TextImageBlock, ImageBlock],
 };
 
 export { pageBuilder };

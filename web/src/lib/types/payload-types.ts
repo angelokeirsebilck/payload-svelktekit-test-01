@@ -44,17 +44,17 @@ export interface Page {
           textPos: 'left' | 'right';
           bgColor: 'white' | 'light';
         };
-        media: string | Media;
+        image: string | Image;
         id?: string;
         blockName?: string;
-        blockType: 'textMediaBlock';
+        blockType: 'textImageBlock';
       }
     | {
-        media: string | Media;
+        image: string | Image;
         bgColor: 'white' | 'light';
         id?: string;
         blockName?: string;
-        blockType: 'mediaBlock';
+        blockType: 'imageBlock';
       }
   )[];
   parent?: string | Page;
@@ -70,9 +70,9 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
+ * via the `definition` "image".
  */
-export interface Media {
+export interface Image {
   id: string;
   alt: string;
   prefix?: string;
@@ -120,17 +120,17 @@ export interface Home {
           textPos: 'left' | 'right';
           bgColor: 'white' | 'light';
         };
-        media: string | Media;
+        image: string | Image;
         id?: string;
         blockName?: string;
-        blockType: 'textMediaBlock';
+        blockType: 'textImageBlock';
       }
     | {
-        media: string | Media;
+        image: string | Image;
         bgColor: 'white' | 'light';
         id?: string;
         blockName?: string;
-        blockType: 'mediaBlock';
+        blockType: 'imageBlock';
       }
   )[];
   _status?: 'draft' | 'published';

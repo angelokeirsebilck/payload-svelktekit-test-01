@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { TextMediaBlock } from "$lib/types/block-types";
+  import type { TextImageBlock } from "$lib/types/block-types";
   import Background from "../base/Background.svelte";
   import Container from "../base/Container.svelte";
   import ImageKit from "../base/ImageKit.svelte";
   import RichText from "../fields/richtext/RichText.svelte";
 
-  export let content: TextMediaBlock;
+  export let content: TextImageBlock;
   export let index: number;
 </script>
 
@@ -30,11 +30,11 @@
       >
         <ImageKit
           transformations={[["736"], ["600"], ["384"]]}
-          alt={content.media.alt}
-          src="{content.media.prefix}/{content.media.filename}"
+          alt={content.image.alt}
+          src="{content.image.prefix}/{content.image.filename}"
           sizes="(max-width: 768px) 100vw, 50vw"
-          height={content.media.height}
-          width={content.media.width}
+          height={content.image.height}
+          width={content.image.width}
           loading={index == 0 ? "eager" : "lazy"}
         />
       </div>
