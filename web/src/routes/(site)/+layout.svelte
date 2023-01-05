@@ -9,6 +9,7 @@
 
   let path: string;
   $: path = $page.url.pathname;
+
   let open: boolean;
 
   function openDrawer() {

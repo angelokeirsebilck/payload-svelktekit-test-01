@@ -13,10 +13,11 @@ export const load = (({ fetch, params, url }) => {
 
   const getHomeData = async (): Promise<Home> => {
     const res = await fetch(
-      `${env.PUBLIC_CMS_API_ENDPOINT}/home?locale=${params.locale}`
+      `${env.PUBLIC_CMS_API_ENDPOINT}/globals/home?locale=${params.locale}`
     );
     const data = await res.json();
-    const homePage = data.docs[0];
+
+    const homePage = data;
 
     if (!homePage) {
       throw error(404);

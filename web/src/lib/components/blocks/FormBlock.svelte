@@ -37,9 +37,8 @@
     };
 
     data.fields.forEach((field: IPayloadField) => {
-      const object = JSON.parse(`{"${field.name}": "test"}`);
-
       if (field.required) {
+        const object = JSON.parse(`{"${field.name}": "test"}`);
         if (
           field.blockType == "text" ||
           field.blockType == "select" ||
@@ -55,21 +54,26 @@
           });
         }
 
+        if (field.blockType == "fileUpload") {
+          object[field.name] = zod
+            .any()
+            .refine((files: any) => files?.length === 0, "File is required.");
+        }
+
         if (field.blockType == "email") {
           object[field.name] = zod
             .string()
             .min(1, { message: "This field is required." })
             .email({ message: "Please enter a valid e-mail." });
         }
+        //@ts-ignore
+        schema = schema.omit({ test: true });
+        //@ts-ignore
+        schema = schema.extend(object);
       }
-
-      //@ts-ignore
-      schema = schema.extend(object);
     });
 
-    //@ts-ignore
-    schema = schema.omit({ test: true });
-    // console.log(schema);
+    console.log(schema);
     schemaDone = true;
   });
 </script>

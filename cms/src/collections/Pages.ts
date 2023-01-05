@@ -5,6 +5,16 @@ import { pagesBeforeChange } from "../hooks/pagesBeforeSave";
 
 const Pages: CollectionConfig = {
   slug: "pages",
+  labels: {
+    singular: {
+      nl: "Standaard",
+      en: "Default",
+    },
+    plural: {
+      nl: "Standaard",
+      en: "Default",
+    },
+  },
   admin: {
     group: "Pages",
     defaultColumns: ["pageTitle"],
@@ -13,7 +23,6 @@ const Pages: CollectionConfig = {
       if (doc?.uri) {
         return `${process.env.PAYLOAD_PUBLIC_WEB_URL}/preview/pages?id=${doc.id}&locale=${locale}`;
       }
-
       return null;
     },
   },

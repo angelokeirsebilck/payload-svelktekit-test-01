@@ -3,6 +3,7 @@
   import TextBlock from "./TextBlock.svelte";
   import MediaBlock from "./MediaBlock.svelte";
   import TextMediaBlock from "./TextMediaBlock.svelte";
+  import FormBlock from "./FormBlock.svelte";
 
   export let blocks: Blocks = [];
 </script>
@@ -14,6 +15,8 @@
     <MediaBlock content={block} />
   {:else if block.blockType == "textImageBlock"}
     <TextMediaBlock {index} content={block} />
+  {:else if block.blockType == "formBlock"}
+    <FormBlock formId={block.form.id} />
   {:else}
     nieks
   {/if}

@@ -85,6 +85,13 @@
             class="aria-invalid:text-error-default"
           />
         {/if}
+        {#if field.blockType == "fileUpload"}
+          <input
+            type="file"
+            name={field.name}
+            class="aria-invalid:text-error-default"
+          />
+        {/if}
         {#if field.blockType == "select"}
           <select name={field.name} class="aria-invalid:text-error-default">
             {#each field.options as option}

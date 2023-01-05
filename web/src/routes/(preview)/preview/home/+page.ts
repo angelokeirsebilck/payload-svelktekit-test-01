@@ -9,11 +9,10 @@ export const load = (({ fetch, url, depends }) => {
 
   const searchParams = url.searchParams;
   const locale = searchParams.get("locale");
-  const id = searchParams.get("id");
 
   const getHomeData = async (): Promise<Home> => {
     const res = await fetch(
-      `${env.PUBLIC_CMS_API_ENDPOINT}/home/${id}?locale=${locale}&draft=true`,
+      `${env.PUBLIC_CMS_API_ENDPOINT}/globals/home?locale=${locale}&draft=true`,
       {
         credentials: "include",
       }

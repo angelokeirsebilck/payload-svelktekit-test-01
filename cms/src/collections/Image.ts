@@ -5,6 +5,9 @@ const Media: CollectionConfig = {
   access: {
     read: () => true,
   },
+  admin: {
+    group: "Assets",
+  },
   fields: [
     {
       name: "alt",
