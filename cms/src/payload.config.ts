@@ -43,8 +43,11 @@ export default buildConfig({
       collections: ["pages"],
       globals: ["home"],
       uploadsCollection: "image",
-      generateTitle: ({ doc }) =>
-        `${process.env.PAYLOAD_PUBLIC_WEBSITE_NAME} — ${doc.pageTitle.value}`,
+      generateTitle: ({ doc }) => {
+        //@ts-ignore
+        return `${process.env.PAYLOAD_PUBLIC_WEBSITE_NAME} — ${doc?.pageTitle?.value}`;
+      },
+
       generateDescription: ({ doc }) => {
         console.log(doc);
         return "test";
