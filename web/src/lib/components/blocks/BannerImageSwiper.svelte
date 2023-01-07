@@ -17,7 +17,7 @@
   //       return item.image;
   //     });
   //   });
-  console.log(content.items.image);
+  //   console.log(content.items.image);
 </script>
 
 <div class="h-auto my-12 lg:my-0 lg:h-[calc(100vh_-_122px)] flex items-center">

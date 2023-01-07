@@ -8,28 +8,12 @@
   import LangSwitcher from "$lib/components/LangSwitcher.svelte";
   import MobileDrawer from "$lib/components/MobileDrawer.svelte";
   import Footer from "$lib/components/layout/Footer.svelte";
+  import PageTransition from "$lib/components/base/PageTransition.svelte";
 
   const defaultLocalized = [["en"], ["nl"]];
 
   let path: string;
   $: path = $page.url.pathname;
-
-  // $: navItems = [] as Page[];
-
-  // navItems = data.nav.items.map((item: any) => {
-  //   return item.page as Page;
-  // });
-
-  // afterUpdate(async () => {
-  //   navItems = data.nav.items.map((item: any) => {
-  //     return item.page as Page;
-  //   });
-  // });
-  // onMount(async () => {
-  //   navItems = data.nav.items.map((item: any) => {
-  //     return item.page as Page;
-  //   });
-  // });
   let open: boolean;
 
   function openDrawer() {
@@ -41,7 +25,7 @@
   }
 </script>
 
-<div class="flex flex-col min-h-screen">
+<div class="flex flex-col min-h-screen overflow-hidden">
   <header class="py-10 border-b-primary-100 border-b">
     <div class="container px-8 mx-auto">
       <div class="flex justify-between">
@@ -92,9 +76,11 @@
       </div>
     </div>
   </header>
-  <main class="">
+
+  <PageTransition pathname={data.pathname}>
     <slot />
-  </main>
+  </PageTransition>
+
   <Footer />
 </div>
 

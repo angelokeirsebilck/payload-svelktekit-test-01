@@ -75,7 +75,7 @@
       }
     });
 
-    console.log(schema);
+    // console.log(schema);
     schemaDone = true;
   });
 </script>
