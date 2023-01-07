@@ -10,9 +10,9 @@
   export let height: string;
   export let loading: "eager" | "lazy" | null | undefined = "lazy";
 
-  const srcset = (): string => {
+  const srcset = (type: string): string => {
     let srcsetString: string = "";
-    const srcsetParts = srcsetPart();
+    const srcsetParts = srcsetPart(type);
 
     srcsetParts.forEach((part) => {
       srcsetString += `${part[0]} ${part[1]}, `;
@@ -21,7 +21,7 @@
     return srcsetString;
   };
 
-  const srcsetPart = (): string[][] => {
+  const srcsetPart = (type: string): string[][] => {
     let srcsetArray: string[][] = [];
 
     transformations.forEach((transformation) => {
@@ -34,7 +34,7 @@
           subSet += `${value},`;
         }
       });
-      subSet += `f-auto`;
+      subSet += `f-${type}`;
 
       srcsetArray.push([
         `${env.PUBLIC_IMAGE_KIT_URL}/${subSet}/${src}`,
@@ -44,19 +44,21 @@
     return srcsetArray;
   };
 
-  srcsetPart();
+  // srcsetPart();
 </script>
 
 {#if loading == "eager"}
-  <PreloadImageKit {sizes} srcset={srcset()} />
+  <PreloadImageKit {sizes} srcset={srcset("avif")} />
 {/if}
 
 <picture>
+  <source srcset={srcset("avif")} {sizes} type="image/avif" />
+  <source srcset={srcset("webp")} {sizes} type="image/webp" />
   <img
-    src={srcsetPart()[0][0]}
+    src={srcsetPart("jpeg")[0][0]}
     {width}
     {height}
-    srcset={srcset()}
+    srcset={srcset("jpeg")}
     {sizes}
     {alt}
     {loading}

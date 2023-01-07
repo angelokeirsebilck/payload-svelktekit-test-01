@@ -9,6 +9,6 @@
     as="image"
     imagesrcset={srcset}
     imagesizes={sizes}
-    type="image/webp"
+    type="image/avif"
   />
 </svelte:head>

@@ -5,9 +5,7 @@ import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import nestedDocs from "@payloadcms/plugin-nested-docs";
 import formBuilder from "@payloadcms/plugin-form-builder";
 import seo from "@payloadcms/plugin-seo";
-import Categories from "./collections/Categories";
-// import Posts from "./collections/Posts";
-// import Tags from "./collections/Tags";
+import NewsCategories from "./collections/NewsCategories";
 import Users from "./collections/Users";
 import Pages from "./collections/Pages";
 import Nav from "./globals/Nav";
@@ -23,7 +21,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Pages, Categories, Users, Image, File],
+  collections: [Pages, NewsCategories, Users, Image, File],
   globals: [HomeGlobal, Nav, Socials],
   localization: {
     locales: ["nl", "en"],

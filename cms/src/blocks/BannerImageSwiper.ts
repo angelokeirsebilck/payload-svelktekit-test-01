@@ -1,6 +1,5 @@
 import { Block } from "payload/types";
 import { ImageField } from "../fields/Image";
-import { OnlyBoldRichText } from "../fields/OnlyBoldRichText";
 
 const BannerImageSwiper: Block = {
   slug: "bannerImageSwiperBlock",
@@ -11,8 +10,13 @@ const BannerImageSwiper: Block = {
       maxLength: 200,
       required: true,
       localized: true,
+      admin: {
+        description: ({ value }) =>
+          `Use <strong> text </strong> to place text in primary color. Maximum 200 characters. ${
+            typeof value === "string" ? 200 - value.length : "200"
+          } characters left.`,
+      },
     },
-    OnlyBoldRichText,
     {
       name: "items",
       label: {

@@ -23,7 +23,7 @@
 <div class="h-auto my-12 lg:my-0 lg:h-[calc(100vh_-_122px)] flex items-center">
   <Container noMargin={true} classes="w-full relative aspect-[1920/800]">
     <div
-      class="lg:absolute text-3xl lg:text-5xl mb-6 lg:mb-0 font-light prose prose-strong:text-primary-default leading-tight prose-strong:font-medium prose-p:text-5xl bg-white/70 z-20 lg:p-6 top-16 left-24 max-w-3xl"
+      class="lg:absolute text-3xl lg:text-5xl mb-6 lg:mb-0 font-light prose prose-strong:text-primary-default leading-tight prose-strong:font-normal prose-p:text-5xl bg-white/80 z-20 lg:p-6 top-16 left-24 max-w-3xl"
     >
       {@html content.title}
     </div>
