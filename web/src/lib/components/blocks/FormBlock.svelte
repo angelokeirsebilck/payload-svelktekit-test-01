@@ -3,6 +3,7 @@
   import { env } from "$env/dynamic/public";
   import * as zod from "zod";
   import Form from "../forms/Form.svelte";
+  import type { FormBlock } from "$lib/types/block-types";
 
   interface IPayloadOption {
     name: string;
@@ -21,22 +22,23 @@
 
   let fields: any;
   let schema = zod.object({
-    test: zod.string(),
+    removeLater: zod.string(),
   });
   let schemaDone: boolean = false;
-  export let formId: string;
+
+  export let content: FormBlock;
 
   onMount(async () => {
-    const res = await fetch(`${env.PUBLIC_CMS_API_ENDPOINT}/forms/${formId}`);
-    const data = await res.json();
-    fields = data.fields;
+    // const res = await fetch(`${env.PUBLIC_CMS_API_ENDPOINT}/forms/${formId}`);
+    // const data = await res.json();
+    fields = content.form.fields;
     // console.log(fields);
 
     const isRequired: zod.ZodErrorMap = (val, ctx) => {
       return { message: "This field is required." };
     };
 
-    data.fields.forEach((field: IPayloadField) => {
+    fields.forEach((field: IPayloadField) => {
       if (field.required) {
         const object = JSON.parse(`{"${field.name}": "test"}`);
         if (
@@ -67,7 +69,7 @@
             .email({ message: "Please enter a valid e-mail." });
         }
         //@ts-ignore
-        schema = schema.omit({ test: true });
+        schema = schema.omit({ removeLater: true });
         //@ts-ignore
         schema = schema.extend(object);
       }
@@ -78,6 +80,6 @@
   });
 </script>
 
-{#if fields && schemaDone}
-  <Form {schema} {fields} {formId} />
+{#if fields && schemaDone && content.form.id}
+  <Form {schema} {fields} formId={content.form.id} />
 {/if}

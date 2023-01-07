@@ -9,7 +9,7 @@
   <div class="mx-auto max-w-max">
     <main class="sm:flex">
       <p
-        class="text-4xl font-bold tracking-tight text-blue-300 sm:text-5xl unstyled"
+        class="text-4xl font-bold tracking-tight text-primary-400 sm:text-5xl unstyled"
       >
         {$page.status}
       </p>
@@ -36,7 +36,7 @@
           >
             <a
               href="/{$page.data.locale}"
-              class="inline-flex unstyled items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              class="inline-flex unstyled items-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
             >
               {trans[$page.data.locale][`goBackHome`]}</a
             >

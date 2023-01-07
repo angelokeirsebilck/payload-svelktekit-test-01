@@ -1,15 +1,25 @@
 <script lang="ts">
   import type { LayoutData } from "./$types";
+  import { afterUpdate } from "svelte";
+  import type { Page } from "$lib/types/payload-types";
   import logo from "$lib/assets/svg/logo-test.svg";
   export let data: LayoutData;
   import { page } from "$app/stores";
   import LangSwitcher from "$lib/components/LangSwitcher.svelte";
   import MobileDrawer from "$lib/components/MobileDrawer.svelte";
+  import Footer from "$lib/components/layout/Footer.svelte";
+
   const defaultLocalized = [["en"], ["nl"]];
 
   let path: string;
   $: path = $page.url.pathname;
 
+  $: navItems = [] as Page[];
+  afterUpdate(async () => {
+    navItems = data.nav.items.map((item: any) => {
+      return item.page as Page;
+    });
+  });
   let open: boolean;
 
   function openDrawer() {
@@ -31,14 +41,14 @@
         <div class="flex items-center">
           <nav class="hidden lg:flex">
             <ul class="flex gap-x-8">
-              {#each data.nav.items as navItem}
+              {#each navItems as navItem}
                 <li>
                   <a
-                    href="/{data.locale}/{navItem.page.uri}"
-                    class="{`/${data.locale}/${navItem.page.uri}` == path
+                    href="/{data.locale}/{navItem.uri}"
+                    class="{`/${data.locale}/${navItem.uri}` == path
                       ? '!text-primary-600'
                       : ''} text-lg font-normal duration-300 transition-colors hover:text-primary-default decoration-none"
-                    >{navItem.page.pageTitle}</a
+                    >{navItem.pageTitle}</a
                   >
                 </li>
               {/each}
@@ -75,10 +85,7 @@
   <main class="">
     <slot />
   </main>
-
-  <footer class="mt-auto py-4">
-    <div class="container px-8 mx-auto">Footer</div>
-  </footer>
+  <Footer />
 </div>
 
 <MobileDrawer

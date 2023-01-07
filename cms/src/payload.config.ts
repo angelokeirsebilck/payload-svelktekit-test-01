@@ -12,6 +12,7 @@ import Users from "./collections/Users";
 import Pages from "./collections/Pages";
 import Nav from "./globals/Nav";
 import HomeGlobal from "./globals/Home";
+import Socials from "./globals/Socials";
 import Image from "./collections/Image";
 import File from "./collections/Files";
 import { FileUpload } from "./blocks/FileUpload";
@@ -23,11 +24,27 @@ export default buildConfig({
     user: Users.slug,
   },
   collections: [Pages, Categories, Users, Image, File],
-  globals: [Nav, HomeGlobal],
+  globals: [HomeGlobal, Nav, Socials],
   localization: {
     locales: ["nl", "en"],
     defaultLocale: "nl",
     fallback: true,
+  },
+  i18n: {
+    fallbackLng: "en", // default
+    debug: false, // default
+    resources: {
+      en: {
+        validationMessages: {
+          urlRegEx: "Please provide a valid url.",
+        },
+      },
+      nl: {
+        validationMessages: {
+          urlRegEx: "Dit is geen geldige url.",
+        },
+      },
+    },
   },
   typescript: {
     outputFile: path.resolve(

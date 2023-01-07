@@ -1,4 +1,5 @@
 import { Field } from "payload/types";
+import { BannerImageSwiper } from "./BannerImageSwiper";
 import { FormBlock } from "./Form";
 import { ImageBlock } from "./Image";
 import { TextBlock } from "./Text";
@@ -8,7 +9,7 @@ const pageBuilder: Field = {
   label: "Page Builder",
   name: "block",
   type: "blocks",
-  blocks: [TextBlock, TextImageBlock, ImageBlock, FormBlock],
+  blocks: [BannerImageSwiper, TextBlock, TextImageBlock, ImageBlock, FormBlock],
 };
 
 export { pageBuilder };

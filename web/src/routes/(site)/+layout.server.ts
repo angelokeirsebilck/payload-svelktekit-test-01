@@ -13,8 +13,15 @@ export const load = (({ url }) => {
     const data = await res.json();
     return data;
   };
+
+  const getSocials = async (): Promise<Nav> => {
+    const res = await fetch(`${env.PUBLIC_CMS_API_ENDPOINT}/globals/Socials`);
+    const data = await res.json();
+    return data;
+  };
   return {
     nav: getNav(),
+    socials: getSocials(),
     locale,
     pathname: url.pathname,
   };

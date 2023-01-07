@@ -8,25 +8,25 @@
 export interface Config {}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "nav".
+ * via the `definition` "home".
  */
-export interface Nav {
+export interface Home {
   id: string;
-  items: {
-    page: string | Page;
-    id?: string;
-  }[];
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: string;
-  slug?: string;
-  uri?: string;
   pageTitle: string;
   block: (
+    | {
+        title: string;
+        text: {
+          [k: string]: unknown;
+        }[];
+        items: {
+          image: string | Image;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: 'bannerImageSwiperBlock';
+      }
     | {
         text: {
           [k: string]: unknown;
@@ -68,16 +68,7 @@ export interface Page {
     description?: string;
     image?: string | Image;
   };
-  parent?: string | Page;
-  breadcrumbs: {
-    doc?: string | Page;
-    url?: string;
-    label?: string;
-    id?: string;
-  }[];
   _status?: 'draft' | 'published';
-  createdAt: string;
-  updatedAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -203,12 +194,38 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "home".
+ * via the `definition` "nav".
  */
-export interface Home {
+export interface Nav {
   id: string;
+  items: {
+    page: string | Page;
+    id?: string;
+  }[];
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  slug?: string;
+  uri?: string;
   pageTitle: string;
   block: (
+    | {
+        title: string;
+        text: {
+          [k: string]: unknown;
+        }[];
+        items: {
+          image: string | Image;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: 'bannerImageSwiperBlock';
+      }
     | {
         text: {
           [k: string]: unknown;
@@ -250,7 +267,28 @@ export interface Home {
     description?: string;
     image?: string | Image;
   };
+  parent?: string | Page;
+  breadcrumbs: {
+    doc?: string | Page;
+    url?: string;
+    label?: string;
+    id?: string;
+  }[];
   _status?: 'draft' | 'published';
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "socials".
+ */
+export interface Social {
+  id: string;
+  social: {
+    social: 'facebook' | 'instagram';
+    url: string;
+    id?: string;
+  }[];
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

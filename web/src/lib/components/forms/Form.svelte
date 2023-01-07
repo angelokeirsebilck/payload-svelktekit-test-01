@@ -4,8 +4,8 @@
   import { validator } from "@felte/validator-zod";
   import { reporter, ValidationMessage } from "@felte/reporter-svelte";
   import { env } from "$env/dynamic/public";
-  import { toastStore } from "@skeletonlabs/skeleton";
-  import type { ToastSettings } from "@skeletonlabs/skeleton";
+  // import { toastStore } from "@skeletonlabs/skeleton";
+  // import type { ToastSettings } from "@skeletonlabs/skeleton";
   export let fields: any = null;
   export let schema: any = null;
   export let formId: string;
@@ -37,14 +37,14 @@
     },
     onSuccess(response: any, context) {
       reset();
-      const formResponse: Form = response.doc.form;
-      const t: ToastSettings = {
-        message: formResponse.confirmationMessage[0].children[0].text,
-        classes: "bg-success-500 rounded-md text-black",
-        autohide: true,
-        timeout: 3000,
-      };
-      toastStore.trigger(t);
+      // const formResponse: Form = response.doc.form;
+      // const t: ToastSettings = {
+      //   message: formResponse.confirmationMessage[0].children[0].text,
+      //   classes: "bg-success-500 rounded-md text-black",
+      //   autohide: true,
+      //   timeout: 3000,
+      // };
+      // toastStore.trigger(t);
     },
     extend: [validator({ schema }), reporter],
   });
