@@ -14,7 +14,7 @@
 {#if open}
   <div
     transition:fly={{ duration: 500, x: 500, opacity: 0.5, easing: quintOut }}
-    class="min-h-full fixed right-0 top-0 bottom-0 transform  bg-primary-50 px-10 flex flex-col"
+    class="min-h-full fixed right-0 top-0 bottom-0 transform z-[9999]  bg-primary-50 px-10 flex flex-col"
   >
     <div
       class="mt-10 group cursor-pointer inline-flex self-end"
