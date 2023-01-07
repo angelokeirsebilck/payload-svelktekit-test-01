@@ -10,13 +10,14 @@
   import { onMount } from "svelte";
   export let content: BannerImageSwiperBlock;
 
-  $: images = [] as Image[];
+  //   $: images = [] as Image[];
 
-  onMount(() => {
-    images = content.items.map((item: any) => {
-      return item.image;
-    });
-  });
+  //   onMount(() => {
+  //     images = content.items.map((item: any) => {
+  //       return item.image;
+  //     });
+  //   });
+  console.log(content.items.image);
 </script>
 
 <div class="h-auto my-12 lg:my-0 lg:h-[calc(100vh_-_122px)] flex items-center">
@@ -33,7 +34,7 @@
       slidesPerView={1}
       height="auto"
     >
-      {#each images as slide}
+      {#each content.items as slide}
         <SwiperSlide>
           <ImageKit
             transformations={[
@@ -43,11 +44,11 @@
               ["768", "ar-1920-800"],
               ["640", "ar-1920-800"],
             ]}
-            alt={slide.alt}
-            src="{slide.prefix}/{slide.filename}"
+            alt={slide.image.alt}
+            src="{slide.image.prefix}/{slide.image.filename}"
             sizes=" 100vw"
-            height={slide.height?.toString()}
-            width={slide.width?.toString()}
+            height={slide.image.height?.toString()}
+            width={slide.image.width?.toString()}
             loading="eager"
           />
         </SwiperSlide>

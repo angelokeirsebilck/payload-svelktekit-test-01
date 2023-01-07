@@ -7,8 +7,8 @@
   <link
     rel="preload"
     as="image"
-    fetchpriority="high"
     imagesrcset={srcset}
     imagesizes={sizes}
+    type="image/webp"
   />
 </svelte:head>
