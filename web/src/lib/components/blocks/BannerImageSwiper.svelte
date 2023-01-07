@@ -1,29 +1,18 @@
 <script lang="ts">
   import type { BannerImageSwiperBlock } from "$lib/types/block-types";
-  import type { Image } from "$lib/types/payload-types";
   import { Pagination } from "swiper";
   import Container from "../base/Container.svelte";
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import "swiper/css";
   import "swiper/css/pagination";
   import ImageKit from "../base/ImageKit.svelte";
-  import { onMount } from "svelte";
   export let content: BannerImageSwiperBlock;
-
-  //   $: images = [] as Image[];
-
-  //   onMount(() => {
-  //     images = content.items.map((item: any) => {
-  //       return item.image;
-  //     });
-  //   });
-  //   console.log(content.items.image);
 </script>
 
 <div class="h-auto my-12 lg:my-0 lg:h-[calc(100vh_-_122px)] flex items-center">
   <Container noMargin={true} classes="w-full relative aspect-[1920/800]">
     <div
-      class="lg:absolute text-3xl lg:text-5xl mb-6 lg:mb-0 font-light prose prose-strong:text-primary-default leading-tight prose-strong:font-normal prose-p:text-5xl bg-white/80 z-20 lg:p-6 top-16 left-24 max-w-3xl"
+      class="lg:absolute text-3xl lg:text-5xl mb-6 lg:mb-0 font-light prose prose-strong:text-primary-default leading-tight prose-strong:font-normal prose-p:text-5xl bg-white/80 z-20 lg:p-8 top-16 left-24 max-w-3xl"
     >
       {@html content.title}
     </div>
