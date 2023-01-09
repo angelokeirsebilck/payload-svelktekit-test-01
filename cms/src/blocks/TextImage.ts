@@ -3,12 +3,13 @@ import { BackgroundColor } from "../fields/BackgroundColor";
 import { ImageField } from "../fields/Image";
 import { TextPosition } from "../fields/TextPosition";
 import { DefaultRichText } from "../fields/DefaultRichtText";
+import link from "../fields/link";
 
 const TextImageBlock: Block = {
   slug: "textImageBlock",
   fields: [
     DefaultRichText,
-
+    link(),
     {
       label: {
         en: "Settings",
