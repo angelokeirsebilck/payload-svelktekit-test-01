@@ -12,7 +12,7 @@
 
   let isInView: boolean;
   const options: Options = {
-    threshold: 0.4,
+    threshold: 0.6,
   };
 </script>
 
@@ -46,9 +46,15 @@
           <div
             class="absolute bg-secondary-default  w-80 aspect-square -top-12 -right-12 z-10"
           />
+
           <div class="relative overflow-hidden">
             <div
               class="absolute top-0 z-10 right-0 origin-right transition-all w-full ease-in-out bg-primary-default h-full duration-500 "
+            />
+            <div
+              class="absolute bg-secondary-default w-40 aspect-square rounded-full delay-700 transition-all duration-1000 transform -bottom-20 -left-20 z-50 {isInView
+                ? 'translate-x-0'
+                : '-translate-x-full'}"
             />
             <div
               class=" transition-all transform origin-right right-0 relative z-20 ease-out bg-primary-200 duration-[1500ms] {isInView
