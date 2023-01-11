@@ -36,9 +36,11 @@
     "@felte/reporter-svelte": "^1.1.4",
     "@felte/validator-zod": "^1.0.12",
     "@twicpics/components": "^0.14.2",
+    "class-variance-authority": "^0.4.0",
     "felte": "^1.2.6",
     "json-schema-to-zod": "^0.6.0",
     "slate": "^0.87.0",
+    "svelte-inview": "^3.0.2",
     "swiper": "^8.4.5",
     "zod": "^3.20.2"
   }

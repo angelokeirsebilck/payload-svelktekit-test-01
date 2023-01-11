@@ -16,9 +16,6 @@ export interface Home {
   block: (
     | {
         title: string;
-        text: {
-          [k: string]: unknown;
-        }[];
         items: {
           image: string | Image;
           id?: string;
@@ -40,8 +37,20 @@ export interface Home {
         text: {
           [k: string]: unknown;
         }[];
+        link: {
+          type?: 'reference' | 'custom';
+          newTab?: boolean;
+          reference: {
+            value: string | Page;
+            relationTo: 'pages';
+          };
+          url: string;
+          label: string;
+          appearance?: 'default' | 'primary' | 'secondary';
+        };
         settings: {
           textPos: 'left' | 'right';
+          textVerAlign: 'self-start' | 'self-center' | 'self-end';
           bgColor: 'white' | 'light';
         };
         image: string | Image;
@@ -94,6 +103,90 @@ export interface Image {
       filename?: string;
     };
   };
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  slug?: string;
+  uri?: string;
+  pageTitle: string;
+  block: (
+    | {
+        title: string;
+        items: {
+          image: string | Image;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: 'bannerImageSwiperBlock';
+      }
+    | {
+        text: {
+          [k: string]: unknown;
+        }[];
+        bgColor: 'white' | 'light';
+        id?: string;
+        blockName?: string;
+        blockType: 'textBlock';
+      }
+    | {
+        text: {
+          [k: string]: unknown;
+        }[];
+        link: {
+          type?: 'reference' | 'custom';
+          newTab?: boolean;
+          reference: {
+            value: string | Page;
+            relationTo: 'pages';
+          };
+          url: string;
+          label: string;
+          appearance?: 'default' | 'primary' | 'secondary';
+        };
+        settings: {
+          textPos: 'left' | 'right';
+          textVerAlign: 'self-start' | 'self-center' | 'self-end';
+          bgColor: 'white' | 'light';
+        };
+        image: string | Image;
+        id?: string;
+        blockName?: string;
+        blockType: 'textImageBlock';
+      }
+    | {
+        image: string | Image;
+        bgColor: 'white' | 'light';
+        id?: string;
+        blockName?: string;
+        blockType: 'imageBlock';
+      }
+    | {
+        form: string | Form;
+        id?: string;
+        blockName?: string;
+        blockType: 'formBlock';
+      }
+  )[];
+  meta: {
+    title?: string;
+    description?: string;
+    image?: string | Image;
+  };
+  parent?: string | Page;
+  breadcrumbs: {
+    doc?: string | Page;
+    url?: string;
+    label?: string;
+    id?: string;
+  }[];
+  _status?: 'draft' | 'published';
   createdAt: string;
   updatedAt: string;
 }
@@ -205,81 +298,6 @@ export interface Nav {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: string;
-  slug?: string;
-  uri?: string;
-  pageTitle: string;
-  block: (
-    | {
-        title: string;
-        text: {
-          [k: string]: unknown;
-        }[];
-        items: {
-          image: string | Image;
-          id?: string;
-        }[];
-        id?: string;
-        blockName?: string;
-        blockType: 'bannerImageSwiperBlock';
-      }
-    | {
-        text: {
-          [k: string]: unknown;
-        }[];
-        bgColor: 'white' | 'light';
-        id?: string;
-        blockName?: string;
-        blockType: 'textBlock';
-      }
-    | {
-        text: {
-          [k: string]: unknown;
-        }[];
-        settings: {
-          textPos: 'left' | 'right';
-          bgColor: 'white' | 'light';
-        };
-        image: string | Image;
-        id?: string;
-        blockName?: string;
-        blockType: 'textImageBlock';
-      }
-    | {
-        image: string | Image;
-        bgColor: 'white' | 'light';
-        id?: string;
-        blockName?: string;
-        blockType: 'imageBlock';
-      }
-    | {
-        form: string | Form;
-        id?: string;
-        blockName?: string;
-        blockType: 'formBlock';
-      }
-  )[];
-  meta: {
-    title?: string;
-    description?: string;
-    image?: string | Image;
-  };
-  parent?: string | Page;
-  breadcrumbs: {
-    doc?: string | Page;
-    url?: string;
-    label?: string;
-    id?: string;
-  }[];
-  _status?: 'draft' | 'published';
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "socials".
  */
 export interface Social {
@@ -292,11 +310,11 @@ export interface Social {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
+ * via the `definition` "newsCategory".
  */
-export interface Category {
+export interface NewsCategory {
   id: string;
-  name?: string;
+  name: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

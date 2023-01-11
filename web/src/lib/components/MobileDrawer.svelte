@@ -13,11 +13,11 @@
 
 {#if open}
   <div
-    transition:fly={{ duration: 500, x: 500, opacity: 0.5, easing: quintOut }}
-    class="min-h-full fixed right-0 top-0 bottom-0 transform z-[9999]  bg-primary-50 px-10 flex flex-col"
+    transition:fly={{ duration: 500, x: 1024, opacity: 0.5, easing: quintOut }}
+    class="min-h-full fixed right-0 left-0 top-0 bottom-0 transform z-[9999] bg-secondary-50 px-10 flex flex-col items-center justify-center"
   >
     <div
-      class="mt-10 group cursor-pointer inline-flex self-end"
+      class="group cursor-pointer inline-flex self-end absolute right-8 top-12"
       on:keydown
       on:click
     >
@@ -27,7 +27,7 @@
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="w-8 h-8 group-hover:rotate-45 group-hover:stroke-red-500 transition-transform duration-300"
+        class="w-8 h-8 group-hover:rotate-45 group-hover:stroke-secondary-default transition-transform duration-300"
       >
         <path
           stroke-linecap="round"
@@ -37,9 +37,9 @@
       </svg>
     </div>
     <nav class="">
-      <ul class="flex flex-col gap-y-8 mt-10 items-end">
+      <ul class="flex flex-col gap-y-8  text-center">
         {#each navItems.items as navItem}
-          <li>
+          <li class="">
             <a
               on:keydown
               on:click

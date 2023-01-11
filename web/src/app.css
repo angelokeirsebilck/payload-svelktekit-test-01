@@ -103,7 +103,7 @@
   }
 
   :root {
-    --swiper-pagination-color: #fb8500;
+    --swiper-pagination-color: #006d77;
     --swiper-pagination-bullet-width: 12px;
     --swiper-pagination-bullet-height: 12px;
   }
@@ -133,8 +133,14 @@
   }
 }
 
+@layer utilities {
+}
+
 @layer components {
   .container {
     @apply w-full px-4 mx-auto max-w-container;
+  }
+  .swiper-pagination-bullet {
+    @apply !rounded-none;
   }
 }

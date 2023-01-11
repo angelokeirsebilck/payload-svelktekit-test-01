@@ -6,6 +6,7 @@
   export let transformations: string[][];
   export let sizes: string;
   export let alt: string;
+  export let classes: string = "";
   export let width: string;
   export let height: string;
   export let loading: "eager" | "lazy" | null | undefined = "lazy";
@@ -62,5 +63,6 @@
     {sizes}
     {alt}
     {loading}
+    class={classes}
   />
 </picture>
