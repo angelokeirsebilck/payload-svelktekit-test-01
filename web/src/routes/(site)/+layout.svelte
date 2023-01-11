@@ -25,7 +25,7 @@
   }
 </script>
 
-<div class="flex flex-col min-h-screen overflow-hidden">
+<div class="flex flex-col min-h-screen overflow-hidden text-black-default">
   <header class="py-6 bg-primary-default/5">
     <div class="container px-8 mx-auto">
       <div class="flex justify-between">

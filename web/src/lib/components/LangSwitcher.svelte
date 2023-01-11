@@ -45,7 +45,7 @@
     leaveTo="opacity-0"
   >
     <MenuItems
-      class="absolute right-0 px-3 py-2 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+      class="absolute right-0 px-3 py-2 origin-top-right divide-y divide-gray-100 rounded-none bg-white shadow-lg ring-0 ring-black ring-opacity-5 focus:outline-none"
     >
       {#each localized as locale}
         {#if locale[0] != currentLocale}

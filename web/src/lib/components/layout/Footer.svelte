@@ -2,7 +2,7 @@
   import type { Page, Social } from "$lib/types/payload-types";
   import { afterUpdate } from "svelte";
   import { page } from "$app/stores";
-  import logo from "$lib/assets/svg/logo-test.svg";
+  import logo from "$lib/assets/svg/logo-demo.svg";
   import SocialIcons from "../base/SocialIcons.svelte";
   import { env } from "$env/dynamic/public";
 
@@ -25,7 +25,7 @@
     <div class="flex flex-col">
       <div class="self-center">
         <a href="/{$page.data.locale}">
-          <img src={logo} alt="Logoipsum Logo" />
+          <img src={logo} alt="Logoipsum Logo" width="120" height="56" />
         </a>
       </div>
 

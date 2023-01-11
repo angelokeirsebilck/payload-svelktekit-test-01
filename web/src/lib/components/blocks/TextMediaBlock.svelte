@@ -12,7 +12,7 @@
 
   let isInView: boolean;
   const options: Options = {
-    threshold: 0.5,
+    threshold: 0.4,
   };
 </script>
 
@@ -38,30 +38,33 @@
           </div>
         </div>
         <div
-          class="col-span-12 md:row-start-1 md:col-span-6 relative overflow-hidden {content
+          class="col-span-12 md:row-start-1 md:col-span-5 relative mt-12 md:mt-0 {content
             .settings.textPos == 'right'
             ? 'order-2 md:order-1'
-            : 'order-2 md:col-start-7'}"
+            : 'order-2 md:col-start-8'}"
         >
           <div
-            class="absolute top-0 z-10 right-0 origin-right transition-all w-full ease-in-out bg-primary-100 h-full duration-500 {isInView
-              ? 'translate-x-0'
-              : 'translate-x-full'}"
+            class="absolute bg-secondary-default  w-80 aspect-square -top-12 -right-12 z-10"
           />
-          <div
-            class=" transition-all transform origin-right right-0 relative z-20 ease-out bg-primary-200 delay-200 duration-700 {isInView
-              ? 'translate-x-0'
-              : 'translate-x-full'}"
-          >
-            <ImageKit
-              transformations={[["736"], ["600"], ["384"]]}
-              alt={content.image.alt}
-              src="{content.image.prefix}/{content.image.filename}"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              height={content.image.height}
-              width={content.image.width}
-              loading={index == 0 ? "eager" : "lazy"}
+          <div class="relative overflow-hidden">
+            <div
+              class="absolute top-0 z-10 right-0 origin-right transition-all w-full ease-in-out bg-primary-default h-full duration-500 "
             />
+            <div
+              class=" transition-all transform origin-right right-0 relative z-20 ease-out bg-primary-200 duration-[1500ms] {isInView
+                ? 'translate-x-0'
+                : 'translate-x-full'}"
+            >
+              <ImageKit
+                transformations={[["736"], ["600"], ["384"]]}
+                alt={content.image.alt}
+                src="{content.image.prefix}/{content.image.filename}"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                height={content.image.height}
+                width={content.image.width}
+                loading={index == 0 ? "eager" : "lazy"}
+              />
+            </div>
           </div>
         </div>
       </div>

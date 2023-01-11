@@ -69,12 +69,65 @@ module.exports = {
         error: {
           default: "#f87171",
         },
+        black: {
+          default: "#303030",
+        },
       },
       maxWidth: {
         container: "1536px",
       },
       aria: {
         invalid: 'invalid="true"',
+      },
+      typography: ({ theme }) => {
+        const fontSize = (size) => {
+          const result = theme(`fontSize.${size}`);
+          return Array.isArray(result) ? result[0] : result;
+        };
+
+        const lineHeight = (size) => {
+          const result = theme(`fontSize.${size}`);
+
+          return Array.isArray(result) ? result[1]["lineHeight"] : "1.5";
+        };
+
+        const letterSpacing = (size) => {
+          const result = theme(`fontSize.${size}`);
+
+          return Array.isArray(result) ? result[1]["letterSpacing"] : "normal";
+        };
+        return {
+          DEFAULT: {
+            css: {
+              "--tw-prose-headings": theme("colors.black.default"),
+              "--tw-prose-body": theme("colors.black.default"),
+              h1: {
+                fontWeight: 500,
+                fontSize: fontSize("5xl"),
+                lineHeight: lineHeight("5xl"),
+                letterSpacing: letterSpacing("5xl"),
+              },
+              h2: {
+                fontWeight: 500,
+                fontSize: fontSize("4xl"),
+                lineHeight: lineHeight("4xl"),
+                letterSpacing: letterSpacing("4xl"),
+              },
+              h3: {
+                fontWeight: 500,
+                fontSize: fontSize("3xl"),
+                lineHeight: lineHeight("3xl"),
+                letterSpacing: letterSpacing("3xl"),
+              },
+              h4: {
+                fontWeight: 500,
+                fontSize: fontSize("2xl"),
+                lineHeight: lineHeight("2xl"),
+                letterSpacing: letterSpacing("2xl"),
+              },
+            },
+          },
+        };
       },
     },
   },
