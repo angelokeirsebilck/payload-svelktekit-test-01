@@ -38,7 +38,7 @@ export interface Home {
           [k: string]: unknown;
         }[];
         link: {
-          type?: 'reference' | 'custom';
+          type: 'reference' | 'custom';
           newTab?: boolean;
           reference: {
             value: string | Page;
@@ -46,7 +46,7 @@ export interface Home {
           };
           url: string;
           label: string;
-          appearance?: 'default' | 'primary' | 'secondary';
+          appearance?: 'primary' | 'secondary';
         };
         settings: {
           textPos: 'left' | 'right';
@@ -140,7 +140,7 @@ export interface Page {
           [k: string]: unknown;
         }[];
         link: {
-          type?: 'reference' | 'custom';
+          type: 'reference' | 'custom';
           newTab?: boolean;
           reference: {
             value: string | Page;
@@ -148,7 +148,7 @@ export interface Page {
           };
           url: string;
           label: string;
-          appearance?: 'default' | 'primary' | 'secondary';
+          appearance?: 'primary' | 'secondary';
         };
         settings: {
           textPos: 'left' | 'right';

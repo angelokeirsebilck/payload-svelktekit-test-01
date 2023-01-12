@@ -12,3 +12,5 @@ export type TextImageBlock = Extract<
   Blocks[0],
   { blockType: "textImageBlock" }
 >;
+
+export type LinkType = TextImageBlock["link"]["type"];

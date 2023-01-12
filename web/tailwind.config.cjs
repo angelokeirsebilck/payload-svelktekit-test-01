@@ -4,9 +4,9 @@ module.exports = {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   safelist: [
     ".swiper-pagination-bullet",
-    "flex-center",
-    "flex-start",
-    "flex-end",
+    "self-center",
+    "self-start",
+    "self-end",
   ],
   theme: {
     extend: {

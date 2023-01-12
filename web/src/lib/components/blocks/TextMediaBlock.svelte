@@ -6,6 +6,7 @@
   import Container from "../base/Container.svelte";
   import ImageKit from "../base/ImageKit.svelte";
   import RichText from "../fields/richtext/RichText.svelte";
+  import Button from "../fields/ui/Button.svelte";
 
   export let content: TextImageBlock;
   export let index: number;
@@ -33,8 +34,20 @@
             ? 'order-1 md:order-2 md:col-start-8'
             : 'order-1'}"
         >
-          <div class="prose {content.settings.textVerAlign}">
-            <RichText textNodes={content.text} />
+          <div class="flex flex-col">
+            <div class="prose {content.settings.textVerAlign}">
+              <RichText textNodes={content.text} />
+            </div>
+
+            {#if content.link}
+              <div class="mt-4 md:mt-12">
+                <Button
+                  link={content.link}
+                  intent={content.link.appearance}
+                  type={content.link.type}
+                />
+              </div>
+            {/if}
           </div>
         </div>
         <div
@@ -57,7 +70,7 @@
                 : '-translate-x-full'}"
             />
             <div
-              class=" transition-all transform origin-right right-0 relative z-20 ease-out bg-primary-200 duration-[1500ms] {isInView
+              class="transition-all transform origin-right right-0 relative z-20 ease-out duration-[1500ms] {isInView
                 ? 'translate-x-0'
                 : 'translate-x-full'}"
             >

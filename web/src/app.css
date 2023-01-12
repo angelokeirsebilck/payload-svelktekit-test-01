@@ -143,4 +143,16 @@
   .swiper-pagination-bullet {
     @apply !rounded-none;
   }
+
+  .btn {
+    @apply flex  overflow-hidden px-12 py-4 w-fit text-center uppercase text-xl border-2 hover:bg-transparent transition-all duration-300 hover:text-black-default;
+  }
+
+  .btn--primary {
+    @apply bg-primary-default border-primary-default text-white;
+  }
+
+  .btn--secondary {
+    @apply bg-secondary-default border-secondary-default text-white;
+  }
 }
