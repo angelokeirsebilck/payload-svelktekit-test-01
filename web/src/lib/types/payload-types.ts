@@ -71,6 +71,31 @@ export interface Home {
         blockName?: string;
         blockType: 'formBlock';
       }
+    | {
+        title?: string;
+        newsType: 'latest' | 'related' | 'selected';
+        selectedNews: {
+          newsItem: string | News;
+          id?: string;
+        }[];
+        link: {
+          type: 'reference' | 'custom';
+          newTab?: boolean;
+          reference: {
+            value: string | Page;
+            relationTo: 'pages';
+          };
+          url: string;
+          label: string;
+          appearance?: 'primary' | 'secondary';
+        };
+        settings: {
+          bgColor: 'white' | 'light';
+        };
+        id?: string;
+        blockName?: string;
+        blockType: 'newsBlock';
+      }
   )[];
   meta: {
     title?: string;
@@ -172,6 +197,31 @@ export interface Page {
         id?: string;
         blockName?: string;
         blockType: 'formBlock';
+      }
+    | {
+        title?: string;
+        newsType: 'latest' | 'related' | 'selected';
+        selectedNews: {
+          newsItem: string | News;
+          id?: string;
+        }[];
+        link: {
+          type: 'reference' | 'custom';
+          newTab?: boolean;
+          reference: {
+            value: string | Page;
+            relationTo: 'pages';
+          };
+          url: string;
+          label: string;
+          appearance?: 'primary' | 'secondary';
+        };
+        settings: {
+          bgColor: 'white' | 'light';
+        };
+        id?: string;
+        blockName?: string;
+        blockType: 'newsBlock';
       }
   )[];
   meta: {
@@ -287,6 +337,113 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "news".
+ */
+export interface News {
+  id: string;
+  slug?: string;
+  uri?: string;
+  pageTitle: string;
+  newsCat: string | NewsCategory;
+  overviewImage: string | Image;
+  block: (
+    | {
+        title: string;
+        items: {
+          image: string | Image;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: 'bannerImageSwiperBlock';
+      }
+    | {
+        text: {
+          [k: string]: unknown;
+        }[];
+        bgColor: 'white' | 'light';
+        id?: string;
+        blockName?: string;
+        blockType: 'textBlock';
+      }
+    | {
+        text: {
+          [k: string]: unknown;
+        }[];
+        link: {
+          type: 'reference' | 'custom';
+          newTab?: boolean;
+          reference: {
+            value: string | Page;
+            relationTo: 'pages';
+          };
+          url: string;
+          label: string;
+          appearance?: 'primary' | 'secondary';
+        };
+        settings: {
+          textPos: 'left' | 'right';
+          textVerAlign: 'self-start' | 'self-center' | 'self-end';
+          bgColor: 'white' | 'light';
+        };
+        image: string | Image;
+        id?: string;
+        blockName?: string;
+        blockType: 'textImageBlock';
+      }
+    | {
+        image: string | Image;
+        bgColor: 'white' | 'light';
+        id?: string;
+        blockName?: string;
+        blockType: 'imageBlock';
+      }
+    | {
+        form: string | Form;
+        id?: string;
+        blockName?: string;
+        blockType: 'formBlock';
+      }
+    | {
+        title?: string;
+        newsType: 'latest' | 'related' | 'selected';
+        selectedNews: {
+          newsItem: string | News;
+          id?: string;
+        }[];
+        link: {
+          type: 'reference' | 'custom';
+          newTab?: boolean;
+          reference: {
+            value: string | Page;
+            relationTo: 'pages';
+          };
+          url: string;
+          label: string;
+          appearance?: 'primary' | 'secondary';
+        };
+        settings: {
+          bgColor: 'white' | 'light';
+        };
+        id?: string;
+        blockName?: string;
+        blockType: 'newsBlock';
+      }
+  )[];
+  _status?: 'draft' | 'published';
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "newsCategory".
+ */
+export interface NewsCategory {
+  id: string;
+  name: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "nav".
  */
 export interface Nav {
@@ -307,14 +464,6 @@ export interface Social {
     url: string;
     id?: string;
   }[];
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "newsCategory".
- */
-export interface NewsCategory {
-  id: string;
-  name: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

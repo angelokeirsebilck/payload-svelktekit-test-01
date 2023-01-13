@@ -1,0 +1,46 @@
+import { env } from "$env/dynamic/public";
+import type { Blocks, NewsBlock, NewsBlockData } from "$lib/types/block-types";
+import type { News } from "$lib/types/payload-types";
+
+const getNewsBlocks = async (blocks: Blocks): Promise<NewsBlockData[]> => {
+  let newsBlocksData: NewsBlockData[] = [];
+
+  //@ts-ignore
+  let newsBlocks: NewsBlock[] = blocks.filter(
+    (block) => block.blockType == "newsBlock"
+  );
+  let newsPosts: News[];
+  newsPosts = await getLatestNews();
+
+  for (let index = 0; index < newsBlocks.length; index++) {
+    const newsBlock = newsBlocks[index];
+
+    if (newsBlock.newsType == "latest") {
+      newsBlocksData.push({
+        blockId: newsBlock.id,
+        newsPosts: await getLatestNews(),
+      });
+    }
+
+    if (newsBlock.newsType == "selected") {
+      let newsPosts = newsBlock.selectedNews.map((post) => post.newsItem);
+      newsBlocksData.push({
+        blockId: newsBlock.id,
+        //@ts-ignore
+        newsPosts,
+      });
+    }
+  }
+
+  return newsBlocksData;
+};
+
+async function getLatestNews() {
+  const response = await fetch(
+    `${env.PUBLIC_CMS_API_ENDPOINT}/news?sort=-createdAt`
+  );
+  const data = await response.json();
+  return data.docs;
+}
+
+export { getNewsBlocks };

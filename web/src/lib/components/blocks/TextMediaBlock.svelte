@@ -34,8 +34,8 @@
             ? 'order-1 md:order-2 md:col-start-8'
             : 'order-1'}"
         >
-          <div class="flex flex-col">
-            <div class="prose {content.settings.textVerAlign}">
+          <div class="flex flex-col {content.settings.textVerAlign}">
+            <div class="prose ">
               <RichText textNodes={content.text} />
             </div>
 

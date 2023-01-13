@@ -5,9 +5,9 @@
 
   export let data: PageData;
   $: title =
-    data?.pageData?.page?.meta?.title ||
-    `${env.PUBLIC_COMPANY_NAME} - ${data?.pageData?.page?.pageTitle}`;
-  $: description = data?.pageData?.page?.meta?.description;
+    data?.data?.page?.meta?.title ||
+    `${env.PUBLIC_COMPANY_NAME} - ${data?.data?.page?.pageTitle}`;
+  $: description = data?.data?.page?.meta?.description;
 </script>
 
 <svelte:head>
@@ -18,6 +18,6 @@
 </svelte:head>
 
 <div class="container px-8 mx-auto my-16">
-  <h1 class="mb-4 text-5xl">{data.pageData.page.pageTitle}</h1>
+  <h1 class="mb-4 text-5xl">{data.data.page.pageTitle}</h1>
 </div>
-<PageBuilder blocks={data.pageData.page.block} />
+<PageBuilder blocks={data.data.page.block} />

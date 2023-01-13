@@ -23,7 +23,7 @@ const pagesBeforeChange: CollectionBeforeChangeHook = async ({ data, req }) => {
     }
   }
 
-  return { ...data };
+  return data;
 };
 
 export { pagesBeforeChange };

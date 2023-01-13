@@ -140,6 +140,11 @@
   .container {
     @apply w-full px-4 mx-auto max-w-container;
   }
+
+  .default-grid {
+    @apply grid grid-cols-4  md:grid-cols-12 gap-8;
+  }
+
   .swiper-pagination-bullet {
     @apply !rounded-none;
   }

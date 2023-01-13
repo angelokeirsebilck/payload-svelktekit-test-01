@@ -1,1 +1,3 @@
-import type { Image } from "./payload-types";
+import type { TextImageBlock } from "./payload-types";
+
+

@@ -6,10 +6,10 @@
 
   export let data: PageData;
   $: title =
-    data?.home?.meta?.title ||
-    `${env.PUBLIC_COMPANY_NAME} - ${data?.home?.pageTitle}`;
+    data?.data?.homePage?.meta?.title ||
+    `${env.PUBLIC_COMPANY_NAME} - ${data?.data?.homePage?.pageTitle}`;
 
-  $: description = data?.home?.meta?.description;
+  $: description = data?.data.homePage?.meta?.description;
 </script>
 
 <!-- <div class="container px-8 mx-auto ">
@@ -22,4 +22,4 @@
     <meta name="description" content={description} />
   {/if}
 </svelte:head>
-<PageBuilder blocks={data.home.block} />
+<PageBuilder blocks={data.data.homePage.block} />

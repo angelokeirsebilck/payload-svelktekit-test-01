@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { LayoutData } from "./$types";
-
   import logo from "$lib/assets/svg/logo-demo.svg";
   export let data: LayoutData;
   import { page } from "$app/stores";

@@ -10,13 +10,9 @@ export const appearanceOptions = {
     label: "Secondary Button",
     value: "secondary",
   },
-  default: {
-    label: "Default",
-    value: "default",
-  },
 };
 
-export type LinkAppearances = "primary" | "secondary" | "default";
+export type LinkAppearances = "primary" | "secondary";
 
 type LinkType = (options?: {
   appearances?: LinkAppearances[] | false;
@@ -43,6 +39,7 @@ const link: LinkType = ({
           {
             name: "type",
             type: "radio",
+            required: true,
             options: [
               {
                 label: "Internal link",
@@ -130,7 +127,6 @@ const link: LinkType = ({
 
   if (appearances !== false) {
     let appearanceOptionsToUse = [
-      appearanceOptions.default,
       appearanceOptions.primary,
       appearanceOptions.secondary,
     ];
@@ -144,7 +140,7 @@ const link: LinkType = ({
     linkResult.fields.push({
       name: "appearance",
       type: "select",
-      defaultValue: "default",
+      defaultValue: "primary",
       options: appearanceOptionsToUse,
       admin: {
         description: "Choose how the link should be rendered.",

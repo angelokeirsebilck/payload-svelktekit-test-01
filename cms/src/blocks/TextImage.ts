@@ -4,6 +4,7 @@ import { ImageField } from "../fields/Image";
 import { TextPosition } from "../fields/TextPosition";
 import { DefaultRichText } from "../fields/DefaultRichtText";
 import link from "../fields/link";
+import { TextVerAlign } from "../fields/TextVerAlign";
 
 const TextImageBlock: Block = {
   slug: "textImageBlock",
@@ -20,7 +21,7 @@ const TextImageBlock: Block = {
       fields: [
         {
           type: "row",
-          fields: [TextPosition, BackgroundColor],
+          fields: [TextPosition, TextVerAlign, BackgroundColor],
         },
       ],
     },

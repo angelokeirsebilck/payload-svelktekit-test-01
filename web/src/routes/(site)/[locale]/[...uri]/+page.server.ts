@@ -1,14 +1,17 @@
-import type { PageServerLoad, Actions } from "./$types";
+import type { PageServerLoad } from "./$types";
 import type { Page } from "$lib/types/payload-types";
 import { env } from "$env/dynamic/public";
 import qs from "qs";
 import { error } from "@sveltejs/kit";
+import { getNewsBlocks } from "$lib/utils/getNewsBlocks";
+import type { NewsBlockData } from "$lib/types/block-types";
 
 export const prerender = true;
 
 interface IData {
   localized: [string, unknown][];
   page: Page;
+  newsBlockData: NewsBlockData[];
 }
 
 export const load = (({ params, fetch }) => {
@@ -21,6 +24,7 @@ export const load = (({ params, fetch }) => {
         equals: params.uri,
       },
     };
+
     let stringifiedQuery = qs.stringify({
       where: query, // ensure that `qs` adds the `where` property, too!
     });
@@ -29,7 +33,9 @@ export const load = (({ params, fetch }) => {
       `${env.PUBLIC_CMS_API_ENDPOINT}/pages?locale=${params.locale}&${stringifiedQuery}`
     );
     const data = await res.json();
-    page = data.docs[0];
+    page = data.docs[0] as Page;
+
+    const newsBlockData: NewsBlockData[] = await getNewsBlocks(page.block);
 
     if (!page) {
       throw error(404);
@@ -56,10 +62,11 @@ export const load = (({ params, fetch }) => {
     return {
       page,
       localized,
+      newsBlockData,
     };
   };
 
   return {
-    pageData: getPageData(),
+    data: getPageData(),
   };
 }) satisfies PageServerLoad;

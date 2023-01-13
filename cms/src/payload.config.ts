@@ -15,14 +15,15 @@ import Image from "./collections/Image";
 import File from "./collections/Files";
 import { FileUpload } from "./blocks/FileUpload";
 import { FileField } from "./fields/File";
+import News from "./collections/News";
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL,
   admin: {
     user: Users.slug,
   },
-  collections: [Pages, NewsCategories, Users, Image, File],
   globals: [HomeGlobal, Nav, Socials],
+  collections: [NewsCategories, Pages, News, Users, Image, File],
   localization: {
     locales: ["nl", "en"],
     defaultLocale: "nl",
@@ -33,11 +34,19 @@ export default buildConfig({
     debug: false, // default
     resources: {
       en: {
+        description: {
+          overviewImage:
+            "This field will be used in the overviewpage or news blocks.",
+        },
         validationMessages: {
           urlRegEx: "Please provide a valid url.",
         },
       },
       nl: {
+        description: {
+          overviewImage:
+            "Dit veld wordt gebruikt in de overzichtpagina of in nieuwsblokken.",
+        },
         validationMessages: {
           urlRegEx: "Dit is geen geldige url.",
         },
