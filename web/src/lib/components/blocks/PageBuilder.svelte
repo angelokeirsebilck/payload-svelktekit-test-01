@@ -22,7 +22,7 @@
   {:else if block.blockType == "newsBlock"}
     <NewsBlock content={block} />
   {:else if block.blockType == "bannerImageSwiperBlock"}
-    <BannerImageSwiper content={block} />
+    <BannerImageSwiper {index} content={block} />
   {:else}
     nieks
   {/if}

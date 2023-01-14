@@ -1,7 +1,6 @@
 import { CollectionConfig } from "payload/types";
 import { pageBuilder } from "../blocks/PageBuilder";
-
-import { pagesBeforeChange } from "../hooks/pagesBeforeSave";
+import { newsPagesBeforeChange } from "../hooks/newsPagesBeforeChange";
 
 const News: CollectionConfig = {
   slug: "news",
@@ -53,7 +52,7 @@ const News: CollectionConfig = {
     },
   },
   hooks: {
-    beforeChange: [pagesBeforeChange],
+    beforeChange: [newsPagesBeforeChange],
   },
   fields: [
     {

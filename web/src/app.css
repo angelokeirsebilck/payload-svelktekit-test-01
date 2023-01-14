@@ -150,14 +150,30 @@
   }
 
   .btn {
-    @apply flex  overflow-hidden px-12 py-4 w-fit text-center uppercase text-xl border-2 hover:bg-transparent transition-all duration-300 hover:text-black-default;
+    @apply flex overflow-hidden  w-fit text-center uppercase text-xl border-2 transition-all duration-300 hover:!text-black-default;
   }
 
-  .btn--primary {
-    @apply bg-primary-default border-primary-default text-white;
+  .btn--medium {
+    @apply px-12 py-4;
   }
 
-  .btn--secondary {
-    @apply bg-secondary-default border-secondary-default text-white;
+  .btn--small {
+    @apply px-5 py-1;
+  }
+
+  .btn--primary.btn--normal {
+    @apply bg-primary-default hover:bg-transparent  border-primary-default text-white hover:text-black-default;
+  }
+
+  .btn--secondary.btn--normal {
+    @apply bg-secondary-default hover:bg-transparent  border-secondary-default text-white hover:text-black-default;
+  }
+
+  .btn--primary.btn--outline {
+    @apply border-primary-default border-2 text-black-default;
+  }
+
+  .btn--secondary.btn--outline {
+    @apply border-secondary-default border-2 text-black-default;
   }
 }

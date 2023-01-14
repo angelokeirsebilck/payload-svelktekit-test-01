@@ -113,6 +113,7 @@ const link: LinkType = ({
         {
           name: "label",
           label: "Label",
+          localized: true,
           type: "text",
           required: true,
           admin: {

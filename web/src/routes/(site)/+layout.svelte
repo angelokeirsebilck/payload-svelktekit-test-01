@@ -48,8 +48,8 @@
           </nav>
           <LangSwitcher
             currentLocale={data.locale}
-            localized={$page?.data?.pageData?.localized
-              ? $page.data.pageData.localized
+            localized={$page?.data?.data?.localized
+              ? $page.data?.data?.localized
               : defaultLocalized}
           />
 

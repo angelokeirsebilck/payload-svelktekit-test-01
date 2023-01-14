@@ -25,7 +25,10 @@ export const load = (({ fetch, params, url }) => {
 
     const homePage: Home = data;
 
-    const newsBlockData: NewsBlockData[] = await getNewsBlocks(homePage.block);
+    const newsBlockData: NewsBlockData[] = await getNewsBlocks(
+      homePage.block,
+      params.locale
+    );
 
     if (!homePage) {
       throw error(404);

@@ -1,7 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import { pageBuilder } from "../blocks/PageBuilder";
-
 import { pagesBeforeChange } from "../hooks/pagesBeforeSave";
+import resaveNewsPosts from "../hooks/resaveNewsPostsAfterChange";
 
 const Pages: CollectionConfig = {
   slug: "pages",
@@ -54,8 +54,29 @@ const Pages: CollectionConfig = {
   },
   hooks: {
     beforeChange: [pagesBeforeChange],
+    afterChange: [resaveNewsPosts],
   },
   fields: [
+    {
+      name: "pagesType",
+      type: "radio",
+      required: true,
+      options: [
+        {
+          label: "Default",
+          value: "default",
+        },
+        {
+          label: "News Overview",
+          value: "newsOverview",
+        },
+      ],
+      defaultValue: "default", // The first value in options.
+      admin: {
+        layout: "horizontal",
+        position: "sidebar",
+      },
+    },
     {
       name: "slug",
       label: "Slug",

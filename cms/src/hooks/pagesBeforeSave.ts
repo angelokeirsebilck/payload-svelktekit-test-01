@@ -2,7 +2,26 @@ import payload from "payload";
 import { CollectionBeforeChangeHook } from "payload/types";
 import { formatSlug } from "../utlitites/formatSlug";
 
-const pagesBeforeChange: CollectionBeforeChangeHook = async ({ data, req }) => {
+const pagesBeforeChange: CollectionBeforeChangeHook = async ({
+  data,
+  req,
+  operation,
+}) => {
+  if (operation == "create" && data.pagesType == "newsOverview") {
+    const newsOverview = await payload.find({
+      collection: "pages",
+      where: {
+        pagesType: {
+          equals: "newsOverview",
+        },
+      },
+    });
+
+    if (newsOverview) {
+      throw Error("You can only create one news overview page.");
+    }
+  }
+
   if (data.slug && data.slug !== "") {
     data.slug = formatSlug(data.slug);
   } else {

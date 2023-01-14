@@ -64,7 +64,7 @@ export default buildConfig({
   },
   plugins: [
     seo({
-      collections: ["pages"],
+      collections: ["pages", "news"],
       globals: ["home"],
       uploadsCollection: "image",
       generateTitle: ({ doc }) => {

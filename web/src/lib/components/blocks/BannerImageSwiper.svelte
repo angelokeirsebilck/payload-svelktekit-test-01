@@ -9,6 +9,7 @@
   import ImageKit from "../base/ImageKit.svelte";
   import { afterUpdate } from "svelte";
   export let content: BannerImageSwiperBlock;
+  export let index: number;
 
   let swiperEl: any = null;
   const setSwiper = (e: any) => {
@@ -43,7 +44,7 @@
       height="auto"
       on:swiper={setSwiper}
     >
-      {#each content.items as slide}
+      {#each content.items as slide, slideIndex}
         <SwiperSlide>
           <ImageKit
             transformations={[
@@ -58,7 +59,7 @@
             sizes=" 100vw"
             height={slide.image.height?.toString()}
             width={slide.image.width?.toString()}
-            loading="eager"
+            loading={slideIndex == 0 && index == 0 ? "eager" : "lazy"}
             classes="aspect-[1920/1350] md:aspect-[1920/1000] xl:aspect-[1920/800] object-cover"
           />
         </SwiperSlide>

@@ -45,6 +45,8 @@
                   link={content.link}
                   intent={content.link.appearance}
                   type={content.link.type}
+                  style={"normal"}
+                  size={"medium"}
                 />
               </div>
             {/if}
@@ -70,7 +72,7 @@
                 : '-translate-x-full'}"
             />
             <div
-              class="transition-all transform origin-right right-0 relative z-20 ease-out duration-[1500ms] {isInView
+              class="transition-all transform origin-right right-0 relative z-20 ease-out duration-[1000ms] {isInView
                 ? 'translate-x-0'
                 : 'translate-x-full'}"
             >

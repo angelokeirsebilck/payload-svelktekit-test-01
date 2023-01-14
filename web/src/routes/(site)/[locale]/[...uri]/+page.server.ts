@@ -1,5 +1,5 @@
 import type { PageServerLoad } from "./$types";
-import type { Page } from "$lib/types/payload-types";
+import type { News, Page } from "$lib/types/payload-types";
 import { env } from "$env/dynamic/public";
 import qs from "qs";
 import { error } from "@sveltejs/kit";
@@ -10,7 +10,7 @@ export const prerender = true;
 
 interface IData {
   localized: [string, unknown][];
-  page: Page;
+  page: Page | News;
   newsBlockData: NewsBlockData[];
 }
 
@@ -18,7 +18,7 @@ export const load = (({ params, fetch }) => {
   const getPageData = async (): Promise<IData> => {
     let localized: [string, unknown][] = [];
     let page;
-
+    let pageType = "pages";
     let query = {
       uri: {
         equals: params.uri,
@@ -29,17 +29,32 @@ export const load = (({ params, fetch }) => {
       where: query, // ensure that `qs` adds the `where` property, too!
     });
 
+    // Default Pages Query
     const res = await fetch(
       `${env.PUBLIC_CMS_API_ENDPOINT}/pages?locale=${params.locale}&${stringifiedQuery}`
     );
     const data = await res.json();
     page = data.docs[0] as Page;
 
-    const newsBlockData: NewsBlockData[] = await getNewsBlocks(page.block);
+    // If no page is found try query newsPage
+    if (!page) {
+      const res = await fetch(
+        `${env.PUBLIC_CMS_API_ENDPOINT}/news?locale=${params.locale}&${stringifiedQuery}`
+      );
+      const data = await res.json();
+      page = data.docs[0] as News;
+      pageType = "news";
+    }
 
     if (!page) {
       throw error(404);
     }
+
+    //Get extra block data to pass through
+    const newsBlockData: NewsBlockData[] = await getNewsBlocks(
+      page.block,
+      params.locale
+    );
 
     if (page) {
       let query = {
@@ -52,7 +67,7 @@ export const load = (({ params, fetch }) => {
       });
 
       const pageResult = await fetch(
-        `${env.PUBLIC_CMS_API_ENDPOINT}/pages?locale=*&${stringifiedQuery}`
+        `${env.PUBLIC_CMS_API_ENDPOINT}/${pageType}?locale=*&${stringifiedQuery}`
       );
 
       const pageData = await pageResult.json();
