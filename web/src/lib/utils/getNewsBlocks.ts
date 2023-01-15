@@ -40,7 +40,7 @@ const getNewsBlocks = async (
 
 async function getLatestNews(locale: string) {
   const response = await fetch(
-    `${env.PUBLIC_CMS_API_ENDPOINT}/news?sort=-createdAt&locale=${locale}`
+    `${env.PUBLIC_CMS_API_ENDPOINT}/news?sort=-createdAt&locale=${locale}&limit=3`
   );
   const data = await response.json();
   return data.docs;

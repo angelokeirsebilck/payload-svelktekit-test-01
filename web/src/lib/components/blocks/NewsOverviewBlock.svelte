@@ -23,7 +23,7 @@
   //@ts-ignore
   $: allString = trans[$page.data.locale]["all"];
   $: noItemsFoundString = trans[$page.data.locale]["noItemsFound"];
-  console.log($page.data.newsItems);
+
   $: filteredNewsItems =
     selectedCat == "all"
       ? $page.data.newsItems

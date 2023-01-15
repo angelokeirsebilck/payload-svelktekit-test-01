@@ -38,4 +38,4 @@ const DeployHook: React.FC = () => {
   );
 };
 
-export default DeployHook;
+export { DeployHook };
