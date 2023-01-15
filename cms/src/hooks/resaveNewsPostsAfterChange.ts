@@ -15,6 +15,7 @@ const resaveNewsPosts: CollectionAfterChangeHook = ({
     try {
       newsPosts.docs.forEach((newsPost: any) => {
         const updateAsDraft = newsPost._status !== "published";
+
         payload.update({
           id: newsPost.id,
           locale: req.locale,

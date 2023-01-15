@@ -5,6 +5,8 @@ const trans = {
     // 500: "Internal Server Error",
     // 503: "Service niet beschikbaar",
     message404: "Controleer de URL in de adresbalk en probeer het opnieuw.",
+    all: "Alles",
+    noItemsFound: "Geen berichten gevonden.",
   },
   en: {
     goBackHome: "Go to home",
@@ -12,6 +14,8 @@ const trans = {
     // 500: "Internal Server Error",
     // 503: "Service Unavailable",
     message404: "Please check the URL in the address bar and try again.",
+    all: "All",
+    noItemsFound: "No items found.",
   },
 };
 

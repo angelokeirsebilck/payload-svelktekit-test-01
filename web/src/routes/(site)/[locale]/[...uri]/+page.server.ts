@@ -5,6 +5,8 @@ import qs from "qs";
 import { error } from "@sveltejs/kit";
 import { getNewsBlocks } from "$lib/utils/getNewsBlocks";
 import type { NewsBlockData } from "$lib/types/block-types";
+import { getNewsItems } from "$lib/utils/getNewsItems";
+import { getNewsCategories } from "$lib/utils/getNewsCategories";
 
 export const prerender = true;
 
@@ -14,7 +16,7 @@ interface IData {
   newsBlockData: NewsBlockData[];
 }
 
-export const load = (({ params, fetch }) => {
+export const load = (async ({ params, fetch }) => {
   const getPageData = async (): Promise<IData> => {
     let localized: [string, unknown][] = [];
     let page;
@@ -81,7 +83,17 @@ export const load = (({ params, fetch }) => {
     };
   };
 
+  const loadNewsItems = async () => {
+    return await getNewsItems(params.locale);
+  };
+
+  const gloadNewsCategories = async () => {
+    return await getNewsCategories(params.locale);
+  };
+
   return {
     data: getPageData(),
+    newsItems: loadNewsItems(),
+    newsCategories: gloadNewsCategories(),
   };
 }) satisfies PageServerLoad;

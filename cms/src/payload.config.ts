@@ -16,11 +16,15 @@ import File from "./collections/Files";
 import { FileUpload } from "./blocks/FileUpload";
 import { FileField } from "./fields/File";
 import News from "./collections/News";
-
+import DeployHook from "./components/Deployhook";
 export default buildConfig({
   serverURL: process.env.SERVER_URL,
   admin: {
     user: Users.slug,
+    components: {
+      afterNavLinks: [DeployHook],
+    },
+    css: path.resolve(__dirname, "scss/index.scss"),
   },
   globals: [HomeGlobal, Nav, Socials],
   collections: [NewsCategories, Pages, News, Users, Image, File],

@@ -43,7 +43,6 @@ async function getLatestNews(locale: string) {
     `${env.PUBLIC_CMS_API_ENDPOINT}/news?sort=-createdAt&locale=${locale}`
   );
   const data = await response.json();
-  console.log(locale);
   return data.docs;
 }
 

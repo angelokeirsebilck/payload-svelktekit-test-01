@@ -6,6 +6,7 @@
   import FormBlock from "./FormBlock.svelte";
   import BannerImageSwiper from "./BannerImageSwiper.svelte";
   import NewsBlock from "./NewsBlock.svelte";
+  import NewsOverviewBlock from "./NewsOverviewBlock.svelte";
 
   export let blocks: Blocks = [];
 </script>
@@ -21,6 +22,8 @@
     <FormBlock content={block} />
   {:else if block.blockType == "newsBlock"}
     <NewsBlock content={block} />
+  {:else if block.blockType == "newsOverviewBlock"}
+    <NewsOverviewBlock content={block} />
   {:else if block.blockType == "bannerImageSwiperBlock"}
     <BannerImageSwiper {index} content={block} />
   {:else}

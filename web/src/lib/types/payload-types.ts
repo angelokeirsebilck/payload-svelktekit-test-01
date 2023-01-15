@@ -96,6 +96,12 @@ export interface Home {
         blockName?: string;
         blockType: 'newsBlock';
       }
+    | {
+        bgColor: 'white' | 'light';
+        id?: string;
+        blockName?: string;
+        blockType: 'newsOverviewBlock';
+      }
   )[];
   meta: {
     title?: string;
@@ -137,6 +143,7 @@ export interface Image {
  */
 export interface Page {
   id: string;
+  pagesType: 'default' | 'newsOverview';
   slug?: string;
   uri?: string;
   pageTitle: string;
@@ -222,6 +229,12 @@ export interface Page {
         id?: string;
         blockName?: string;
         blockType: 'newsBlock';
+      }
+    | {
+        bgColor: 'white' | 'light';
+        id?: string;
+        blockName?: string;
+        blockType: 'newsOverviewBlock';
       }
   )[];
   meta: {
@@ -429,7 +442,18 @@ export interface News {
         blockName?: string;
         blockType: 'newsBlock';
       }
+    | {
+        bgColor: 'white' | 'light';
+        id?: string;
+        blockName?: string;
+        blockType: 'newsOverviewBlock';
+      }
   )[];
+  meta: {
+    title?: string;
+    description?: string;
+    image?: string | Image;
+  };
   _status?: 'draft' | 'published';
   createdAt: string;
   updatedAt: string;
