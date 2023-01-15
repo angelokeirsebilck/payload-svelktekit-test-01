@@ -7,6 +7,7 @@
   import BannerImageSwiper from "./BannerImageSwiper.svelte";
   import NewsBlock from "./NewsBlock.svelte";
   import NewsOverviewBlock from "./NewsOverviewBlock.svelte";
+  import ContactBlock from "./ContactBlock.svelte";
 
   export let blocks: Blocks = [];
 </script>
@@ -20,6 +21,8 @@
     <TextMediaBlock {index} content={block} />
   {:else if block.blockType == "formBlock"}
     <FormBlock content={block} />
+  {:else if block.blockType == "contactBlock"}
+    <ContactBlock content={block} />
   {:else if block.blockType == "newsBlock"}
     <NewsBlock content={block} />
   {:else if block.blockType == "newsOverviewBlock"}

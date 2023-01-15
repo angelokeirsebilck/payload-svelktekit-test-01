@@ -18,6 +18,8 @@
 </svelte:head>
 
 <div class="container px-8 mx-auto my-16">
-  <h1 class="mb-4 text-5xl">{data.data.page.pageTitle}</h1>
+  <h1 class="mb-4 text-5xl max-w-2xl font-medium text-primary-default">
+    {data.data.page.pageTitle}
+  </h1>
 </div>
 <PageBuilder blocks={data.data.page.block} />

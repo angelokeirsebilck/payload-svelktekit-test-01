@@ -17,6 +17,7 @@ import { FileUpload } from "./blocks/FileUpload";
 import { FileField } from "./fields/File";
 import News from "./collections/News";
 import { DeployHook } from "./components/DeployHook";
+import CompanyInfo from "./globals/CompanyInfo";
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL,
@@ -27,7 +28,7 @@ export default buildConfig({
     },
     css: path.resolve(__dirname, "scss/index.scss"),
   },
-  globals: [HomeGlobal, Nav, Socials],
+  globals: [CompanyInfo, Nav, Socials, HomeGlobal],
   collections: [NewsCategories, Pages, News, Users, Image, File],
   localization: {
     locales: ["nl", "en"],
@@ -45,6 +46,7 @@ export default buildConfig({
         },
         validationMessages: {
           urlRegEx: "Please provide a valid url.",
+          telRegEx: "Please provide a valid telephonenumber.",
         },
       },
       nl: {
@@ -54,6 +56,7 @@ export default buildConfig({
         },
         validationMessages: {
           urlRegEx: "Dit is geen geldige url.",
+          telRegEx: "Dit is geen geldig telefoonnummer.",
         },
       },
     },

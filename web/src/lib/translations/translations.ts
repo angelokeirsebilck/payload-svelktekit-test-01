@@ -7,6 +7,8 @@ const trans = {
     message404: "Controleer de URL in de adresbalk en probeer het opnieuw.",
     all: "Alles",
     noItemsFound: "Geen berichten gevonden.",
+    contactUs: "Contacteer ons",
+    visitUs: "Bezoek ons",
   },
   en: {
     goBackHome: "Go to home",
@@ -16,6 +18,8 @@ const trans = {
     message404: "Please check the URL in the address bar and try again.",
     all: "All",
     noItemsFound: "No items found.",
+    contactUs: "Contact us",
+    visitUs: "Visit us",
   },
 };
 

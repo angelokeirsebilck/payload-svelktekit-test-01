@@ -1,5 +1,6 @@
 <script lang="ts">
-  import "../app.css";
+  import "$lib/css/fonts.css";
+  import "$lib/css/app.css";
 </script>
 
 <slot />

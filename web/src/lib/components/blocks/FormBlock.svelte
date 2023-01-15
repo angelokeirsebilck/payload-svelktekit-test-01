@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { env } from "$env/dynamic/public";
   import * as zod from "zod";
   import Form from "../forms/Form.svelte";
   import type { FormBlock } from "$lib/types/block-types";
+  import Container from "../base/Container.svelte";
 
   interface IPayloadOption {
     name: string;
@@ -81,5 +81,16 @@
 </script>
 
 {#if fields && schemaDone && content.form.id}
-  <Form {schema} {fields} formId={content.form.id} />
+  <Container>
+    <div class="default-grid">
+      <div class="col-span-full md:col-span-6">
+        <Form
+          {schema}
+          formBlock={content.form}
+          {fields}
+          formId={content.form.id}
+        />
+      </div>
+    </div>
+  </Container>
 {/if}

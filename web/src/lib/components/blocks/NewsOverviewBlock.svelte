@@ -36,14 +36,14 @@
   };
 
   const [send, receive] = crossfade({
-    duration: (d) => d * 50,
+    duration: 250,
 
     fallback(node, params) {
       const style = getComputedStyle(node);
       const transform = style.transform === "none" ? "" : style.transform;
 
       return {
-        duration: 500,
+        duration: 250,
         easing: quintOut,
         css: (t) => `
 					transform: ${transform} scale(${t});

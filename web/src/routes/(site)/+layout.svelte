@@ -39,7 +39,7 @@
                     href="/{data.locale}/{navItem.page.uri}"
                     class="{`/${data.locale}/${navItem.page.uri}` == path
                       ? '!text-primary-default'
-                      : ''} text-lg font-normal duration-300 transition-colors hover:text-primary-default decoration-none"
+                      : ''} text-lg font-normal duration-300 lowercase transition-colors hover:text-primary-default decoration-none"
                     >{navItem.page.pageTitle}</a
                   >
                 </li>

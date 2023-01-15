@@ -9,6 +9,7 @@
   export let fields: any = null;
   export let schema: any = null;
   export let formId: string;
+  export let formBlock: Form;
 
   const { form, errors, reset } = createForm({
     onSubmit: async (values) => {
@@ -50,68 +51,66 @@
   });
 </script>
 
-<div class="container px-8 mx-auto">
-  <form use:form class="flex flex-col gap-4">
-    {#each fields as field}
-      <div class="flex flex-col {$errors[field.name] ? 'group error' : ''}">
-        <label for={field.name} class="group-[.error]:text-error-default"
-          >{field.label}</label
-        >
-        {#if field.blockType == "text"}
-          <input
-            type="text"
-            name={field.name}
-            class="aria-invalid:text-error-default"
-          />
-        {/if}
-        {#if field.blockType == "email"}
-          <input
-            type="email"
-            name={field.name}
-            class="aria-invalid:text-error-default"
-          />
-        {/if}
-        {#if field.blockType == "textarea"}
-          <textarea
-            name={field.name}
-            rows="5"
-            class="aria-invalid:text-error-default"
-          />
-        {/if}
-        {#if field.blockType == "checkbox"}
-          <input
-            type="checkbox"
-            name={field.name}
-            class="aria-invalid:text-error-default"
-          />
-        {/if}
-        {#if field.blockType == "fileUpload"}
-          <input
-            type="file"
-            name={field.name}
-            class="aria-invalid:text-error-default"
-          />
-        {/if}
-        {#if field.blockType == "select"}
-          <select name={field.name} class="aria-invalid:text-error-default">
-            {#each field.options as option}
-              <option value={option.value}>{option.label}</option>
-            {/each}
-          </select>
-        {/if}
-        <ValidationMessage for={field.name} let:messages={message}>
-          {#if message}
-            <div class="group-[.error]:text-error-default">
-              {message[0]}
-            </div>
-          {/if}
-        </ValidationMessage>
-      </div>
-    {/each}
-    <div class="">
-      <button type="submit" class="bg-primary-default px-6 py-2 text-white"
-        >Sign In</button
+<form use:form class="flex flex-col gap-4">
+  {#each fields as field}
+    <div class="flex flex-col {$errors[field.name] ? 'group error' : ''}">
+      <label for={field.name} class="group-[.error]:text-error-default"
+        >{field.label}</label
       >
+      {#if field.blockType == "text"}
+        <input
+          type="text"
+          name={field.name}
+          class="aria-invalid:text-error-default"
+        />
+      {/if}
+      {#if field.blockType == "email"}
+        <input
+          type="email"
+          name={field.name}
+          class="aria-invalid:text-error-default"
+        />
+      {/if}
+      {#if field.blockType == "textarea"}
+        <textarea
+          name={field.name}
+          rows="5"
+          class="aria-invalid:text-error-default"
+        />
+      {/if}
+      {#if field.blockType == "checkbox"}
+        <input
+          type="checkbox"
+          name={field.name}
+          class="aria-invalid:text-error-default"
+        />
+      {/if}
+      {#if field.blockType == "fileUpload"}
+        <input
+          type="file"
+          name={field.name}
+          class="aria-invalid:text-error-default"
+        />
+      {/if}
+      {#if field.blockType == "select"}
+        <select name={field.name} class="aria-invalid:text-error-default">
+          {#each field.options as option}
+            <option value={option.value}>{option.label}</option>
+          {/each}
+        </select>
+      {/if}
+      <ValidationMessage for={field.name} let:messages={message}>
+        {#if message}
+          <div class="group-[.error]:text-error-default">
+            {message[0]}
+          </div>
+        {/if}
+      </ValidationMessage>
     </div>
-  </form>
-</div>
+  {/each}
+  <div class="">
+    <button type="submit" class="btn btn--primary btn--normal btn--medium"
+      >{formBlock.submitButtonLabel}</button
+    >
+  </div>
+</form>

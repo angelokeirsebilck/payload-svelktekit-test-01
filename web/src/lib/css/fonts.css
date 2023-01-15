@@ -1,7 +1,4 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   @font-face {
     font-family: "Montserrat";
@@ -100,80 +97,5 @@
     descent-override: 22.61%;
     line-gap-override: 0%;
     size-adjust: 111.02%;
-  }
-
-  :root {
-    --swiper-pagination-color: #006d77;
-    --swiper-pagination-bullet-width: 12px;
-    --swiper-pagination-bullet-height: 12px;
-  }
-
-  html {
-    font-family: ebony, sans-serif;
-    scroll-behavior: smooth;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .h1,
-  .h2,
-  .h3,
-  .h4,
-  .h5,
-  .h6 {
-    @apply mt-[0.8em] mb-[0.5em] first:!mt-0;
-  }
-
-  textarea::-webkit-scrollbar {
-    @apply hidden;
-  }
-}
-
-@layer utilities {
-}
-
-@layer components {
-  .container {
-    @apply w-full px-4 mx-auto max-w-container;
-  }
-
-  .default-grid {
-    @apply grid grid-cols-4  md:grid-cols-12 gap-8;
-  }
-
-  .swiper-pagination-bullet {
-    @apply !rounded-none;
-  }
-
-  .btn {
-    @apply flex overflow-hidden  w-fit text-center uppercase text-xl border-2 transition-all duration-300;
-  }
-
-  .btn--medium {
-    @apply px-12 py-4;
-  }
-
-  .btn--small {
-    @apply px-5 py-1;
-  }
-
-  .btn--primary.btn--normal {
-    @apply bg-primary-default hover:bg-transparent  border-primary-default text-white hover:text-black-default;
-  }
-
-  .btn--secondary.btn--normal {
-    @apply bg-secondary-default hover:bg-transparent  border-secondary-default text-white hover:text-black-default;
-  }
-
-  .btn--primary.btn--outline {
-    @apply border-primary-default border-2 text-black-default;
-  }
-
-  .btn--secondary.btn--outline {
-    @apply border-secondary-default border-2 text-black-default;
   }
 }
