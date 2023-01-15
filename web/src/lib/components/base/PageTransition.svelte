@@ -6,8 +6,8 @@
 {#key pathname}
   <main
     class="transition-none"
-    in:fly={{ x: -30, duration: 600, delay: 0 }}
-    out:fly={{ x: 0, duration: 0 }}
+    in:fly={{ x: -30, duration: 1200, delay: 250 }}
+    out:fly={{ x: 10, duration: 250 }}
   >
     <slot />
   </main>
