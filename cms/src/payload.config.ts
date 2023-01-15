@@ -16,7 +16,7 @@ import File from "./collections/Files";
 import { FileUpload } from "./blocks/FileUpload";
 import { FileField } from "./fields/File";
 import News from "./collections/News";
-import { DeployHook } from "./components/Deployhook";
+import { DeployHook } from "./components/DeployHook";
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL,
