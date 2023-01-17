@@ -9,6 +9,9 @@ const trans = {
     noItemsFound: "Geen berichten gevonden.",
     contactUs: "Contacteer ons",
     visitUs: "Bezoek ons",
+    requiredField: "Dit veld is verplicht",
+    validEmail: "Gelieve een correct e-mailadres in te voeren",
+    gdprAgree: "Ik ga akkoord met het privacybeleid",
   },
   en: {
     goBackHome: "Go to home",
@@ -20,6 +23,9 @@ const trans = {
     noItemsFound: "No items found.",
     contactUs: "Contact us",
     visitUs: "Visit us",
+    requiredField: "This field is required",
+    validEmail: "Please enter a valid e-mail",
+    gdprAgree: "I agree to the privacy policy",
   },
 };
 

@@ -4,6 +4,8 @@
   import Form from "../forms/Form.svelte";
   import type { FormBlock } from "$lib/types/block-types";
   import Container from "../base/Container.svelte";
+  import { trans } from "$lib/translations/translations";
+  import { page } from "$app/stores";
 
   interface IPayloadOption {
     name: string;
@@ -31,11 +33,13 @@
   onMount(async () => {
     // const res = await fetch(`${env.PUBLIC_CMS_API_ENDPOINT}/forms/${formId}`);
     // const data = await res.json();
+    //@ts-ignore
     fields = content.form.fields;
     // console.log(fields);
 
     const isRequired: zod.ZodErrorMap = (val, ctx) => {
-      return { message: "This field is required." };
+      //@ts-ignore
+      return { message: trans[$page.data.locale]["requiredField"] };
     };
 
     fields.forEach((field: IPayloadField) => {
@@ -48,7 +52,8 @@
         ) {
           object[field.name] = zod
             .string()
-            .min(1, { message: "This field is required." });
+            //@ts-ignore
+            .min(1, { message: trans[$page.data.locale]["requiredField"] });
         }
         if (field.blockType == "checkbox") {
           object[field.name] = zod.literal(true, {
@@ -57,16 +62,20 @@
         }
 
         if (field.blockType == "fileUpload") {
-          object[field.name] = zod
-            .any()
-            .refine((files: any) => files?.length === 0, "File is required.");
+          object[field.name] = zod.any().refine(
+            (files: any) => files?.length === 0,
+            //@ts-ignore
+            trans[$page.data.locale]["requiredField"]
+          );
         }
 
         if (field.blockType == "email") {
           object[field.name] = zod
             .string()
-            .min(1, { message: "This field is required." })
-            .email({ message: "Please enter a valid e-mail." });
+            //@ts-ignore
+            .min(1, { message: trans[$page.data.locale]["requiredField"] })
+            //@ts-ignore
+            .email({ message: trans[$page.data.locale]["validEmail"] });
         }
         //@ts-ignore
         schema = schema.omit({ removeLater: true });

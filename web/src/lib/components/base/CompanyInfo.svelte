@@ -15,14 +15,14 @@
     </div>
     <a
       href={`tel:${$page.data.companyInfo.tel}`}
-      class="hover:text-secondary-default duration-300 transition-colors"
+      class="hover:text-secondary-default duration-300 transition-colors w-fit"
     >
       <span class="mr-2 inline-block font-bold text-secondary-default">T</span>
       {$page.data.companyInfo.tel}
     </a>
     <a
       href={`email:${$page.data.companyInfo.email}`}
-      class="hover:text-secondary-default duration-300 transition-colors inline-block"
+      class="hover:text-secondary-default duration-300 transition-colors inline-block w-fit"
     >
       <span class="mr-2 inline-block font-bold text-secondary-default">E</span>
       {$page.data.companyInfo.email}
@@ -36,7 +36,7 @@
       target="_blank"
       rel="nofollow noreferrer"
       href={`http://maps.google.com/?q=${$page.data.companyInfo.addressLine1},${$page.data.companyInfo.addressLine2},${$page.data.companyInfo.addressLine3}`}
-      class="hover:text-secondary-default duration-300 transition-colors"
+      class="hover:text-secondary-default duration-300 transition-colors w-fit"
     >
       {$page.data.companyInfo.addressLine1} <br />
       {$page.data.companyInfo.addressLine2} <br />
