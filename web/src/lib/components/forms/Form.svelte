@@ -47,7 +47,9 @@
   {#each fields as field}
     <div class="flex flex-col {$errors[field.name] ? 'group error' : ''}">
       {#if field.name !== "gdpr"}
-        <label for={field.name} class="">{field.label}</label>
+        <label for={field.name} class="mb-2 font-medium text-lg"
+          >{field.label}</label
+        >
       {/if}
 
       {#if field.blockType == "text"}

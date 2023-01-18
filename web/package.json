@@ -39,6 +39,7 @@
     "@twicpics/components": "^0.14.2",
     "class-variance-authority": "^0.4.0",
     "felte": "^1.2.6",
+    "gsap": "^3.11.4",
     "json-schema-to-zod": "^0.6.0",
     "slate": "^0.87.0",
     "svelte-inview": "^3.0.2",

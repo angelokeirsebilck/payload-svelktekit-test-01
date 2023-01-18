@@ -7,6 +7,7 @@ import { NewsBlock } from "./News";
 import { NewsOverviewBlock } from "./NewsOverview";
 import { TextBlock } from "./Text";
 import { TextImageBlock } from "./TextImage";
+import { UspBlock } from "./USP";
 
 const pageBuilder: Field = {
   label: "Page Builder",
@@ -18,6 +19,7 @@ const pageBuilder: Field = {
     TextImageBlock,
     ImageBlock,
     NewsBlock,
+    UspBlock,
     NewsOverviewBlock,
     FormBlock,
     ContactBlock,

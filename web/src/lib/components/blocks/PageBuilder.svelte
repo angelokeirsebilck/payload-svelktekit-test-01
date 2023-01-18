@@ -8,6 +8,7 @@
   import NewsBlock from "./NewsBlock.svelte";
   import NewsOverviewBlock from "./NewsOverviewBlock.svelte";
   import ContactBlock from "./ContactBlock.svelte";
+  import UspBlock from "./UspBlock.svelte";
 
   export let blocks: Blocks = [];
 </script>
@@ -25,6 +26,8 @@
     <ContactBlock content={block} />
   {:else if block.blockType == "newsBlock"}
     <NewsBlock content={block} />
+  {:else if block.blockType == "uspBlock"}
+    <UspBlock content={block} />
   {:else if block.blockType == "newsOverviewBlock"}
     <NewsOverviewBlock content={block} />
   {:else if block.blockType == "bannerImageSwiperBlock"}

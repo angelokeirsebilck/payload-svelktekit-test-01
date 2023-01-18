@@ -18,6 +18,7 @@ import { FileField } from "./fields/File";
 import News from "./collections/News";
 import { DeployHook } from "./components/DeployHook";
 import CompanyInfo from "./globals/CompanyInfo";
+import Svg from "./collections/Svg";
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL,
@@ -29,7 +30,7 @@ export default buildConfig({
     css: path.resolve(__dirname, "scss/index.scss"),
   },
   globals: [CompanyInfo, Nav, Socials, HomeGlobal],
-  collections: [NewsCategories, Pages, News, Users, Image, File],
+  collections: [NewsCategories, Pages, News, Users, Image, Svg, File],
   localization: {
     locales: ["nl", "en"],
     defaultLocale: "nl",
@@ -111,6 +112,23 @@ export default buildConfig({
           disableLocalStorage: true,
           disablePayloadAccessControl: true,
           prefix: "payloadcms/test-01/images",
+          adapter: s3Adapter({
+            config: {
+              credentials: {
+                accessKeyId: process.env.S3_ACCESS_KEY_ID,
+                secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+              },
+              endpoint: process.env.S3_ENDPOINT,
+              region: process.env.S3_REGION,
+            },
+            bucket: process.env.S3_BUCKET,
+            acl: "public-read",
+          }),
+        },
+        svg: {
+          disableLocalStorage: true,
+          disablePayloadAccessControl: true,
+          prefix: "payloadcms/test-01/images/svg",
           adapter: s3Adapter({
             config: {
               credentials: {

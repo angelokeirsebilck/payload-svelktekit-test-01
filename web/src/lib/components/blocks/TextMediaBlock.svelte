@@ -13,7 +13,7 @@
 
   let isInView: boolean;
   const options: Options = {
-    threshold: 0.6,
+    threshold: 0.3,
   };
 </script>
 
@@ -73,8 +73,8 @@
             />
             <div
               class="transition-all transform origin-right right-0 relative z-20 ease-out duration-[1000ms] {isInView
-                ? 'translate-x-0'
-                : 'translate-x-full'}"
+                ? 'translate-x-0 opacity-100'
+                : 'translate-x-full opacity-0'}"
             >
               <ImageKit
                 transformations={[["736"], ["600"], ["384"]]}

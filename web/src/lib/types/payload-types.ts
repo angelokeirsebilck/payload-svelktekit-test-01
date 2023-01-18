@@ -118,6 +118,19 @@ export interface Page {
       }
     | {
         bgColor: 'white' | 'light';
+        uspList: {
+          uspTitle: string;
+          icon: 'rocket' | 'seo' | 'responsive';
+          svg: string | Svg;
+          uspText: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: 'uspBlock';
+      }
+    | {
+        bgColor: 'white' | 'light';
         id?: string;
         blockName?: string;
         blockType: 'newsOverviewBlock';
@@ -268,6 +281,19 @@ export interface News {
       }
     | {
         bgColor: 'white' | 'light';
+        uspList: {
+          uspTitle: string;
+          icon: 'rocket' | 'seo' | 'responsive';
+          svg: string | Svg;
+          uspText: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: 'uspBlock';
+      }
+    | {
+        bgColor: 'white' | 'light';
         id?: string;
         blockName?: string;
         blockType: 'newsOverviewBlock';
@@ -301,6 +327,22 @@ export interface News {
 export interface NewsCategory {
   id: string;
   name: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "svg".
+ */
+export interface Svg {
+  id: string;
+  prefix?: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  createdAt: string;
+  updatedAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -492,6 +534,19 @@ export interface Home {
         id?: string;
         blockName?: string;
         blockType: 'newsBlock';
+      }
+    | {
+        bgColor: 'white' | 'light';
+        uspList: {
+          uspTitle: string;
+          icon: 'rocket' | 'seo' | 'responsive';
+          svg: string | Svg;
+          uspText: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: 'uspBlock';
       }
     | {
         bgColor: 'white' | 'light';
