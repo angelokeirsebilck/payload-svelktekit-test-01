@@ -97,6 +97,34 @@ module.exports = {
           return Array.isArray(result) ? result[1]["letterSpacing"] : "normal";
         };
         return {
+          sm: {
+            css: {
+              h1: {
+                fontWeight: 500,
+                fontSize: fontSize("4xl"),
+                lineHeight: lineHeight("4xl"),
+                letterSpacing: letterSpacing("4xl"),
+              },
+              h2: {
+                fontWeight: 500,
+                fontSize: fontSize("3xl"),
+                lineHeight: lineHeight("3xl"),
+                letterSpacing: letterSpacing("3xl"),
+              },
+              h3: {
+                fontWeight: 500,
+                fontSize: fontSize("2xl"),
+                lineHeight: lineHeight("2xl"),
+                letterSpacing: letterSpacing("2xl"),
+              },
+              h4: {
+                fontWeight: 500,
+                fontSize: fontSize("xl"),
+                lineHeight: lineHeight("xl"),
+                letterSpacing: letterSpacing("xl"),
+              },
+            },
+          },
           DEFAULT: {
             css: {
               "--tw-prose-headings": theme("colors.black.default"),

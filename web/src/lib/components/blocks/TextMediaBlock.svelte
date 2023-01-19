@@ -27,7 +27,7 @@
     }}
   >
     <Container margin={content.settings.bgColor == "white"}>
-      <div class="grid-cols-12 grid gap-8">
+      <div class="default-grid">
         <div
           class="col-span-12 md:row-start-1 flex md:col-span-5 {content.settings
             .textPos == 'right'
@@ -35,7 +35,7 @@
             : 'order-1'}"
         >
           <div class="flex flex-col {content.settings.textVerAlign}">
-            <div class="prose ">
+            <div class="prose-sm md:prose">
               <RichText textNodes={content.text} />
             </div>
 

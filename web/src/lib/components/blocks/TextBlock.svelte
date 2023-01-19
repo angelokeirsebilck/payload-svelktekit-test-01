@@ -9,7 +9,7 @@
 
 <Background bgColor={content.bgColor}>
   <Container margin={content.bgColor == "white"}>
-    <div class="prose">
+    <div class="prose-sm md:prose">
       <RichText textNodes={content.text} />
     </div>
   </Container>

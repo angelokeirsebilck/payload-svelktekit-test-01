@@ -43,7 +43,7 @@
   }
 
   .default-grid {
-    @apply grid grid-cols-4  md:grid-cols-12 gap-8;
+    @apply grid gap-y-8 grid-cols-4 md:grid-cols-12 md:gap-8;
   }
 
   .swiper-pagination-bullet {
@@ -55,7 +55,7 @@
   }
 
   .btn--medium {
-    @apply px-10 py-3;
+    @apply px-6 md:px-10 py-3;
   }
 
   .btn--small {

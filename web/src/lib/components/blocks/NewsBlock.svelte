@@ -18,7 +18,7 @@
 <Background bgColor={content.settings.bgColor}
   ><Container margin={content.settings.bgColor == "white"}>
     <div class="flex flex-wrap justify-between items-end gap-x-8 mb-12">
-      <h2 class="text-4xl font-medium">{content.title}</h2>
+      <h2 class="text-3xl md:text-4xl font-medium mb-0">{content.title}</h2>
       {#if content.link}
         <div class="hidden lg:block">
           <Button

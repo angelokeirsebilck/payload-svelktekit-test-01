@@ -5,7 +5,7 @@
   import Responsive from "../icons/Responsive.svelte";
   import Rocket from "../icons/Rocket.svelte";
 
-  import { afterUpdate, onMount } from "svelte";
+  import { afterUpdate } from "svelte";
   import Seo from "../icons/Seo.svelte";
   import gsap from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,7 +19,7 @@
       scrollTrigger: {
         trigger: ".slideInParent",
         start: "top 75%",
-        markers: true,
+        // markers: true,
       },
     });
 
