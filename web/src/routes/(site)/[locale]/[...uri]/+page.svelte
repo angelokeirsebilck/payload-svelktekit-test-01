@@ -1,5 +1,6 @@
 <script lang="ts">
   import { env } from "$env/dynamic/public";
+  import Seo from "$lib/components/base/SEO.svelte";
   import PageBuilder from "$lib/components/blocks/PageBuilder.svelte";
   import type { PageData } from "./$types";
 
@@ -10,12 +11,7 @@
   $: description = data?.data?.page?.meta?.description;
 </script>
 
-<svelte:head>
-  <title>{title}</title>
-  {#if description}
-    <meta name="description" content={description} />
-  {/if}
-</svelte:head>
+<Seo {title} {description} />
 
 <div class="container px-8 mx-auto my-16">
   <h1 class="mb-4 text-5xl max-w-2xl font-medium text-primary-default">

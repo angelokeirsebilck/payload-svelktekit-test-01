@@ -4,15 +4,14 @@
   import Container from "../base/Container.svelte";
   import Responsive from "../icons/Responsive.svelte";
   import Rocket from "../icons/Rocket.svelte";
-
-  import { afterUpdate } from "svelte";
+  import { afterUpdate, onDestroy } from "svelte";
   import Seo from "../icons/Seo.svelte";
-  import gsap from "gsap";
+  import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   export let content: UspBlock;
 
-  afterUpdate(() => {
+  afterUpdate(async () => {
     gsap.registerPlugin(ScrollTrigger);
 
     let tl = gsap.timeline({
@@ -28,9 +27,14 @@
       stagger: 0.2,
       opacity: 0,
     });
+
     setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 500);
+    }, 1000);
+  });
+
+  onDestroy(() => {
+    // ScrollTrigger.killAll();
   });
 
   const getContainerStyle = (icon: string): string => {

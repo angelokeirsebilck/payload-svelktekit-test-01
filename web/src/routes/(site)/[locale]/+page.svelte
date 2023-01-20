@@ -1,5 +1,6 @@
 <script lang="ts">
   import { env } from "$env/dynamic/public";
+  import Seo from "$lib/components/base/SEO.svelte";
   import FormBlock from "$lib/components/blocks/FormBlock.svelte";
   import PageBuilder from "$lib/components/blocks/PageBuilder.svelte";
   import type { PageData } from "./$types";
@@ -12,14 +13,5 @@
   $: description = data?.data.homePage?.meta?.description;
 </script>
 
-<!-- <div class="container px-8 mx-auto ">
-  <h1 class="mb-4 text-5xl">{data.home.pageTitle}</h1>
-</div> -->
-<!-- <FormBlock formId="63a99ded5947c0bbb4579d01" /> -->
-<svelte:head>
-  <title>{title}</title>
-  {#if description}
-    <meta name="description" content={description} />
-  {/if}
-</svelte:head>
+<Seo {title} {description} />
 <PageBuilder blocks={data.data.homePage.block} />
