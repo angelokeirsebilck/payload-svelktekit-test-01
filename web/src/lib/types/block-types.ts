@@ -4,6 +4,7 @@ export type Blocks = Page["block"];
 export type NewsBlock = Extract<Blocks[0], { blockType: "newsBlock" }>;
 export type FormBlock = Extract<Blocks[0], { blockType: "formBlock" }>;
 export type ContactBlock = Extract<Blocks[0], { blockType: "contactBlock" }>;
+export type CtaBlock = Extract<Blocks[0], { blockType: "ctaBlock" }>;
 export type UspBlock = Extract<Blocks[0], { blockType: "uspBlock" }>;
 export type TextBlock = Extract<Blocks[0], { blockType: "textBlock" }>;
 export type ImageBlock = Extract<Blocks[0], { blockType: "imageBlock" }>;

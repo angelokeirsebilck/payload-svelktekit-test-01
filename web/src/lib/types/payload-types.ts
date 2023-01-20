@@ -142,6 +142,25 @@ export interface Page {
         blockType: 'formBlock';
       }
     | {
+        bgColor: 'white' | 'light';
+        ctaTitle: string;
+        ctaText?: string;
+        link: {
+          type: 'reference' | 'custom';
+          newTab?: boolean;
+          reference: {
+            value: string | Page;
+            relationTo: 'pages';
+          };
+          url: string;
+          label: string;
+          appearance?: 'primary' | 'secondary';
+        };
+        id?: string;
+        blockName?: string;
+        blockType: 'ctaBlock';
+      }
+    | {
         form: string | Form;
         id?: string;
         blockName?: string;
@@ -303,6 +322,25 @@ export interface News {
         id?: string;
         blockName?: string;
         blockType: 'formBlock';
+      }
+    | {
+        bgColor: 'white' | 'light';
+        ctaTitle: string;
+        ctaText?: string;
+        link: {
+          type: 'reference' | 'custom';
+          newTab?: boolean;
+          reference: {
+            value: string | Page;
+            relationTo: 'pages';
+          };
+          url: string;
+          label: string;
+          appearance?: 'primary' | 'secondary';
+        };
+        id?: string;
+        blockName?: string;
+        blockType: 'ctaBlock';
       }
     | {
         form: string | Form;
@@ -559,6 +597,25 @@ export interface Home {
         id?: string;
         blockName?: string;
         blockType: 'formBlock';
+      }
+    | {
+        bgColor: 'white' | 'light';
+        ctaTitle: string;
+        ctaText?: string;
+        link: {
+          type: 'reference' | 'custom';
+          newTab?: boolean;
+          reference: {
+            value: string | Page;
+            relationTo: 'pages';
+          };
+          url: string;
+          label: string;
+          appearance?: 'primary' | 'secondary';
+        };
+        id?: string;
+        blockName?: string;
+        blockType: 'ctaBlock';
       }
     | {
         form: string | Form;

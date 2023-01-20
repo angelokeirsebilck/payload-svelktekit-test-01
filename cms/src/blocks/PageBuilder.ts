@@ -1,6 +1,7 @@
 import { Field } from "payload/types";
 import { BannerImageSwiper } from "./BannerImageSwiper";
 import { ContactBlock } from "./ContactBlock";
+import { CtaBlock } from "./CTA";
 import { FormBlock } from "./Form";
 import { ImageBlock } from "./Image";
 import { NewsBlock } from "./News";
@@ -22,6 +23,7 @@ const pageBuilder: Field = {
     UspBlock,
     NewsOverviewBlock,
     FormBlock,
+    CtaBlock,
     ContactBlock,
   ],
 };
