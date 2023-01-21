@@ -4,21 +4,22 @@
   import Container from "../base/Container.svelte";
   import Responsive from "../icons/Responsive.svelte";
   import Rocket from "../icons/Rocket.svelte";
-  import { afterUpdate, onDestroy } from "svelte";
+  import { afterUpdate, onDestroy, onMount } from "svelte";
   import Seo from "../icons/Seo.svelte";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   export let content: UspBlock;
-
+  let parent: any;
   afterUpdate(async () => {
     gsap.registerPlugin(ScrollTrigger);
 
     let tl = gsap.timeline({
       scrollTrigger: {
-        trigger: ".slideInParent",
+        trigger: parent,
         start: "top 75%",
-        // markers: true,
+        markers: true,
+        toggleActions: "play pause resume reset",
       },
     });
 
@@ -31,10 +32,6 @@
     setTimeout(() => {
       ScrollTrigger.refresh();
     }, 1000);
-  });
-
-  onDestroy(() => {
-    // ScrollTrigger.killAll();
   });
 
   const getContainerStyle = (icon: string): string => {
@@ -66,8 +63,8 @@
 
 <Background bgColor={content.bgColor}>
   <Container margin={content.bgColor == "white"}>
-    <div class="grid md:grid-cols-3 gap-y-16 slideInParent">
-      {#each content.uspList as usp}
+    <div class="grid md:grid-cols-3 gap-y-16" bind:this={parent}>
+      {#each content.uspList as usp, index (usp.id)}
         <div class="md:col-span-1 flex flex-col items-center usp">
           <div
             class="flex  justify-center items-center max-w-[10rem] p-10 {getContainerStyle(

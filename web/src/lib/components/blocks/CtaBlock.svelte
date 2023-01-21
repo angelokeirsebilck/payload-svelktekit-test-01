@@ -5,22 +5,22 @@
   import Button from "../fields/ui/Button.svelte";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
-  import { afterUpdate, onDestroy } from "svelte";
+  import { afterUpdate } from "svelte";
 
   export let content: CtaBlock;
   let square: any;
   let circle: any;
   let section: any;
 
-  afterUpdate(async () => {
+  afterUpdate(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    ScrollTrigger.refresh();
     gsap.to(square, {
       yPercent: -70,
       ease: "none",
       scrollTrigger: {
         trigger: section,
+
         scrub: 1,
         // markers: true,
       },
@@ -40,9 +40,9 @@
     }, 1000);
   });
 
-  onDestroy(() => {
-    // ScrollTrigger.killAll();
-  });
+  // onDestroy(() => {
+  //   ScrollTrigger.killAll();
+  // });
 </script>
 
 <Background bgColor={content.bgColor}>
