@@ -66,9 +66,9 @@
         <div
           class="col-span-full md:col-span-8 md:col-start-5 py-16 px-10 md:px-0 md:pr-10"
         >
-          <h2 class="text-3xl  md:text-4xl">{content.ctaTitle}</h2>
+          <h2 class="text-3xl font-medium md:text-4xl">{content.ctaTitle}</h2>
           {#if content.ctaText}
-            <div class="text-xl md:text-2xl">{content.ctaText}</div>
+            <div class="text-lg md:text-xl">{content.ctaText}</div>
           {/if}
           {#if content.link}
             <div class="mt-4 md:mt-12">

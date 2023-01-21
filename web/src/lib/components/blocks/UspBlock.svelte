@@ -18,8 +18,8 @@
       scrollTrigger: {
         trigger: parent,
         start: "top 75%",
-        markers: true,
-        toggleActions: "play pause resume reset",
+        // markers: true,
+        toggleActions: "play pause resume reverse",
       },
     });
 
