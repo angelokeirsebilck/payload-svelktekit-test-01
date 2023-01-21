@@ -19,6 +19,7 @@ import News from "./collections/News";
 import { DeployHook } from "./components/DeployHook";
 import CompanyInfo from "./globals/CompanyInfo";
 import Svg from "./collections/Svg";
+import { emailCustomerDefault } from "./email/CustomerDefault";
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL,
@@ -104,6 +105,13 @@ export default buildConfig({
         number: false,
         message: true,
         // fileUpload: FileUpload,
+      },
+      beforeEmail: (emailsToSend) => {
+        // modify the emails in any way before they are sent
+        return emailsToSend.map((email) => ({
+          ...email,
+          html: emailCustomerDefault, // transform the html in any way you'd like (maybe wrap it in an html template?)
+        }));
       },
     }),
     cloudStorage({
