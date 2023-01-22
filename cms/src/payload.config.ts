@@ -19,7 +19,8 @@ import News from "./collections/News";
 import { DeployHook } from "./components/DeployHook";
 import CompanyInfo from "./globals/CompanyInfo";
 import Svg from "./collections/Svg";
-import { emailCustomerDefault } from "./email/CustomerDefault";
+import { emailCustomerDefault } from "./email-templates/emails/CustomerDefault";
+import payload from "payload";
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL,
@@ -106,11 +107,14 @@ export default buildConfig({
         message: true,
         // fileUpload: FileUpload,
       },
-      beforeEmail: (emailsToSend) => {
-        // modify the emails in any way before they are sent
+      beforeEmail: async (emailsToSend) => {
+        const companyInfo = await payload.findGlobal({
+          slug: "companyInfo",
+        });
+        console.log(companyInfo);
         return emailsToSend.map((email) => ({
           ...email,
-          html: emailCustomerDefault, // transform the html in any way you'd like (maybe wrap it in an html template?)
+          html: emailCustomerDefault(email.html, companyInfo),
         }));
       },
     }),

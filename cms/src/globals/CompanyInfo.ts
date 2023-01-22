@@ -7,61 +7,93 @@ const CompanyInfo: GlobalConfig = {
   },
   fields: [
     {
-      type: "row",
-      fields: [
+      type: "tabs",
+      tabs: [
         {
-          name: "email", // required
-          type: "email", // required
           label: {
-            en: "Email",
-            nl: "E-mailadres",
+            en: "Contact",
+            nl: "Contact",
           },
-          required: true,
-          admin: {
-            width: "50%",
-          },
-        },
-        {
-          name: "tel",
-          type: "text",
-          required: true,
-          validate: async (val, { t }) => {
-            var telRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g;
-            if (telRegex.test(val)) return true;
+          fields: [
+            {
+              type: "row",
+              fields: [
+                {
+                  name: "email", // required
+                  type: "email", // required
+                  label: {
+                    en: "Email",
+                    nl: "E-mailadres",
+                  },
+                  required: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "tel",
+                  type: "text",
+                  required: true,
+                  validate: async (val, { t }) => {
+                    var telRegex =
+                      /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g;
+                    if (telRegex.test(val)) return true;
 
-            return t("validationMessages:telRegEx");
-          },
+                    return t("validationMessages:telRegEx");
+                  },
+                  label: {
+                    en: "Telephonenumber",
+                    nl: "Telefoonnummer",
+                  },
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "addressLine1",
+                  type: "text",
+                  required: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "addressLine2",
+                  type: "text",
+                  required: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "addressLine3",
+                  type: "text",
+                  required: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+              ],
+            },
+          ],
+        },
+        {
           label: {
-            en: "Telephonenumber",
-            nl: "Telefoonnummer",
+            nl: "Logo",
+            en: "Logo",
           },
-          admin: {
-            width: "50%",
-          },
-        },
-        {
-          name: "addressLine1",
-          type: "text",
-          required: true,
-          admin: {
-            width: "50%",
-          },
-        },
-        {
-          name: "addressLine2",
-          type: "text",
-          required: true,
-          admin: {
-            width: "50%",
-          },
-        },
-        {
-          name: "addressLine3",
-          type: "text",
-          required: true,
-          admin: {
-            width: "50%",
-          },
+          fields: [
+            {
+              name: "logo", // required
+              label: {
+                nl: "Company Logo",
+                en: "Company Logo",
+              },
+              type: "upload", // required
+              relationTo: "image", // required
+              required: true,
+            },
+          ],
         },
       ],
     },
