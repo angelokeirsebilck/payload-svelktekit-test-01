@@ -1,5 +1,5 @@
-import type { Home, News, NewsCategory } from "$lib/types/payload-types";
-import type { PageServerLoad } from "./$types";
+import type { Home } from "$lib/types/payload-types";
+import type { PageLoad } from "./$types";
 import { env } from "$env/dynamic/public";
 import { error } from "@sveltejs/kit";
 import { locales } from "$lib/config/siteConfig";
@@ -54,4 +54,4 @@ export const load = (async ({ fetch, params, url }) => {
     newsItems: loadNewsItems(),
     newsCategories: gloadNewsCategories(),
   };
-}) satisfies PageServerLoad;
+}) satisfies PageLoad;

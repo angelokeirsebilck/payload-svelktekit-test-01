@@ -7,9 +7,6 @@
   import MobileDrawer from "$lib/components/MobileDrawer.svelte";
   import Footer from "$lib/components/layout/Footer.svelte";
   import PageTransition from "$lib/components/base/PageTransition.svelte";
-  // import { gsap } from "gsap";
-  // import { ScrollTrigger } from "gsap/ScrollTrigger";
-  // import { afterUpdate, onMount } from "svelte";
   const defaultLocalized = [["en"], ["nl"]];
 
   let path: string;
@@ -23,13 +20,6 @@
   function closeDrawer() {
     open = false;
   }
-
-  // afterUpdate(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-  //   setTimeout(() => {
-  //     ScrollTrigger.refresh();
-  //   }, 1000);
-  // });
 </script>
 
 <div class="flex flex-col min-h-screen overflow-hidden text-black-default">

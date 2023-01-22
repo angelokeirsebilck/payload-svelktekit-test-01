@@ -1,4 +1,4 @@
-import type { LayoutServerLoad } from "./$types";
+import type { LayoutLoad } from "./$types";
 import type { Nav, CompanyInfo } from "$lib/types/payload-types";
 import { env } from "$env/dynamic/public";
 import { getLocaleFromPathname } from "$lib/utils/getLocaleFromPathname";
@@ -34,4 +34,4 @@ export const load = (({ url }) => {
     locale,
     pathname: url.pathname,
   };
-}) satisfies LayoutServerLoad;
+}) satisfies LayoutLoad;

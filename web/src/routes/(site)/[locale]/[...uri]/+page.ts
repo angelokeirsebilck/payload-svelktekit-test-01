@@ -1,4 +1,4 @@
-import type { PageServerLoad } from "./$types";
+import type { PageLoad } from "./$types";
 import type { News, Page } from "$lib/types/payload-types";
 import { env } from "$env/dynamic/public";
 import qs from "qs";
@@ -96,4 +96,4 @@ export const load = (async ({ params, fetch }) => {
     newsItems: loadNewsItems(),
     newsCategories: gloadNewsCategories(),
   };
-}) satisfies PageServerLoad;
+}) satisfies PageLoad;
