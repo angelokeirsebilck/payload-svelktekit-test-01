@@ -51,6 +51,7 @@ const server = http.createServer(app);
 
 server.listen(3006, () => {
   console.log(`HTTP Server running on port 3006`);
+  console.log(`SvelteKit URL: ${process.env.PAYLOAD_PUBLIC_WEB_URL}`);
 });
 
 const io = require("socket.io")(server, {
