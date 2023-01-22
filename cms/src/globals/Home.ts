@@ -1,5 +1,6 @@
 import { GlobalConfig } from "payload/types";
 import { pageBuilder } from "../blocks/PageBuilder";
+import updatePreviewGlobalAfterChange from "../hooks/updatePreviewGlobalAfterChange";
 
 const HomeGlobal: GlobalConfig = {
   slug: "home",
@@ -9,6 +10,9 @@ const HomeGlobal: GlobalConfig = {
   versions: {
     max: 15,
     drafts: true,
+  },
+  hooks: {
+    afterChange: [updatePreviewGlobalAfterChange],
   },
   access: {
     read: ({ req }) => {

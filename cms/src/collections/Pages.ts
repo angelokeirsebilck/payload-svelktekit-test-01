@@ -2,6 +2,7 @@ import { CollectionConfig } from "payload/types";
 import { pageBuilder } from "../blocks/PageBuilder";
 import { pagesBeforeChange } from "../hooks/pagesBeforeSave";
 import resaveNewsPosts from "../hooks/resaveNewsPostsAfterChange";
+import updatePreviewAfterChange from "../hooks/updatePreviewAfterChange";
 
 const Pages: CollectionConfig = {
   slug: "pages",
@@ -54,7 +55,7 @@ const Pages: CollectionConfig = {
   },
   hooks: {
     beforeChange: [pagesBeforeChange],
-    afterChange: [resaveNewsPosts],
+    afterChange: [resaveNewsPosts, updatePreviewAfterChange],
   },
   fields: [
     {

@@ -1,5 +1,6 @@
 import express from "express";
 import payload from "payload";
+var http = require("http");
 
 require("dotenv").config();
 const app = express();
@@ -44,4 +45,32 @@ payload.init({
 
 // Add your own express routes here
 
-app.listen(3006);
+// app.listen(3006);
+
+const server = http.createServer(app);
+
+server.listen(3006, () => {
+  console.log(`HTTP Server running on port 3006`);
+});
+
+const io = require("socket.io")(server, {
+  cors: {
+    origin: process.env.PAYLOAD_PUBLIC_WEB_URL,
+  },
+});
+
+io.on("connection", (socket) => {
+  console.log("New client connected");
+
+  socket.on("disconnect", () => {
+    // console.log('Client disconnected')
+  });
+});
+
+// You can't call io.emit directly from the payload hooks, it throws errors.
+// As a workaround, you can set up a simple endpoint that emits the update
+app.post("/updatePreview", (req, res) => {
+  console.log("update preview called");
+  io.emit("update");
+  res.sendStatus(200);
+});

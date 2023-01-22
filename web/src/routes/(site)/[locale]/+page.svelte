@@ -1,7 +1,6 @@
 <script lang="ts">
   import { env } from "$env/dynamic/public";
   import Seo from "$lib/components/base/SEO.svelte";
-  import FormBlock from "$lib/components/blocks/FormBlock.svelte";
   import PageBuilder from "$lib/components/blocks/PageBuilder.svelte";
   import type { PageData } from "./$types";
 
