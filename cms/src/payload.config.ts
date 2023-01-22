@@ -19,8 +19,8 @@ import News from "./collections/News";
 import { DeployHook } from "./components/DeployHook";
 import CompanyInfo from "./globals/CompanyInfo";
 import Svg from "./collections/Svg";
-import { emailCustomerDefault } from "./email-templates/emails/CustomerDefault";
 import payload from "payload";
+import { emailCustomerDefault } from "./emails/CustomerDefault";
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL,

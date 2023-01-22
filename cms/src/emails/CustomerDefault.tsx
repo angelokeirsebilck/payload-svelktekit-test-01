@@ -32,10 +32,7 @@ export default function CustomerDefault({
               alignItems: "center",
             }}
           >
-            <Img
-              width={200}
-              src={companyInfo?.logo?.url || "https://picsum.photos/200/50"}
-            ></Img>
+            <Img width={200} src={companyInfo?.logo?.url}></Img>
           </Section>
           <Section
             style={{
@@ -46,7 +43,7 @@ export default function CustomerDefault({
               alignItems: "center",
             }}
           >
-            {parse(text || "Beste, Bedankt om ons te contacteren.")}
+            {parse(text)}
           </Section>
         </Container>
       </Section>
