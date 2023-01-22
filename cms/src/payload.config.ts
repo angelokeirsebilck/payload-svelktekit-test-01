@@ -111,7 +111,7 @@ export default buildConfig({
         const companyInfo = await payload.findGlobal({
           slug: "companyInfo",
         });
-        console.log(companyInfo);
+
         return emailsToSend.map((email) => ({
           ...email,
           html: emailCustomerDefault(email.html, companyInfo),
