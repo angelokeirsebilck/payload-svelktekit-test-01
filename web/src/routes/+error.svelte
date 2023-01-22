@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import ErrorPage from "$lib/components/base/ErrorPage.svelte";
 </script>
 
-Custom error
-<h1>{$page.status}: {$page.error?.message}</h1>
+<ErrorPage />
