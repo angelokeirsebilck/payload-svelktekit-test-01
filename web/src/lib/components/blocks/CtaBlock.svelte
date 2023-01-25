@@ -6,15 +6,17 @@
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { afterUpdate } from "svelte";
+  import { staggerAnimation } from "$lib/utils/staggerAnimation";
 
   export let content: CtaBlock;
   let square: any;
   let circle: any;
   let section: any;
+  let text: any;
 
   afterUpdate(() => {
     gsap.registerPlugin(ScrollTrigger);
-
+    staggerAnimation(text);
     gsap.to(square, {
       yPercent: -70,
       ease: "none",
@@ -65,6 +67,7 @@
         </div>
         <div
           class="col-span-full md:col-span-8 md:col-start-5 py-16 px-10 md:px-0 md:pr-10"
+          bind:this={text}
         >
           <h2 class="text-3xl font-medium md:text-4xl">{content.ctaTitle}</h2>
           {#if content.ctaText}

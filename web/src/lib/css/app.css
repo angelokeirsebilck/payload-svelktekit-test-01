@@ -51,7 +51,7 @@
   }
 
   .btn {
-    @apply flex overflow-hidden  w-fit text-center uppercase text-lg border-2 transition-all duration-300;
+    @apply flex overflow-hidden !no-underline  w-fit text-center uppercase text-lg border-2 transition-all duration-300;
   }
 
   .btn--medium {

@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { TextImageBlock } from "$lib/types/block-types";
+  import { staggerAnimation } from "$lib/utils/staggerAnimation";
   import type { Options } from "svelte-inview";
   import { inview } from "svelte-inview";
   import Background from "../base/Background.svelte";
@@ -7,7 +8,9 @@
   import ImageKit from "../base/ImageKit.svelte";
   import RichText from "../fields/richtext/RichText.svelte";
   import Button from "../fields/ui/Button.svelte";
-
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { afterUpdate } from "svelte";
   export let content: TextImageBlock;
   export let index: number;
 
@@ -15,6 +18,15 @@
   const options: Options = {
     threshold: 0.3,
   };
+  let text: any;
+  afterUpdate(async () => {
+    gsap.registerPlugin(ScrollTrigger);
+    staggerAnimation(text);
+
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
+  });
 </script>
 
 <Background bgColor={content.settings.bgColor}>
@@ -38,9 +50,8 @@
             <div class="prose-sm md:prose">
               <RichText textNodes={content.text} />
             </div>
-
             {#if content.link}
-              <div class="mt-4 md:mt-12">
+              <div class="mt-4 md:mt-12" bind:this={text}>
                 <Button
                   link={content.link}
                   intent={content.link.appearance}
