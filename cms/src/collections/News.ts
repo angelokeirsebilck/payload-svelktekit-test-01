@@ -20,7 +20,8 @@ const News: CollectionConfig = {
     useAsTitle: "pageTitle",
     preview: (doc, { locale }) => {
       if (doc?.uri) {
-        return `${process.env.PAYLOAD_PUBLIC_WEB_URL}/preview/pages?id=${doc.id}&locale=${locale}`;
+        return `https://payload-svelktekit-test-01.vercel.app/preview/pages?id=${doc.id}&locale=${locale}`;
+        // return `${process.env.PAYLOAD_PUBLIC_WEB_URL}/preview/pages?id=${doc.id}&locale=${locale}`;
       }
       return null;
     },

@@ -8,7 +8,9 @@ const HomeGlobal: GlobalConfig = {
     console.log(
       `${process.env.PAYLOAD_PUBLIC_WEB_URL}/preview/home?id=${doc.id}&locale=${locale}`
     );
-    return `${process.env.PAYLOAD_PUBLIC_WEB_URL}/preview/home?id=${doc.id}&locale=${locale}`;
+
+    return `https://payload-svelktekit-test-01.vercel.app/preview/home?id=${doc.id}&locale=${locale}`;
+    // return `${process.env.PAYLOAD_PUBLIC_WEB_URL}/preview/home?id=${doc.id}&locale=${locale}`;
   },
   versions: {
     max: 15,

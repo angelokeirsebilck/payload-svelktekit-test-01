@@ -49,8 +49,8 @@ payload.init({
 
 const server = http.createServer(app);
 
-server.listen(3006, () => {
-  console.log(`HTTP Server running on port 3006`);
+server.listen(process.env.PORT, () => {
+  console.log(`HTTP Server running on port ${process.env.PORT}`);
   console.log(`SvelteKit URL: ${process.env.PAYLOAD_PUBLIC_WEB_URL}`);
 });
 

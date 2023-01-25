@@ -3,6 +3,7 @@ import { pageBuilder } from "../blocks/PageBuilder";
 import { pagesBeforeChange } from "../hooks/pagesBeforeSave";
 import resaveNewsPosts from "../hooks/resaveNewsPostsAfterChange";
 import updatePreviewAfterChange from "../hooks/updatePreviewAfterChange";
+import payload from "payload";
 
 const Pages: CollectionConfig = {
   slug: "pages",
@@ -22,7 +23,8 @@ const Pages: CollectionConfig = {
     useAsTitle: "pageTitle",
     preview: (doc, { locale }) => {
       if (doc?.uri) {
-        return `${process.env.PAYLOAD_PUBLIC_WEB_URL}/preview/pages?id=${doc.id}&locale=${locale}`;
+        return `https://payload-svelktekit-test-01.vercel.app/preview/pages?id=${doc.id}&locale=${locale}`;
+        // return `${process.env.PAYLOAD_PUBLIC_WEB_URL}/preview/pages?id=${doc.id}&locale=${locale}`;
       }
       return null;
     },
