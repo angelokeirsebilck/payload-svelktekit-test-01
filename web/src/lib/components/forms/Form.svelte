@@ -10,6 +10,19 @@
   export let formBlock: Form;
   import { trans } from "$lib/translations/translations";
   import { page } from "$app/stores";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { onMount } from "svelte";
+  import { staggerAnimationFromTo } from "$lib/utils/staggerAnimationFromTo";
+
+  let formElements: any;
+  onMount(async () => {
+    gsap.registerPlugin(ScrollTrigger);
+    staggerAnimationFromTo(formElements);
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
+  });
 
   const { form, errors, reset } = createForm({
     onSubmit: async (values) => {
@@ -43,7 +56,7 @@
   });
 </script>
 
-<form use:form class="flex flex-col gap-4">
+<form use:form class="flex flex-col gap-4" bind:this={formElements}>
   {#each fields as field}
     <div class="flex flex-col {$errors[field.name] ? 'group error' : ''}">
       {#if field.name !== "gdpr"}

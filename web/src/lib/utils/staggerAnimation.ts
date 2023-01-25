@@ -5,7 +5,7 @@ const staggerAnimation = (parent: HTMLElement) => {
       trigger: parent,
       start: "top 75%",
       toggleActions: "play pause resume reverse",
-      markers: true,
+      //   markers: true,
     },
   });
 

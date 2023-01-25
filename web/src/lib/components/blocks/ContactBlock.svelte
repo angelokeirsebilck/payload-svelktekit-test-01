@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, afterUpdate } from "svelte";
   import * as zod from "zod";
   import Form from "../forms/Form.svelte";
   import type { ContactBlock } from "$lib/types/block-types";
@@ -7,6 +7,9 @@
   import CompanyInfo from "../base/CompanyInfo.svelte";
   import { trans } from "$lib/translations/translations";
   import { page } from "$app/stores";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { staggerAnimationFromTo } from "$lib/utils/staggerAnimationFromTo";
 
   interface IPayloadOption {
     name: string;
@@ -101,7 +104,7 @@
           formId={content.form.id}
         />
       </div>
-      <div class="col-span-full md:col-start-7 md:col-span-6 @container ">
+      <div class="col-span-full md:col-start-7 md:col-span-6 @container">
         <CompanyInfo />
       </div>
     </div>

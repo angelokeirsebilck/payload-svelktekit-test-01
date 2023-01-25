@@ -11,6 +11,21 @@
   import { crossfade } from "svelte/transition";
   import { flip } from "svelte/animate";
   import ImageKit from "../base/ImageKit.svelte";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { onMount } from "svelte";
+  import { staggerAnimationFromTo } from "$lib/utils/staggerAnimationFromTo";
+
+  let categories: any;
+  let newsItems: any;
+  onMount(async () => {
+    gsap.registerPlugin(ScrollTrigger);
+    staggerAnimationFromTo(categories);
+    staggerAnimationFromTo(newsItems);
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
+  });
 
   let selectedCat = "all";
 
@@ -57,7 +72,7 @@
 <Background bgColor={content.bgColor}>
   <Container margin={content.bgColor == "white"}>
     <div class="ul mb-10">
-      <ul class="flex flex-wrap gap-4">
+      <ul class="flex flex-wrap gap-4" bind:this={categories}>
         <li
           on:keydown|stopPropagation={changeSelection}
           on:click|stopPropagation={changeSelection}
@@ -80,7 +95,7 @@
     </div>
 
     {#if filteredNewsItems.length > 0}
-      <div class="default-grid">
+      <div class="default-grid" bind:this={newsItems}>
         {#each filteredNewsItems as newsItem (newsItem.id)}
           <a
             in:receive={{ key: newsItem.id }}

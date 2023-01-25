@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { TextImageBlock } from "$lib/types/block-types";
-  import { staggerAnimation } from "$lib/utils/staggerAnimation";
   import type { Options } from "svelte-inview";
   import { inview } from "svelte-inview";
   import Background from "../base/Background.svelte";
@@ -11,6 +10,7 @@
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { afterUpdate } from "svelte";
+  import { staggerAnimationFromTo } from "$lib/utils/staggerAnimationFromTo";
   export let content: TextImageBlock;
   export let index: number;
 
@@ -21,7 +21,7 @@
   let text: any;
   afterUpdate(async () => {
     gsap.registerPlugin(ScrollTrigger);
-    staggerAnimation(text);
+    staggerAnimationFromTo(text);
 
     setTimeout(() => {
       ScrollTrigger.refresh();
@@ -47,20 +47,20 @@
             : 'order-1'}"
         >
           <div class="flex flex-col {content.settings.textVerAlign}">
-            <div class="prose-sm md:prose">
+            <div class="prose-sm md:prose" bind:this={text}>
               <RichText textNodes={content.text} />
+              {#if content.link}
+                <div class="mt-4 md:mt-12">
+                  <Button
+                    link={content.link}
+                    intent={content.link.appearance}
+                    type={content.link.type}
+                    style={"normal"}
+                    size={"medium"}
+                  />
+                </div>
+              {/if}
             </div>
-            {#if content.link}
-              <div class="mt-4 md:mt-12" bind:this={text}>
-                <Button
-                  link={content.link}
-                  intent={content.link.appearance}
-                  type={content.link.type}
-                  style={"normal"}
-                  size={"medium"}
-                />
-              </div>
-            {/if}
           </div>
         </div>
         <div
