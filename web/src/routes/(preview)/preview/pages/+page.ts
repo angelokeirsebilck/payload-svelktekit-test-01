@@ -24,6 +24,8 @@ export const load = (({ url, fetch, depends }) => {
   const id = searchParams.get("id");
 
   const getPageData = async (): Promise<IData> => {
+    let page: News | Page | null = null;
+
     const res = await fetch(
       `${env.PUBLIC_CMS_API_ENDPOINT}/pages/${id}?locale=${locale}&draft=true`,
       {
@@ -31,25 +33,29 @@ export const load = (({ url, fetch, depends }) => {
       }
     );
 
-    if (res.status == 404) {
-      throw error(503, {
-        message: "Not a valid preview url",
-      });
+    if (res.status == 200) {
+      page = await res.json();
     }
-    let page = await res.json();
 
-    if (!page) {
+    if (res.status == 404) {
       const res = await fetch(
-        `${env.PUBLIC_CMS_API_ENDPOINT}/pages/${id}?locale=${locale}&draft=true`
+        `${env.PUBLIC_CMS_API_ENDPOINT}/news/${id}?locale=${locale}&draft=true`
       );
-      const data = await res.json();
-      page = data.docs[0] as News;
+      page = (await res.json()) as News;
       pageType = "news";
+      console.log(page);
+
+      if (res.status == 404) {
+        throw error(503, {
+          message: "Not a valid preview url",
+        });
+      }
     }
 
     if (!page) {
       throw error(404);
     }
+
     //Get extra block data to pass through
     const newsBlockData: NewsBlockData[] = await getNewsBlocks(
       page.block,
