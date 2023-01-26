@@ -4,7 +4,7 @@
   import Container from "../base/Container.svelte";
   import Responsive from "../icons/Responsive.svelte";
   import Rocket from "../icons/Rocket.svelte";
-  import { afterUpdate, onDestroy, onMount } from "svelte";
+  import { afterUpdate } from "svelte";
   import Seo from "../icons/Seo.svelte";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";

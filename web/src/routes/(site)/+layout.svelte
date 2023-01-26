@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { LayoutData } from "./$types";
+  import { disableScrollHandling } from "$app/navigation";
   import logo from "$lib/assets/svg/logo-demo.svg";
   export let data: LayoutData;
   import { page } from "$app/stores";
@@ -9,7 +10,7 @@
   import PageTransition from "$lib/components/base/PageTransition.svelte";
   // import { gsap } from "gsap";
   // import { ScrollTrigger } from "gsap/ScrollTrigger";
-  // import { afterUpdate, onMount } from "svelte";
+  import { afterUpdate, onMount } from "svelte";
   const defaultLocalized = [["en"], ["nl"]];
 
   let path: string;
@@ -24,12 +25,9 @@
     open = false;
   }
 
-  // afterUpdate(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-  //   setTimeout(() => {
-  //     ScrollTrigger.refresh();
-  //   }, 1000);
-  // });
+  afterUpdate(() => {
+    // disableScrollHandling();
+  });
 </script>
 
 <div class="flex flex-col min-h-screen overflow-hidden text-black-default">
@@ -87,7 +85,9 @@
   <PageTransition pathname={data.pathname}>
     <slot />
   </PageTransition>
-
+  <!-- <main>
+    <slot />
+  </main> -->
   <Footer />
 </div>
 

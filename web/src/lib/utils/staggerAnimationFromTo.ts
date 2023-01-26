@@ -3,7 +3,7 @@ const staggerAnimationFromTo = (parent: HTMLElement) => {
   let tl = gsap.timeline({
     scrollTrigger: {
       trigger: parent,
-      start: "top 75%",
+      start: "top 80%",
       toggleActions: "play pause resume reverse",
       // markers: true,
     },
