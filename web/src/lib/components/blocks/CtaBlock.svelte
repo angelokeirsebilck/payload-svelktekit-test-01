@@ -66,7 +66,7 @@
           />
         </div>
         <div
-          class="col-span-full md:col-span-8 md:col-start-5 py-16 px-10 md:px-0 md:pr-10"
+          class="col-span-full md:col-span-8 md:col-start-5 py-8 md:py-16 px-8 md:px-0 md:pr-10"
           bind:this={text}
         >
           <h2 class="text-3xl font-medium md:text-4xl">{content.ctaTitle}</h2>

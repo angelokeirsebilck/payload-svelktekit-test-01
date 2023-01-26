@@ -7,8 +7,8 @@
 <div
   class="{!noMargin
     ? margin
-      ? 'my-12 md:my-24'
-      : 'py-12 md:py-24'
+      ? 'my-8 md:my-24'
+      : 'py-8 md:py-24'
     : ''} mx-auto max-w-container px-8 {classes}"
 >
   <slot />

@@ -23,26 +23,31 @@
 
   afterUpdate(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: swiperContainer,
-        start: "top 75%",
-        toggleActions: "play pause resume reverse",
-        // markers: true,
-      },
-    });
+    let mm = gsap.matchMedia();
+    mm.add("(min-width: 1024px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: title,
+          start: "top 75%",
+          toggleActions: "play pause resume reverse",
+          // markers: true,
+        },
+      });
 
-    tl.to(pagination, {
-      opacity: 1,
-    }).fromTo(
-      title,
-      {
-        opacity: 0,
-        y: 20,
-      },
-      { opacity: 1, y: 0 },
-      "-=0.5"
-    );
+      tl.to(pagination, {
+        opacity: 1,
+      }).fromTo(
+        title,
+        {
+          opacity: 0,
+          y: 20,
+        },
+        { opacity: 1, y: 0 },
+        "-=0.5"
+      );
+
+      return () => {};
+    });
 
     if (swiperEl) {
       setTimeout(() => {
@@ -59,7 +64,7 @@
   });
 </script>
 
-<div class="h-auto my-12 lg:my-0 lg:h-[calc(100vh_-_122px)] flex items-center">
+<div class="h-auto my-8 lg:my-0 lg:h-[calc(100vh_-_122px)] flex items-center">
   <Container noMargin={true} classes="w-full relative aspect-[1920/800]">
     <h1
       bind:this={title}

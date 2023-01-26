@@ -67,7 +67,7 @@
       {#each content.uspList as usp, index (usp.id)}
         <div class="md:col-span-1 flex flex-col items-center usp">
           <div
-            class="flex  justify-center items-center max-w-[10rem] p-10 {getContainerStyle(
+            class="flex  justify-center items-center max-w-[8rem] md:max-w-[10rem] p-8 md:p-10 {getContainerStyle(
               usp.icon
             )}"
           >
