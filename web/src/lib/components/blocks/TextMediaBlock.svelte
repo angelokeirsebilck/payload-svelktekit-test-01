@@ -52,7 +52,7 @@
               {#if content.link[0]}
                 <div class="mt-4 md:mt-12">
                   <Button
-                    link={content.link}
+                    link={content.link[0].link}
                     intent={content.link[0].link.appearance}
                     type={content.link[0].link.type}
                     style={"normal"}

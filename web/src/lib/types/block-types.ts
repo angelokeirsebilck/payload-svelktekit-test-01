@@ -21,8 +21,8 @@ export type TextImageBlock = Extract<
   { blockType: "textImageBlock" }
 >;
 
-export type Link = TextImageBlock["link"];
-export type LinkType = TextImageBlock["link"]["type"];
+export type Link = TextImageBlock["link"][0]["link"];
+export type LinkType = TextImageBlock["link"][0]["link"]["type"];
 
 export type NewsBlockData = {
   blockId: string | undefined;

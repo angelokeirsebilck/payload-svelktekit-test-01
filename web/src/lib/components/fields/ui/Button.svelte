@@ -36,8 +36,8 @@
   <a
     href={link.url}
     class={button({ intent, size, style })}
-    target={link.newTab ? "_blank" : null}
-    rel={link.newTab ? "nofollow" : null}
+    target={link?.newTab ? "_blank" : null}
+    rel={link?.newTab ? "nofollow" : null}
   >
     <span> {link.label}</span>
   </a>
