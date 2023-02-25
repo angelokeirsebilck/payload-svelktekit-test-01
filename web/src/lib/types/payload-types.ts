@@ -17,6 +17,34 @@ export interface CompanyInfo {
   addressLine1: string;
   addressLine2: string;
   addressLine3: string;
+  logo: string | Image;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "image".
+ */
+export interface Image {
+  id: string;
+  alt: string;
+  prefix?: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes: {
+    thumbnail: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
+  createdAt: string;
+  updatedAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -64,16 +92,19 @@ export interface Page {
           [k: string]: unknown;
         }[];
         link: {
-          type: 'reference' | 'custom';
-          newTab?: boolean;
-          reference: {
-            value: string | Page;
-            relationTo: 'pages';
+          link: {
+            type: 'reference' | 'custom';
+            newTab?: boolean;
+            reference: {
+              value: string | Page;
+              relationTo: 'pages';
+            };
+            url: string;
+            label: string;
+            appearance?: 'primary' | 'secondary';
           };
-          url: string;
-          label: string;
-          appearance?: 'primary' | 'secondary';
-        };
+          id?: string;
+        }[];
         settings: {
           textPos: 'left' | 'right';
           textVerAlign: 'self-start' | 'self-center' | 'self-end';
@@ -185,33 +216,6 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "image".
- */
-export interface Image {
-  id: string;
-  alt: string;
-  prefix?: string;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
-  width?: number;
-  height?: number;
-  sizes: {
-    thumbnail: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-  };
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "news".
  */
 export interface News {
@@ -246,16 +250,19 @@ export interface News {
           [k: string]: unknown;
         }[];
         link: {
-          type: 'reference' | 'custom';
-          newTab?: boolean;
-          reference: {
-            value: string | Page;
-            relationTo: 'pages';
+          link: {
+            type: 'reference' | 'custom';
+            newTab?: boolean;
+            reference: {
+              value: string | Page;
+              relationTo: 'pages';
+            };
+            url: string;
+            label: string;
+            appearance?: 'primary' | 'secondary';
           };
-          url: string;
-          label: string;
-          appearance?: 'primary' | 'secondary';
-        };
+          id?: string;
+        }[];
         settings: {
           textPos: 'left' | 'right';
           textVerAlign: 'self-start' | 'self-center' | 'self-end';
@@ -521,16 +528,19 @@ export interface Home {
           [k: string]: unknown;
         }[];
         link: {
-          type: 'reference' | 'custom';
-          newTab?: boolean;
-          reference: {
-            value: string | Page;
-            relationTo: 'pages';
+          link: {
+            type: 'reference' | 'custom';
+            newTab?: boolean;
+            reference: {
+              value: string | Page;
+              relationTo: 'pages';
+            };
+            url: string;
+            label: string;
+            appearance?: 'primary' | 'secondary';
           };
-          url: string;
-          label: string;
-          appearance?: 'primary' | 'secondary';
-        };
+          id?: string;
+        }[];
         settings: {
           textPos: 'left' | 'right';
           textVerAlign: 'self-start' | 'self-center' | 'self-end';

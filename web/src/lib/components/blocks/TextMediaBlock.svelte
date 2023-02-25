@@ -49,12 +49,12 @@
           <div class="flex flex-col {content.settings.textVerAlign}">
             <div class="prose-sm md:prose" bind:this={text}>
               <RichText textNodes={content.text} />
-              {#if content.link}
+              {#if content.link[0]}
                 <div class="mt-4 md:mt-12">
                   <Button
                     link={content.link}
-                    intent={content.link.appearance}
-                    type={content.link.type}
+                    intent={content.link[0].link.appearance}
+                    type={content.link[0].link.type}
                     style={"normal"}
                     size={"medium"}
                   />

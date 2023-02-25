@@ -25,8 +25,6 @@
     ul: Ul,
     p: P,
   };
-
-  console.log(textNodes);
 </script>
 
 {#each textNodes as node}

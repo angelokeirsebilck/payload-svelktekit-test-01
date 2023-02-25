@@ -10,7 +10,12 @@ const TextImageBlock: Block = {
   slug: "textImageBlock",
   fields: [
     DefaultRichText,
-    link(),
+    {
+      name: "link",
+      type: "array",
+      maxRows: 1,
+      fields: [link()],
+    },
     {
       label: {
         en: "Settings",
