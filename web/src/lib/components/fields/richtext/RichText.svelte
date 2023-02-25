@@ -38,7 +38,7 @@
     {:else if node.italic}
       <em>{node.text}</em>
     {:else}
-      <span>{node.text}</span>
+      {node.text}
     {/if}
   {:else if node.type}
     <svelte:component this={nodeTypes[node.type]}>

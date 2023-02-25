@@ -10,7 +10,7 @@
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { afterUpdate } from "svelte";
-  import { staggerAnimationFromTo } from "$lib/utils/staggerAnimationFromTo";
+  import { staggerAnimationFromToSingle } from "$lib/utils/staggerAnimationFromToSingle";
   export let content: TextImageBlock;
   export let index: number;
 
@@ -21,7 +21,7 @@
   let text: any;
   afterUpdate(async () => {
     gsap.registerPlugin(ScrollTrigger);
-    staggerAnimationFromTo(text);
+    staggerAnimationFromToSingle(text);
 
     setTimeout(() => {
       ScrollTrigger.refresh();
@@ -46,8 +46,8 @@
             ? 'order-1 md:order-2 md:col-start-8'
             : 'order-1'}"
         >
-          <div class="flex flex-col {content.settings.textVerAlign}">
-            <div class="prose-sm md:prose" bind:this={text}>
+          <div class="flex flex-col  {content.settings.textVerAlign}">
+            <div class="prose-sm md:prose">
               <RichText textNodes={content.text} />
               {#if content.link[0]}
                 <div class="mt-4 md:mt-12">
