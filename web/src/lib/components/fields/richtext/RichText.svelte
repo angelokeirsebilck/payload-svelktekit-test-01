@@ -8,6 +8,7 @@
   import H6 from "./H6.svelte";
   import Li from "./LI.svelte";
   import OL from "./OL.svelte";
+  import P from "./P.svelte";
   import Ul from "./UL.svelte";
 
   export let textNodes: { [k: string]: unknown }[];
@@ -22,7 +23,10 @@
     ol: OL,
     li: Li,
     ul: Ul,
+    p: P,
   };
+
+  console.log(textNodes);
 </script>
 
 {#each textNodes as node}

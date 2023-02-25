@@ -5,6 +5,7 @@
   import type { PageData } from "./$types";
 
   export let data: PageData;
+
   $: title =
     data?.data?.page?.meta?.title ||
     `${env.PUBLIC_COMPANY_NAME} - ${data?.data?.page?.pageTitle}`;

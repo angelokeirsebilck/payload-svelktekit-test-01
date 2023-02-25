@@ -70,7 +70,7 @@
             : 'order-2 md:col-start-8'}"
         >
           <div
-            class="absolute bg-secondary-default  w-80 aspect-square -top-12 -right-12 z-10"
+            class="absolute bg-secondary-default w-40 lg:w-80 aspect-square -top-12 -right-12 z-10"
           />
 
           <div class="relative overflow-hidden">
